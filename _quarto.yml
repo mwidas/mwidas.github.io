@@ -5,14 +5,15 @@ project:
 website:
   title: "Melissa Widas"
   navbar:
-    left:
+    right:
       - href: index.qmd
         text: Home
       - about.qmd
+      - resume.qmd
 
 format:
   html:
-    theme: cosmo
+    theme: morph
     css: styles.css
     toc: true
     page-layout: full
