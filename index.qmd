@@ -1,5 +1,25 @@
 ---
-title: "mwidas.github.io"
+title: "Melissa Widas"
+image: images/1668528250587.jpeg
+toc: false
+about:
+  template: jolla
+  image-shape: rounded
+  image-width: 20em
+  links: 
+    - text: LinkedIn
+      href: www.linkedin.com/in/melissa-widas-014988236
+      icon: linkedin
+    - text: GitHub
+      href: https://github.com/mwidas
+      icon: github
+    - text: Email
+      href: mailto::mel.widas@gmail.com
+      icon: envelope
+
 ---
 
-Hi this is Melissa's website.
+
+## Hello
+
+Melissa Widas earned a Bachelor’s of science degree from Montana State University in Environmental Sciences with a focus in land rehabilitation in 2022. During her time at Montana State, Melissa found a passion for data science through a research internship with the GeoSWIRL Lab. This opportunity resulted in the creation and management of a drought visualization tool for watersheds across the state of Montana. The development of this tool relied on the use of geographic information sciences and performed statistical analyses to highlight watershed change and risk of drought within watersheds. After experiencing a taste of data science, Melissa wanted to expand her knowledge to explore its effect on environmental practices. She is now pursuing a Master’s of Environmental Data Science at the Bren School at the University of California at Santa Barbara. Melissa is looking forward to using the power of data science and data visualization to help answer environmental questions regarding habitat restoration, remediation, and the efficacy of these practices to ameliorate the lands around her.
