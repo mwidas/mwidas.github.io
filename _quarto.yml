@@ -3,13 +3,20 @@ project:
   output-dir: docs
 
 website:
-  title: "Melissa Widas"
+  favicon: Melissa-Widas-logos/MelissaWidas-logos_transparent.png
   navbar:
+    title: false
+    logo: Melissa-Widas-logos/MelissaWidas-logos_transparent.png
+    logo-alt: "Logo for Melissa Widas with water droplet and three hexagons"
     right:
       - href: index.qmd
         text: Home
       - about.qmd
       - resume.qmd
+  page-footer: 
+    background: dark
+    left: 
+     - "Copyright 2023, Melissa Widas"
 
 format:
   html:
