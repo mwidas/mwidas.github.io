@@ -1,0 +1,25 @@
+/*-- scss:defaults --*/
+
+// Colors
+$turquoise: #1E4147;
+$light-green: #F2BBC9;
+$cream: #D1CFD6;
+$medium-green: #437356;
+$salmon: #D95291;
+$orange: #ad7237;
+
+// Base document colors
+$navbar-bg: $cream; // navbar
+$navbar-fg: $turquoise; // navbar foreground elements
+$navbar-hl: $salmon; // highlight color when hovering over navbar links
+$body-bg: $light-green; // page background 
+$body-color: $medium-green; // page text 
+$footer-bg: $cream; // footer 
+$link-color: $salmon; // hyperlinks 
+
+// Inline code
+$code-bg: $cream; // inline code background color
+$code-color: $salmon; // inline code text color
+
+// Code blocks
+$code-block-bg: $cream; // code block background color
