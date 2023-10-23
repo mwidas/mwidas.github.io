@@ -3,15 +3,16 @@ project:
   output-dir: docs
 
 website:
-  favicon: Melissa-Widas-logos/MelissaWidas-logos_transparent.png
+  #favicon: Melissa-Widas-logos/MelissaWidas-logos_transparent.png
   navbar:
     title: false
-    logo: Melissa-Widas-logos/MelissaWidas-logos_transparent.png
-    logo-alt: "Logo for Melissa Widas with water droplet and three hexagons"
+    #logo: Melissa-Widas-logos/MelissaWidas-logos_transparent.png
+    #logo-alt: "Logo for Melissa Widas with water droplet and three hexagons"
     right:
       - href: index.qmd
         text: Home
       - about.qmd
+      - blog.qmd
       - resume.qmd
   page-footer: 
     background: dark
@@ -20,7 +21,7 @@ website:
 
 format:
   html:
-    theme: sandstone
+    theme: lux
     css: styles.css
     toc: true
     page-layout: full
