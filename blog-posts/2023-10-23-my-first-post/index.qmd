@@ -1,0 +1,37 @@
+---
+title: "First blog post"
+subtitle: "a subtitle"
+description: "about this post"
+author:
+  - name: Melissa Widas
+    url: https://mwidas.github.io
+    orcid:
+    affiliation: MEDS
+    affiliation-url: https://bren.ucsb.edu/masters-programs/master-environmental-data-science
+  - name: Co-author
+date: 10-23-2023
+categories: [Quarto, MEDS, Workshop]
+bibliography: references.bib
+citation:
+  url: https://mwidas.github.io/blog-posts/2023-10-23-my-first-post/
+image: schedule.png
+draft: false
+---
+
+## First
+
+## Second
+
+Exciting Stuff[^1] :)
+
+[^1]: This is my first footnote
+
+## 3 section
+
+practicing in-line footnotes[^2]
+
+[^2]: this is an inline footnote
+
+I utilized this resource in learning how to make a blog post[@csik2022].
+
+I'm citing another resource here .

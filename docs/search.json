@@ -12,5 +12,33 @@
     "title": "About",
     "section": "",
     "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Blog",
+    "section": "",
+    "text": "First blog post\n\n\n\nQuarto\n\n\nMEDS\n\n\nWorkshop\n\n\n\nabout this post\n\n\n\nMelissa Widas, Co-author\n\n\nOct 23, 2023\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "blog-posts/2023-10-23-my-first-post/index.html#second",
+    "href": "blog-posts/2023-10-23-my-first-post/index.html#second",
+    "title": "First blog post",
+    "section": "Second",
+    "text": "Second\nExciting Stuff1 :)"
+  },
+  {
+    "objectID": "blog-posts/2023-10-23-my-first-post/index.html#footnotes",
+    "href": "blog-posts/2023-10-23-my-first-post/index.html#footnotes",
+    "title": "First blog post",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThis is my first footnote↩︎\nthis is an inline footnote↩︎"
+  },
+  {
+    "objectID": "blog-posts/2023-10-23-my-first-post/index.html#section",
+    "href": "blog-posts/2023-10-23-my-first-post/index.html#section",
+    "title": "First blog post",
+    "section": "3 section",
+    "text": "3 section\npracticing in-line footnotes2\nI utilized this resource in learning how to make a blog post(Csik 2022)."
   }
 ]
