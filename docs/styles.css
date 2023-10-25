@@ -1,1 +1,30 @@
-/* css styles */
+/*-- scss:defaults --*/
+
+// Colors
+$dark-green: #293025;
+$light-green: #8B8960;
+$cream: #FDFBF7;
+$gray: #D1CFD6;
+$pink: #ae155c;
+$orange: #ad7237;
+
+// other variables omitted for brevity ~
+
+/*-- scss:rules --*/
+
+h1, h2 {
+  letter-spacing: 5px;
+  color: $dark-green;
+}
+
+.title {
+  color: $dark-green;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.orange-text {
+  color: $orange;
+}
