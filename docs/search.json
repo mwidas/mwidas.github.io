@@ -18,7 +18,7 @@
     "href": "blog.html",
     "title": "Blog",
     "section": "",
-    "text": "First blog post\n\n\n\nQuarto\n\n\nMEDS\n\n\nWorkshop\n\n\n\nabout this post\n\n\n\nMelissa Widas, Co-author\n\n\nOct 23, 2023\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "EDS242\n\n\n\nQuarto\n\n\nMEDS\n\n\nEthics\n\n\n\nabout this post\n\n\n\nMelissa Widas, Co-author\n\n\nNov 26, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFirst blog post\n\n\n\nQuarto\n\n\nMEDS\n\n\nWorkshop\n\n\n\nabout this post\n\n\n\nMelissa Widas, Co-author\n\n\nOct 23, 2023\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "blog-posts/2023-10-23-my-first-post/index.html#second",
@@ -40,5 +40,33 @@
     "title": "First blog post",
     "section": "3 section",
     "text": "3 section\npracticing in-line footnotes2\nI utilized this resource in learning how to make a blog post(Csik 2022)."
+  },
+  {
+    "objectID": "blog-posts/2023-11-26-eds242-final/index.html",
+    "href": "blog-posts/2023-11-26-eds242-final/index.html",
+    "title": "EDS242",
+    "section": "",
+    "text": "s ## First"
+  },
+  {
+    "objectID": "blog-posts/2023-11-26-eds242-final/index.html#second",
+    "href": "blog-posts/2023-11-26-eds242-final/index.html#second",
+    "title": "EDS242",
+    "section": "Second",
+    "text": "Second\nExciting Stuff1 :)"
+  },
+  {
+    "objectID": "blog-posts/2023-11-26-eds242-final/index.html#section",
+    "href": "blog-posts/2023-11-26-eds242-final/index.html#section",
+    "title": "EDS242",
+    "section": "3 section",
+    "text": "3 section\npracticing in-line footnotes2\nI utilized this resource in learning how to make a blog post(Csik 2022).\nI’m citing another resource here ."
+  },
+  {
+    "objectID": "blog-posts/2023-11-26-eds242-final/index.html#footnotes",
+    "href": "blog-posts/2023-11-26-eds242-final/index.html#footnotes",
+    "title": "EDS242",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThis is my first footnote↩︎\nthis is an inline footnote↩︎"
   }
 ]
