@@ -6,7 +6,7 @@ author:
     url: http://mwidas.github.io
     affiliation: MEDS
     affiliation-url: http://ucsb-meds.github.io
-date: 2022-12-01
+date: 2023-12-01
 format:
   html:
     code-fold: false
@@ -16,8 +16,8 @@ code-block-bg: true
 code-block-border-left: "#6B5A75"
 categories: [MEDS, Geospatial, R]
 citation: 
-  url: http://mwidas.github.io/2022-12-01-houston-outages
-image: kelp.png
+  url: http://mwidas.github.io/2023-12-01-houston-outages
+image: texas.jpeg
 draft: false
 ---
 
