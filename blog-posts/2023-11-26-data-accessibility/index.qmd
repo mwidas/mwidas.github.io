@@ -1,0 +1,111 @@
+---
+title: "Data Accessibility"
+description: "Examining ways data scientists can create data that is more widely accessable"
+author:
+  - name: Melissa Widas
+    url: https://mwidas.github.io
+    orcid:
+    affiliation: MEDS
+    affiliation-url: https://bren.ucsb.edu/masters-programs/master-environmental-data-science
+date: 11-26-2023
+categories: [Quarto, MEDS, Ethics]
+bibliography: references.bib
+citation:
+  url: https://mwidas.github.io/blog-posts/2023-11-26-data-accessibility/
+image: data_accessibility.png
+draft: false
+---
+
+# How can we make data visualizations more accessable?
+
+## Background
+
+The topic I would like to focus on for this blog post centers around data justice and data accessibility to individuals that have disabilities and how our visualizations and presentation of data matter.
+
+One of the key roles that data science plays is in the effective communication of data. Data visualizations are the main vehicle that allows data scientists to effectively convey findings and reach a broader audience. A data visualization is \"the representation of data through use of common graphics\" (IBM). However, in order to promote equitable access to data and its findings it is important to consider that not all people are able to process data the same way. In the United States alone it is estimated that roughly twenty-five percent of the adult population has some sort of disability. Disabilities can range from cognitive, auditory, visual, and other levels of ability. And each of these disabilities can affect how someone is able to intake data and data visualizations. The following blog post aims to explore barriers for disabled persons to data access and actions data scientists can take in order to maintain data justice and accessibility for all.
+
+The main disabilities I will be exploring in the following sections are cognitive, visual, and auditory.
+
+## Cognitive
+
+- <https://arxiv.org/pdf/2309.12194.pdf>
+
+Cognitive disability, which can also be commonly referred to as Intellectual and Developmental Disabilities (IDD), is an area that needs additional research The following considerations and recommendation are from the research that has been conducted in the data visualization space for an audience that has IDD. Historically individuals with IDD have been pushed to the side of conversations regarding their own data as well as data around them that they would like to interact with. The main component of data visualization that data scientists consider when creating visualizations for those with cognitive disabilities or to be accessible to those with cognitive disabilities are how the data are presented. For cognitive disabilities when creating visualizations there are some specific considerations to keep in mind.
+
+### Data Design
+
+An emerging form of data science presentation is through the use of touch. Data scientists and artists are pairing up in order to create interactive displays and sculptures that present data. These data can be shown through the use of shapes, colors, and scaled sizing in an approachable format that prioritizes a major theme for each sculpture.
+
+Research done at the University of Chapel Hill has revealed that pie charts are not accessible to those with IDD. Thus, researchers and data scientists should consider this when designing visualizations.
+
+something that data scientists should always consider is how to emphasize the main takeaway from their data visualization. Data scientists should consider the level of visual complexity they are presenting and potentially isolate different takeaways with different figures.
+
+### Data Visualization
+
+Labeling -  Additionally, data scientists should ensure that labeling is intuitive, which is a good practice for any audience. As an example, if data is being displayed regarding money an easy to add label would be the \$.
+
+Axes - It is also important to ensure that data presented in visualizations has clear start and end points. Indication of where data is beginning and where data is ending on a visualization such as axes marks allows an audience member to definitively know where they should stop visually processing.
+
+Title --
+
+Informative titles can also be used to improve understandability of a visualization. A title that includes the key takeaway from a visualization allows users to look for something in the data that supports the title which can increase understandability. <https://www.storytellingwithdata.com/blog/2018/2/8/swdchallenge-education-color-and-words>
+
+## Visual
+
+<https://news.mit.edu/2022/data-visualization-accessible-blind-0602>
+
+<https://hpi.georgetown.edu/visual/#:~:text=Almost%2020%20million%20Americans%20%E2%80%94%208,people%20age%2065%20and%20older>.
+
+Visual disability is a large and varied field. It is estimated that roughly eight percent of the U.S. population has blindness or a visual impairment that affects their daily life. Visual impairments is considered an umbrella term and is more concretely defined as vision that is unable to be corrected through the use of aids (glasses, or contacts) or surgery <https://hpi.georgetown.edu/visual/#:~:text=Impaired%20vision%20can%20range%20from,with%20glasses%20or%20contact%20lenses>. It is important to consider how data visualizations are created in order to maintain accessibility for users who have visual impairments.
+
+### Data Design
+
+Additionally an emerging form of data representation is through the use of sounds. Sonified data uses non-speech sounds to explore and describe data. Data scientists can import data and create graphics through programs like the SAS Graphics Accelerator. The SAS Graphics accelerator enables scientists and the audiences they are trying to reach to access these data independently and create a framework they can succeed in.
+
+\- <https://www.storytellingwithdata.com/blog/2018/6/26/accessible-data-viz-is-better-data-viz>
+
+Alt Text: Data scientists can add alternative text (commonly referred to as Alt Text) to data visualizations. Alternative texts are often labeled with figure titles which provide very little information to someone who cannot clearly see the visualization. Alternative text should instead be throught of as a typed explanation of the figure. By providing more details in the alternative text adaptive technologies, like screen readers, can read the figure details to the user. Important things to include in the alt text would be \"vision who may only see part of it. It should also include a link to a CSV or other machine-readable data format so people with impaired vision can tab through the chart data with a screen reader.\" AN additional consideration is that screen readers do not allow the user to alter or skip what is being read so it is important to ensure that the text you include is well thought out and succinct.
+
+Auditory Explanations: Figures and visualizations can also include a link or a sound-bite that walks a user through the figure. The use of auditory explanations allows users to see and explore data through the creators eyes as well as potentially receive a more-detailed explanation than the alternative text.
+
+### Data Visualization
+
+Color -- A potentially more common visual impairment is colorblindness. There are packages within R and Python that are specifically designed and built for people with color blindness. Using color blind -friendly color schemes is good practice to increase the accessibility of any chart or figure that is using color to differentiate data. Some examples of color-blind friendly palettes are the following:
+
+-        [munsell](https://cran.r-project.org/package=munsell)
+
+-        [viridis](https://cran.r-project.org/package=viridis) and [RColorBrewer](https://cran.r-project.org/package=RColorBrewer)
+
+-        [dichromat](https://cran.r-project.org/package=dichromat)
+
+-        [colorblindr](https://github.com/clauswilke/colorblindr)
+
+-        [shades](https://cran.r-project.org/package=shades)
+
+-        [ggsci](https://cran.r-project.org/package=ggsci)
+
+blind friendly color palettes - <https://cran.r-project.org/web/packages/colorBlindness/vignettes/colorBlindness.html#How_to_use_this_package>
+
+High contrast elements -- High contrast elements also allow for increased readability for those with visual impairments. The contrast between colors of elements and the sizes of these elements can affect the visual ease of use for users. There are multiple tools that data scientists can utilize to check the contrast of their images and even design a palette they would like to use.
+
+<http://colorsafe.co/>
+
+<https://www.siegemedia.com/contrast-ratio>
+
+Labeling Data--  <https://www.storytellingwithdata.com/blog/2018/6/26/accessible-data-viz-is-better-data-viz>
+
+A barrier to users with low vision can be legends. Legends can typically include smaller text that is positioned outside of where the bulk of data is shown through the figure. This can create a disconnect between the data shown and any qualifiers assigned to it like scale, or type. A possible solution for this is direct labeling. Direct labeling can be labels next to data or within the data visualization.
+
+## Auditory 
+
+### Data Design
+
+For auditory data or media presentations of data it is important to have transcripts of data. By providing a transcript or captions a screen reader is able to be used.
+
+## Takeaway
+
+We have covered numerous strategies in order to make data visualizations more accessible. Now depending on the goal of a researcher doing every one of these strategies could be an impossible task considering timelines and budgets. However, it is important for data scientists to think critically about who their audience is and if some of the strategies discussed can be applied. Some additions and considerations like, incorporating alternative text that is clear and concise and high contrast color palettes take minimal time and are often pre-built into some packages.
+
+As the field of data science continues to grow and be at the forefront of scientific communication, we as data scientists need to keep in mind how our visualizations and findings are received.
+
+<https://www.ibm.com/topics/data-visualization>

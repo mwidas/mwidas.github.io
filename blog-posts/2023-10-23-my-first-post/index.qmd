@@ -15,7 +15,7 @@ bibliography: references.bib
 citation:
   url: https://mwidas.github.io/blog-posts/2023-10-23-my-first-post/
 image: schedule.png
-draft: false
+draft: true
 ---
 
 ## First
