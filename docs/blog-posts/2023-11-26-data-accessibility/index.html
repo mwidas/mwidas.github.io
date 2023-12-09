@@ -23,7 +23,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -177,10 +196,6 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#data-design-1" id="toc-data-design-1" class="nav-link" data-scroll-target="#data-design-1">Data Design</a></li>
   <li><a href="#data-visualization-1" id="toc-data-visualization-1" class="nav-link" data-scroll-target="#data-visualization-1">Data Visualization</a></li>
   </ul></li>
-  <li><a href="#auditory" id="toc-auditory" class="nav-link" data-scroll-target="#auditory">Auditory</a>
-  <ul class="collapse">
-  <li><a href="#data-design-2" id="toc-data-design-2" class="nav-link" data-scroll-target="#data-design-2">Data Design</a></li>
-  </ul></li>
   <li><a href="#takeaway" id="toc-takeaway" class="nav-link" data-scroll-target="#takeaway">Takeaway</a></li>
   </ul></li>
   </ul>
@@ -197,76 +212,116 @@ ul.task-list li input[type="checkbox"] {
 <section id="background" class="level2">
 <h2 class="anchored" data-anchor-id="background">Background</h2>
 <p>The topic I would like to focus on for this blog post centers around data justice and data accessibility to individuals that have disabilities and how our visualizations and presentation of data matter.</p>
-<p>One of the key roles that data science plays is in the effective communication of data. Data visualizations are the main vehicle that allows data scientists to effectively convey findings and reach a broader audience. A data visualization is "the representation of data through use of common graphics" (IBM). However, in order to promote equitable access to data and its findings it is important to consider that not all people are able to process data the same way. In the United States alone it is estimated that roughly twenty-five percent of the adult population has some sort of disability. Disabilities can range from cognitive, auditory, visual, and other levels of ability. And each of these disabilities can affect how someone is able to intake data and data visualizations. The following blog post aims to explore barriers for disabled persons to data access and actions data scientists can take in order to maintain data justice and accessibility for all.</p>
-<p>The main disabilities I will be exploring in the following sections are cognitive, visual, and auditory.</p>
+<p>One of the key roles that data science plays is in the effective communication of data. Data visualizations are the main vehicle that allows data scientists to effectively convey findings and reach a broader audience. A data visualization is “the representation of data through use of common graphics” <span class="citation" data-cites="ibm">(<a href="#ref-ibm" role="doc-biblioref">IBM, n.d.</a>)</span>. However, in order to promote equitable access to data and its findings it is important to consider that not all people are able to process data the same way. In the United States alone it is estimated that roughly twenty-five percent of the adult population has some sort of disability <span class="citation" data-cites="kahn2023">(<a href="#ref-kahn2023" role="doc-biblioref">Kahn 2023</a>)</span>. Disabilities can range from cognitive, auditory, visual, and other levels of ability. And each of these disabilities can affect how someone is able to intake data and data visualizations.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://inclusive.microsoft.design/"><img src="disability.png" class="img-fluid figure-img" alt="Drawing that highlights disabilities"></a></p>
+</figure>
+</div>
+<p>The following blog post aims to explore barriers for disabled persons to data access and actions data scientists can take in order to maintain data justice through data access and accessibility for all.</p>
+<p>The main disabilities I will be exploring in the following sections are cognitive, and visual.</p>
 </section>
 <section id="cognitive" class="level2">
 <h2 class="anchored" data-anchor-id="cognitive">Cognitive</h2>
-<ul>
-<li><a href="https://arxiv.org/pdf/2309.12194.pdf" class="uri">https://arxiv.org/pdf/2309.12194.pdf</a></li>
-</ul>
-<p>Cognitive disability, which can also be commonly referred to as Intellectual and Developmental Disabilities (IDD), is an area that needs additional research The following considerations and recommendation are from the research that has been conducted in the data visualization space for an audience that has IDD. Historically individuals with IDD have been pushed to the side of conversations regarding their own data as well as data around them that they would like to interact with. The main component of data visualization that data scientists consider when creating visualizations for those with cognitive disabilities or to be accessible to those with cognitive disabilities are how the data are presented. For cognitive disabilities when creating visualizations there are some specific considerations to keep in mind.</p>
+<p>Cognitive disability, which can also be commonly referred to as Intellectual and Developmental Disabilities (IDD), has been a group of individuals often absent from the conversation around data accessibility. The following considerations and recommendation are from the research that has been conducted in the data visualization space for an audience that has IDD. Historically individuals with IDD have been pushed to the side of conversations regarding their own data as well as data around them that they would like to interact with. The main component of data visualization that data scientists consider when creating visualizations for those with cognitive disabilities or to be accessible to those with cognitive disabilities are how the data are presented. For cognitive disabilities when creating visualizations there are some specific considerations to keep in mind.</p>
 <section id="data-design" class="level3">
 <h3 class="anchored" data-anchor-id="data-design">Data Design</h3>
-<p>An emerging form of data science presentation is through the use of touch. Data scientists and artists are pairing up in order to create interactive displays and sculptures that present data. These data can be shown through the use of shapes, colors, and scaled sizing in an approachable format that prioritizes a major theme for each sculpture.</p>
-<p>Research done at the University of Chapel Hill has revealed that pie charts are not accessible to those with IDD. Thus, researchers and data scientists should consider this when designing visualizations.</p>
-<p>something that data scientists should always consider is how to emphasize the main takeaway from their data visualization. Data scientists should consider the level of visual complexity they are presenting and potentially isolate different takeaways with different figures.</p>
+<p>Rethinking how we can present data to those with IDD is at the forefront of creating data that is more accessible for those with IDD. An emerging form of data science presentation is through the use of touch. Data scientists and artists are pairing up in order to create interactive displays and sculptures that present data. These data can be shown through the use of shapes, colors, and scaled sizing in an approachable format that prioritizes a major theme for each sculpture or installation<span class="citation" data-cites="corona2019">(<a href="#ref-corona2019" role="doc-biblioref">Corona 2019</a>)</span>. Data presented in this way can allow individuals who might be unable to comprehend a visualization with many individual pieces the opportunity to interact with the data and understand the takeaway being shown.</p>
+<p>An additional consideration when designing a data visualization is the type of figure that will be used. Research done at the University of Chapel Hill has revealed that pie charts are not accessible to those with IDD<span class="citation" data-cites="wu2023">(<a href="#ref-wu2023" role="doc-biblioref">Wu and Albers Szafir 2023</a>)</span>. Thus, researchers and data scientists should consider if there are other visualizations that can be utilized.</p>
+<p>Furthermore, something that data scientists should always consider is how to emphasize the main takeaway from their visualization. Data scientists should consider the level of visual complexity they are presenting and potentially isolate different takeaways with different figures. Clearly presenting the key finding of a figure can allow everybody to better understand a data visualization.</p>
 </section>
 <section id="data-visualization" class="level3">
 <h3 class="anchored" data-anchor-id="data-visualization">Data Visualization</h3>
-<p>Labeling - &nbsp;Additionally, data scientists should ensure that labeling is intuitive, which is a good practice for any audience. As an example, if data is being displayed regarding money an easy to add label would be the $.</p>
-<p>Axes - It is also important to ensure that data presented in visualizations has clear start and end points. Indication of where data is beginning and where data is ending on a visualization such as axes marks allows an audience member to definitively know where they should stop visually processing.</p>
-<p>Title –</p>
-<p>Informative titles can also be used to improve understandability of a visualization. A title that includes the key takeaway from a visualization allows users to look for something in the data that supports the title which can increase understandability. <a href="https://www.storytellingwithdata.com/blog/2018/2/8/swdchallenge-education-color-and-words" class="uri">https://www.storytellingwithdata.com/blog/2018/2/8/swdchallenge-education-color-and-words</a></p>
+<p>When creating a data visualization and having the potential for an audience that has cognitive disabilities there are some design components that can be added or highlighted which will in general increase comprehension.</p>
+<section id="labeling" class="level4">
+<h4 class="anchored" data-anchor-id="labeling">Labeling</h4>
+<p>Data scientists should ensure that labeling is intuitive, As an example, if data is being displayed regarding money, an easy to add label would be the <code>$</code><span class="citation" data-cites="wu2023a">(<a href="#ref-wu2023a" role="doc-biblioref"><strong>wu2023a?</strong></a>)</span>.</p>
+</section>
+<section id="axes" class="level4">
+<h4 class="anchored" data-anchor-id="axes">Axes</h4>
+<p>It is important to ensure that data presented in visualizations has clear start and end points<span class="citation" data-cites="wu2023a">(<a href="#ref-wu2023a" role="doc-biblioref"><strong>wu2023a?</strong></a>)</span>. Indication of where data is beginning and where data is ending on a visualization such as axes marks allows an audience member to definitively know where they should stop visually processing.</p>
+</section>
+<section id="titles" class="level4">
+<h4 class="anchored" data-anchor-id="titles">Titles</h4>
+<p>Informative titles can also be used to improve comprehension of a visualization<span class="citation" data-cites="knaflicnussbaumer2018">(<a href="#ref-knaflicnussbaumer2018" role="doc-biblioref">Knaflic Nussbaumer 2018</a>)</span>. A title that includes the key takeaway from a visualization allows users to look for something in the data that supports the title which can increase comprehension.</p>
+</section>
 </section>
 </section>
 <section id="visual" class="level2">
 <h2 class="anchored" data-anchor-id="visual">Visual</h2>
-<p><a href="https://news.mit.edu/2022/data-visualization-accessible-blind-0602" class="uri">https://news.mit.edu/2022/data-visualization-accessible-blind-0602</a></p>
-<p><a href="https://hpi.georgetown.edu/visual/#:~:text=Almost%2020%20million%20Americans%20%E2%80%94%208,people%20age%2065%20and%20older" class="uri">https://hpi.georgetown.edu/visual/#:~:text=Almost%2020%20million%20Americans%20%E2%80%94%208,people%20age%2065%20and%20older</a>.</p>
-<p>Visual disability is a large and varied field. It is estimated that roughly eight percent of the U.S. population has blindness or a visual impairment that affects their daily life. Visual impairments is considered an umbrella term and is more concretely defined as vision that is unable to be corrected through the use of aids (glasses, or contacts) or surgery <a href="https://hpi.georgetown.edu/visual/#:~:text=Impaired%20vision%20can%20range%20from,with%20glasses%20or%20contact%20lenses" class="uri">https://hpi.georgetown.edu/visual/#:~:text=Impaired%20vision%20can%20range%20from,with%20glasses%20or%20contact%20lenses</a>. It is important to consider how data visualizations are created in order to maintain accessibility for users who have visual impairments.</p>
+<p>Visual disability is a large and varied field. It is estimated that roughly eight percent of the U.S. population has blindness or a visual impairment that affects their daily life. Visual impairments is considered an umbrella term and is more concretely defined as vision that is unable to be corrected through the use of aids (glasses, or contacts) or surgery<span class="citation" data-cites="healthpolicyinstitute">(<a href="#ref-healthpolicyinstitute" role="doc-biblioref">Institute, n.d.</a>)</span>. It is important to consider how data visualizations are created in order to maintain accessibility for users who have visual impairments.</p>
 <section id="data-design-1" class="level3">
 <h3 class="anchored" data-anchor-id="data-design-1">Data Design</h3>
-<p>Additionally an emerging form of data representation is through the use of sounds. Sonified data uses non-speech sounds to explore and describe data. Data scientists can import data and create graphics through programs like the SAS Graphics Accelerator. The SAS Graphics accelerator enables scientists and the audiences they are trying to reach to access these data independently and create a framework they can succeed in.</p>
-<p>- <a href="https://www.storytellingwithdata.com/blog/2018/6/26/accessible-data-viz-is-better-data-viz" class="uri">https://www.storytellingwithdata.com/blog/2018/6/26/accessible-data-viz-is-better-data-viz</a></p>
-<p>Alt Text: Data scientists can add alternative text (commonly referred to as Alt Text) to data visualizations. Alternative texts are often labeled with figure titles which provide very little information to someone who cannot clearly see the visualization. Alternative text should instead be throught of as a typed explanation of the figure. By providing more details in the alternative text adaptive technologies, like screen readers, can read the figure details to the user. Important things to include in the alt text would be "vision who may only see part of it. It should also include a link to a CSV or other machine-readable data format so people with impaired vision can tab through the chart data with a screen reader." AN additional consideration is that screen readers do not allow the user to alter or skip what is being read so it is important to ensure that the text you include is well thought out and succinct.</p>
-<p>Auditory Explanations: Figures and visualizations can also include a link or a sound-bite that walks a user through the figure. The use of auditory explanations allows users to see and explore data through the creators eyes as well as potentially receive a more-detailed explanation than the alternative text.</p>
+<p>An emerging form of data representation is through the use of sounds. Sonified data uses non-speech sounds to explore and describe data. Data scientists can import data and create graphics through programs like the <a href="https://support.sas.com/software/products/graphics-accelerator/#s1=2">SAS Graphics Accelerator</a>. The SAS Graphics accelerator enables scientists and the audiences they are trying to reach to access these data independently and create a framework they can succeed in.</p>
+<section id="alternative-text" class="level4">
+<h4 class="anchored" data-anchor-id="alternative-text">Alternative Text</h4>
+<p>Data scientists can add alternative text (commonly referred to as Alt Text) to data visualizations. Alternative texts are often labeled with figure titles which provide very little information to someone who cannot clearly see the visualization. Alternative text should instead be thought of as a typed explanation of the figure. By providing more details in the alternative text adaptive technologies, like screen readers, can read the figure details to the user. Important things to include in the alt text would be the title, key trends, and a potential link to data in a readable format like a csv file<span class="citation" data-cites="nussbaumerknaflic2018a">(<a href="#ref-nussbaumerknaflic2018a" role="doc-biblioref">Nussbaumer Knaflic 2018</a>)</span>. An additional consideration is that screen readers do not allow the user to alter or skip what is being read so it is important to ensure that the text you include is well thought out but a reasonable length.</p>
+</section>
+<section id="auditory-explanations" class="level4">
+<h4 class="anchored" data-anchor-id="auditory-explanations">Auditory Explanations</h4>
+<p>Figures and visualizations can also include a link or a sound-bite that walks a user through the figure. The use of auditory explanations allows users to see and explore data through the creators eyes as well as potentially receive a more-detailed explanation than the alternative text.</p>
+</section>
 </section>
 <section id="data-visualization-1" class="level3">
 <h3 class="anchored" data-anchor-id="data-visualization-1">Data Visualization</h3>
-<p>Color – A potentially more common visual impairment is colorblindness. There are packages within R and Python that are specifically designed and built for people with color blindness. Using color blind -friendly color schemes is good practice to increase the accessibility of any chart or figure that is using color to differentiate data. Some examples of color-blind friendly palettes are the following:</p>
-<p>-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="https://cran.r-project.org/package=munsell">munsell</a></p>
-<p>-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="https://cran.r-project.org/package=viridis">viridis</a>&nbsp;and&nbsp;<a href="https://cran.r-project.org/package=RColorBrewer">RColorBrewer</a></p>
-<p>-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="https://cran.r-project.org/package=dichromat">dichromat</a></p>
-<p>-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="https://github.com/clauswilke/colorblindr">colorblindr</a></p>
-<p>-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="https://cran.r-project.org/package=shades">shades</a></p>
-<p>-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="https://cran.r-project.org/package=ggsci">ggsci</a></p>
-<p>blind friendly color palettes - <a href="https://cran.r-project.org/web/packages/colorBlindness/vignettes/colorBlindness.html#How_to_use_this_package" class="uri">https://cran.r-project.org/web/packages/colorBlindness/vignettes/colorBlindness.html#How_to_use_this_package</a></p>
-<p>High contrast elements – High contrast elements also allow for increased readability for those with visual impairments. The contrast between colors of elements and the sizes of these elements can affect the visual ease of use for users. There are multiple tools that data scientists can utilize to check the contrast of their images and even design a palette they would like to use.</p>
-<p><a href="http://colorsafe.co/" class="uri">http://colorsafe.co/</a></p>
-<p><a href="https://www.siegemedia.com/contrast-ratio" class="uri">https://www.siegemedia.com/contrast-ratio</a></p>
-<p>Labeling Data–&nbsp; <a href="https://www.storytellingwithdata.com/blog/2018/6/26/accessible-data-viz-is-better-data-viz" class="uri">https://www.storytellingwithdata.com/blog/2018/6/26/accessible-data-viz-is-better-data-viz</a></p>
-<p>A barrier to users with low vision can be legends. Legends can typically include smaller text that is positioned outside of where the bulk of data is shown through the figure. This can create a disconnect between the data shown and any qualifiers assigned to it like scale, or type. A possible solution for this is direct labeling. Direct labeling can be labels next to data or within the data visualization.</p>
+<section id="color" class="level4">
+<h4 class="anchored" data-anchor-id="color">Color</h4>
+<p>A potentially more common visual impairment is colorblindness. There are packages within R and Python that are specifically designed and built for people with color blindness<span class="citation" data-cites="ou2021">(<a href="#ref-ou2021" role="doc-biblioref">Ou 2021</a>)</span>. Using colorblind-friendly color schemes is good practice to increase the accessibility of any chart or figure that is using color to differentiate data. Some examples of color-blind friendly palettes are the following:</p>
+<ul>
+<li><p><a href="https://cran.r-project.org/package=munsell"><code>munsell</code></a></p></li>
+<li><p><a href="https://cran.r-project.org/package=viridis"><code>viridis</code></a>&nbsp;and&nbsp;<a href="https://cran.r-project.org/package=RColorBrewer"><code>RColorBrewer</code></a></p></li>
+<li><p><a href="https://cran.r-project.org/package=dichromat"><code>dichromat</code></a></p></li>
+<li><p><a href="https://github.com/clauswilke/colorblindr"><code>colorblindr</code></a></p></li>
+<li><p><a href="https://cran.r-project.org/package=shades"><code>shades</code></a></p></li>
+<li><p><a href="https://cran.r-project.org/package=ggsci"><code>ggsci</code></a></p></li>
+</ul>
 </section>
+<section id="high-contrast-elements" class="level4">
+<h4 class="anchored" data-anchor-id="high-contrast-elements">High contrast elements</h4>
+<p>High contrast elements also allow for increased readability for those with visual impairments<span class="citation" data-cites="nussbaumerknaflic2018">(<a href="#ref-nussbaumerknaflic2018" role="doc-biblioref"><strong>nussbaumerknaflic2018?</strong></a>)</span>. The contrast between colors of elements and the sizes of these elements can affect the visual ease of use for users. There are multiple <a href="http://colorsafe.co/">tools</a> that data scientists can utilize to check the contrast of their images and even design a palette they would like to use.</p>
 </section>
-<section id="auditory" class="level2">
-<h2 class="anchored" data-anchor-id="auditory">Auditory</h2>
-<section id="data-design-2" class="level3">
-<h3 class="anchored" data-anchor-id="data-design-2">Data Design</h3>
-<p>For auditory data or media presentations of data it is important to have transcripts of data. By providing a transcript or captions a screen reader is able to be used.</p>
+<section id="labeling-data" class="level4">
+<h4 class="anchored" data-anchor-id="labeling-data">Labeling Data</h4>
+<p>A barrier to users with low vision can be legends<span class="citation" data-cites="nussbaumerknaflic2018">(<a href="#ref-nussbaumerknaflic2018" role="doc-biblioref"><strong>nussbaumerknaflic2018?</strong></a>)</span>. Legends can typically include smaller text that is positioned outside of where the bulk of data is shown through the figure. This can create a disconnect between the data shown and any qualifiers assigned to it like scale, or type. A possible solution for this is direct labeling. Direct labeling can be labels next to data or within the data visualization.</p>
+</section>
 </section>
 </section>
 <section id="takeaway" class="level2">
 <h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>
 <p>We have covered numerous strategies in order to make data visualizations more accessible. Now depending on the goal of a researcher doing every one of these strategies could be an impossible task considering timelines and budgets. However, it is important for data scientists to think critically about who their audience is and if some of the strategies discussed can be applied. Some additions and considerations like, incorporating alternative text that is clear and concise and high contrast color palettes take minimal time and are often pre-built into some packages.</p>
-<p>As the field of data science continues to grow and be at the forefront of scientific communication, we as data scientists need to keep in mind how our visualizations and findings are received.</p>
-<p><a href="https://www.ibm.com/topics/data-visualization" class="uri">https://www.ibm.com/topics/data-visualization</a></p>
+<p>As the field of data science continues to grow and be at the forefront of scientific communication, especially environmental scientific communication, we as data scientists need to keep in mind how our visualizations and findings are received.</p>
+
 
 
 </section>
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{widas2023,
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-corona2019" class="csl-entry" role="listitem">
+Corona, Alice. 2019. <span>“Let<span>’</span>s Get Physical: How to Represent Data Through Touch.”</span> <a href="https://datajournalism.com/read/longreads/lets-get-physical-how-to-represent-data-through-touch">https://datajournalism.com/read/longreads/lets-get-physical-how-to-represent-data-through-touch</a>.
+</div>
+<div id="ref-ibm" class="csl-entry" role="listitem">
+IBM. n.d. <span>“What Is Data Visaulization?”</span> <a href="https://www.ibm.com/topics/data-visualization">https://www.ibm.com/topics/data-visualization</a>.
+</div>
+<div id="ref-healthpolicyinstitute" class="csl-entry" role="listitem">
+Institute, Health Policy. n.d. <span>“Visual Impairments.”</span> <a href="https://hpi.georgetown.edu/visual/#:~:text=Impaired%20vision%20can%20range%20from,with%20glasses%20or%20contact%20lenses">https://hpi.georgetown.edu/visual/#:~:text=Impaired%20vision%20can%20range%20from,with%20glasses%20or%20contact%20lenses</a>.
+</div>
+<div id="ref-kahn2023" class="csl-entry" role="listitem">
+Kahn, Shaina. 2023. <span>“Creating Accessible Data Visualizations,”</span> March. <a href="https://arts.gatech.edu/sites/default/files/file_block/Accessible%20Data%20Visualization.pdf">https://arts.gatech.edu/sites/default/files/file_block/Accessible%20Data%20Visualization.pdf</a>.
+</div>
+<div id="ref-knaflicnussbaumer2018" class="csl-entry" role="listitem">
+Knaflic Nussbaumer, Cole. 2018. <span>“<span>#</span>SWDchallenge: Education, Color, and Words.”</span> <a href="https://www.storytellingwithdata.com/blog/2018/2/8/swdchallenge-education-color-and-words">https://www.storytellingwithdata.com/blog/2018/2/8/swdchallenge-education-color-and-words</a>.
+</div>
+<div id="ref-nussbaumerknaflic2018a" class="csl-entry" role="listitem">
+Nussbaumer Knaflic, Cole. 2018. <span>“Accessible Data Viz Is Better Data Viz.”</span> <a href="https://www.storytellingwithdata.com/blog/2018/6/26/accessible-data-viz-is-better-data-viz">https://www.storytellingwithdata.com/blog/2018/6/26/accessible-data-viz-is-better-data-viz</a>.
+</div>
+<div id="ref-ou2021" class="csl-entry" role="listitem">
+Ou, Jianhong. 2021. <span>“colorBlindness Guide.”</span> <a href="https://cran.r-project.org/web/packages/colorBlindness/vignettes/colorBlindness.html#How_to_use_this_package">https://cran.r-project.org/web/packages/colorBlindness/vignettes/colorBlindness.html#How_to_use_this_package</a>.
+</div>
+<div id="ref-wu2023" class="csl-entry" role="listitem">
+Wu, Keke, and Danielle Albers Szafir. 2023. <span>“Empowering People with Intellectual and Developmental Disabilities Through Cognitively Accessible Visualizations,”</span> September. https://doi.org/<a href="https://doi.org/10.48550/arXiv.2309.12194">https://doi.org/10.48550/arXiv.2309.12194</a>.
+</div>
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{widas2023,
   author = {Widas, Melissa},
   title = {Data {Accessibility}},
   date = {2023-11-26},
