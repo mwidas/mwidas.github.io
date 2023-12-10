@@ -4,7 +4,7 @@
     "href": "blog.html",
     "title": "Blog",
     "section": "",
-    "text": "Mount Whitney, California Land Cover\n\n\n\nMEDS\n\n\nGeospatial\n\n\nPython\n\n\n\nExploring land cover types and their dominance on the landscape around Mount Whitney, California\n\n\n\nMelissa Widas\n\n\nDec 6, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHouston, Texas Power Outages\n\n\n\nMEDS\n\n\nGeospatial\n\n\nR\n\n\n\nIdentifying homes affected by severe winter storms in Houston, Texas energy crisis\n\n\n\nMelissa Widas\n\n\nDec 1, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nData Accessibility\n\n\n\nQuarto\n\n\nMEDS\n\n\nEthics\n\n\n\nExamining ways data scientists can create data that is more widely accessable\n\n\n\nMelissa Widas\n\n\nNov 26, 2023\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Mount Whitney, California Land Cover\n\n\n\nMEDS\n\n\nGeospatial\n\n\nPython\n\n\n\nExploring land cover types and their dominance on the landscape around Mount Whitney, California\n\n\n\nMelissa Widas\n\n\nDec 6, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHouston, Texas Power Outages\n\n\n\nMEDS\n\n\nGeospatial\n\n\nR\n\n\n\nIdentifying homes affected by severe winter storms in Houston, Texas energy crisis\n\n\n\nMelissa Widas\n\n\nDec 1, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSoil Temperature Analysis at Toolik Field Station, AK\n\n\n\nMEDS\n\n\nStatistics\n\n\nR\n\n\n\nExploring the relationship between soil temperatures, air temperatures, and black carbon levels at Toolik Field Station, AK\n\n\n\nMelissa Widas\n\n\nDec 1, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nData Accessibility\n\n\n\nQuarto\n\n\nMEDS\n\n\nEthics\n\n\n\nExamining ways data scientists can create data that is more widely accessable\n\n\n\nMelissa Widas\n\n\nNov 26, 2023\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "blog-posts/2023-12-06-ca-land-class/landcover-statistics-ca.html",
@@ -96,5 +96,47 @@
     "title": "About",
     "section": "",
     "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "blog-posts/2023-12-10-permafrost-black-carbon/index.html#data",
+    "href": "blog-posts/2023-12-10-permafrost-black-carbon/index.html#data",
+    "title": "Soil Temperature Analysis at Toolik Field Station, AK",
+    "section": "Data",
+    "text": "Data\ntalk about datasets sources"
+  },
+  {
+    "objectID": "blog-posts/2023-12-10-permafrost-black-carbon/index.html#linear-regression",
+    "href": "blog-posts/2023-12-10-permafrost-black-carbon/index.html#linear-regression",
+    "title": "Soil Temperature Analysis at Toolik Field Station, AK",
+    "section": "Linear Regression",
+    "text": "Linear Regression"
+  },
+  {
+    "objectID": "blog-posts/2023-12-10-permafrost-black-carbon/index.html#decomposition",
+    "href": "blog-posts/2023-12-10-permafrost-black-carbon/index.html#decomposition",
+    "title": "Soil Temperature Analysis at Toolik Field Station, AK",
+    "section": "Decomposition",
+    "text": "Decomposition"
+  },
+  {
+    "objectID": "blog-posts/2023-12-10-permafrost-black-carbon/index.html#takeaways",
+    "href": "blog-posts/2023-12-10-permafrost-black-carbon/index.html#takeaways",
+    "title": "Soil Temperature Analysis at Toolik Field Station, AK",
+    "section": "Takeaways",
+    "text": "Takeaways"
+  },
+  {
+    "objectID": "blog-posts/2023-12-10-permafrost-black-carbon/index.html",
+    "href": "blog-posts/2023-12-10-permafrost-black-carbon/index.html",
+    "title": "Soil Temperature Analysis at Toolik Field Station, AK",
+    "section": "",
+    "text": "question and thoughts behind why these things are related"
+  },
+  {
+    "objectID": "blog-posts/2023-12-10-permafrost-black-carbon/index.html#background",
+    "href": "blog-posts/2023-12-10-permafrost-black-carbon/index.html#background",
+    "title": "Soil Temperature Analysis at Toolik Field Station, AK",
+    "section": "",
+    "text": "question and thoughts behind why these things are related"
   }
 ]

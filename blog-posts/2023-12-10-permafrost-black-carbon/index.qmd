@@ -1,0 +1,42 @@
+---
+title: "Soil Temperature Analysis at Toolik Field Station, AK"
+description: "Exploring the relationship between soil temperatures, air temperatures, and black carbon levels at Toolik Field Station, AK "
+author:
+  - name: Melissa Widas
+    url: http://mwidas.github.io
+    affiliation: MEDS
+    affiliation-url: http://ucsb-meds.github.io
+date: 2023-12-01
+format:
+  html:
+    code-fold: true
+    code-summary: "Show Code!"
+code-overflow: wrap
+code-block-bg: true
+code-block-border-left: "#6B5A75"
+categories: [MEDS, Statistics, R]
+citation: 
+  url: http://mwidas.github.io/2023-12-10-permafrost-black-carbon
+image: toolik_sign.jpeg
+draft: false
+bibliography: references.bib
+---
+
+
+## Background
+
+question and thoughts behind why these things are related
+
+## Data
+
+talk about datasets 
+sources
+
+
+## Linear Regression
+
+## Decomposition
+
+## Takeaways
+
+
