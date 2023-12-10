@@ -35,9 +35,9 @@ One of the key roles that data science plays is in the effective communication o
 
 The following blog post aims to explore barriers for disabled persons to data access and actions data scientists can take in order to maintain data justice through data access and accessibility for all.
 
-The main disabilities I will be exploring in the following sections are cognitive, and visual. The following data visualization made from the `PalmerPenguin` package will be edited as well throughout this blog post showing and utilizing tools mentioned to increase the accessability of this visualization.
+The main disabilities I will be exploring in the following sections are cognitive, and visual. The following data visualization made from the `PalmerPenguin` package will be edited as well throughout this blog post showing and utilizing tools mentioned to increase the accessibility of this visualization.
 
-```{r, message=FALSE, warning=FALSE}
+```{r, message=FALSE, warning=FALSE, echo=FALSE}
 library(tidyverse)
 library(palmerpenguins)
 library(patchwork)
@@ -99,7 +99,7 @@ Informative titles can also be used to improve comprehension of a visualization[
 title <- ggplot(data = penguins, aes(x = bill_length_mm,
     y = bill_depth_mm, color = species)) +
          geom_point() +
-  labs(x = "Penguin Species", y = "Penguin flipper length (mm)", title = "Penguin flipper length by Species ") +
+  labs(x = "Penguin Species", y = "Penguin flipper length (mm)", title = "Penguin flipper length by Species", subtitle = "Adelie penguins show largest flipper length") +
          geom_jitter()
 
 title
