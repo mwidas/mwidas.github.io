@@ -9,6 +9,13 @@ author:
     affiliation-url: https://bren.ucsb.edu/masters-programs/master-environmental-data-science
 date: 11-26-2023
 categories: [Quarto, MEDS, Ethics]
+format:
+  html:
+    code-fold: true
+    code-summary: "Show Code!"
+code-overflow: wrap
+code-block-bg: true
+code-block-border-left: "#6B5A75"
 bibliography: references.bib
 citation:
   url: https://mwidas.github.io/blog-posts/2023-11-26-data-accessibility/
@@ -16,7 +23,7 @@ image: data_accessibility.png
 draft: false
 ---
 
-# How can we make data visualizations more accessable?
+# Data Visualization Accessibility for Disabilities: Guide and why Environmental Data Scientists should care
 
 ## Background
 
@@ -28,7 +35,27 @@ One of the key roles that data science plays is in the effective communication o
 
 The following blog post aims to explore barriers for disabled persons to data access and actions data scientists can take in order to maintain data justice through data access and accessibility for all.
 
-The main disabilities I will be exploring in the following sections are cognitive, and visual.
+The main disabilities I will be exploring in the following sections are cognitive, and visual. The following data visualization made from the `PalmerPenguin` package will be edited as well throughout this blog post showing and utilizing tools mentioned to increase the accessability of this visualization. 
+
+```{r}
+library(tidyverse)
+library(palmerpenguins)
+library(patchwork)
+library(viridis)
+library(directlabels)
+```
+
+```{r, warning=FASLE}
+noaxes <- ggplot(data = penguins, aes(x = bill_length_mm,
+    y = bill_depth_mm, color = species)) +
+         geom_point() +
+  theme(axis.text.x=element_blank(), 
+      axis.ticks.x=element_blank(), 
+      axis.text.y=element_blank(), 
+      axis.ticks.y=element_blank())
+
+noaxes
+```
 
 ## Cognitive
 
@@ -48,15 +75,35 @@ When creating a data visualization and having the potential for an audience that
 
 #### Labeling
 
-Data scientists should ensure that labeling is intuitive, As an example, if data is being displayed regarding money, an easy to add label would be the `$`[@wu2023a].
+Data scientists should ensure that labeling is intuitive, As an example, if data is being displayed regarding money, an easy to add label would be the `$`[@wu2023].
 
 #### Axes
 
-It is important to ensure that data presented in visualizations has clear start and end points[@wu2023a]. Indication of where data is beginning and where data is ending on a visualization such as axes marks allows an audience member to definitively know where they should stop visually processing.
+It is important to ensure that data presented in visualizations has clear start and end points[@wu2023]. Indication of where data is beginning and where data is ending on a visualization such as axes marks allows an audience member to definitively know where they should stop visually processing.
+
+```{r, warning=FALSE}
+axes <- ggplot(data = penguins, aes(x = bill_length_mm,
+    y = bill_depth_mm, color = species)) +
+         geom_point() +
+  labs(x = "Penguin Species", y = "Penguin flipper length (mm)", title = "Penguin flipper length by Species") +
+         geom_jitter()
+
+axes
+```
 
 #### Titles
 
 Informative titles can also be used to improve comprehension of a visualization[@knaflicnussbaumer2018]. A title that includes the key takeaway from a visualization allows users to look for something in the data that supports the title which can increase comprehension.
+
+```{r, warning=FALSE}
+title <- ggplot(data = penguins, aes(x = bill_length_mm,
+    y = bill_depth_mm, color = species)) +
+         geom_point() +
+  labs(x = "Penguin Species", y = "Penguin flipper length (mm)", title = "Penguin flipper length by Species ") +
+         geom_jitter()
+
+title
+```
 
 ## Visual
 
@@ -92,16 +139,44 @@ A potentially more common visual impairment is colorblindness. There are package
 
 -   [`ggsci`](https://cran.r-project.org/package=ggsci)
 
+```{r, warning=FALSE}
+friendly <- ggplot(data = penguins, aes(x = bill_length_mm,
+    y = bill_depth_mm, color = species)) +
+         geom_point() +
+  labs(x = "Penguin Species", y = "Penguin flipper length (mm)", title = "Penguin flipper length by Species") +
+         geom_jitter() +
+  scale_color_viridis(discrete=TRUE, begin =0, end = 0.75)
+
+friendly
+```
+
 #### High contrast elements
 
 High contrast elements also allow for increased readability for those with visual impairments[@nussbaumerknaflic2018]. The contrast between colors of elements and the sizes of these elements can affect the visual ease of use for users. There are multiple [tools](http://colorsafe.co/) that data scientists can utilize to check the contrast of their images and even design a palette they would like to use.
 
 #### Labeling Data
 
-A barrier to users with low vision can be legends[@nussbaumerknaflic2018]. Legends can typically include smaller text that is positioned outside of where the bulk of data is shown through the figure. This can create a disconnect between the data shown and any qualifiers assigned to it like scale, or type. A possible solution for this is direct labeling. Direct labeling can be labels next to data or within the data visualization.
+A barrier to users with low vision can be legends[@nussbaumerknaflic2018]. Legends can typically include smaller text that is positioned outside of where the bulk of data is shown through the figure. This can create a disconnect between the data shown and any qualifiers assigned to it like scale, or type. A possible solution for this is direct labeling. Direct labeling can be labels next to data or within the data visualization. A package that can be used is the [`directlabels`](https://cran.r-project.org/web/packages/directlabels/index.html) package.
+
+```{r, warning=FALSE}
+label <- ggplot(data = penguins, aes(x = bill_length_mm,
+    y = bill_depth_mm, color = species)) +
+         geom_point() +
+  labs(x = "Penguin Species", y = "Penguin flipper length (mm)", title = "Penguin flipper length by Species") +
+         geom_jitter() +
+  scale_color_viridis(discrete=TRUE, begin=0, end = 0.75) +
+  theme(legend.position="none") 
+  
+label2 <- direct.label(label, method = NULL, 
+    debug = FALSE) 
+  
+label2
+```
+
+## Environmental Data 
+
+As the field of data science continues to grow and be at the forefront of scientific communication, especially environmental scientific communication, we as data scientists need to keep in mind how our visualizations and findings are received. Environmental analyses, and visualizations are some of the most impactful tools scientists have to educate the public on environmental challenges. In order to create the most cutting edge solutions that prioritize people and the environment around us, we as data scientists need to ensure people of all backgrounds are at the table making decisions. Everyone, regardless of their ability, have the right to access data and what we can learn from it.
 
 ## Takeaway
 
-We have covered numerous strategies in order to make data visualizations more accessible. Now depending on the goal of a researcher doing every one of these strategies could be an impossible task considering timelines and budgets. However, it is important for data scientists to think critically about who their audience is and if some of the strategies discussed can be applied. Some additions and considerations like, incorporating alternative text that is clear and concise and high contrast color palettes take minimal time and are often pre-built into some packages.
-
-As the field of data science continues to grow and be at the forefront of scientific communication, especially environmental scientific communication, we as data scientists need to keep in mind how our visualizations and findings are received.
+We have covered numerous strategies in order to make data visualizations more accessible. Now depending on the goal of a researcher doing every one of these strategies could be an impossible task considering timelines and budgets. However, it is important for data scientists to think critically about who their audience is and if some of the strategies discussed can be applied. Some additions and considerations like, incorporating alternative text that is clear and concise and high contrast color palettes take minimal time and are often pre-built into some packages. Data scientists of all backgrounds, including within the environmental realm have the responsibility to consider how their data visualizations are able to be received and by what audiences.
