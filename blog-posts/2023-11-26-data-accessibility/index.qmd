@@ -37,7 +37,7 @@ The following blog post aims to explore barriers for disabled persons to data ac
 
 The main disabilities I will be exploring in the following sections are cognitive, and visual. The following data visualization made from the `PalmerPenguin` package will be edited as well throughout this blog post showing and utilizing tools mentioned to increase the accessability of this visualization.
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(palmerpenguins)
 library(patchwork)
