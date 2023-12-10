@@ -19,6 +19,7 @@ citation:
   url: http://mwidas.github.io/2023-12-01-houston-outages
 image: texas.png
 draft: false
+bibliography: references.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -27,11 +28,11 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Background
 
-"In February 2021, the state of Texas suffered a major power crisis, which came about as a result of three severe winter storms sweeping across the United States on February 10--11, 13--17, and 15--20."\[\^1\]
+February 2021, the state of Texas suffered a major energy crisis, which came about as a result of three severe winter storms sweeping across the United States on February 10--11, 13--17, and 15--20[@powercommittee]. The energy crisis that occurred resulted in a loss of power for millions of Texans, fifty-seven deaths, and billions in property damages[@powercommittee].
 
 In the following exploration adapted from Dr. Ruth Oliver we will be:\
 - estimating the number of homes in Houston that lost power as a result of the first two storms\
-- investigating if socioeconomic factors are predictors of communities recovery from a power outage
+- investigating if socioeconomic factors are predictors of communities susceptibility to power outages
 
 Analysis will be based on remotely-sensed night lights data, acquired from the [Visible Infrared Imaging Radiometer Suite (VIIRS)](https://en.wikipedia.org/wiki/Visible_Infrared_Imaging_Radiometer_Suite) onboard the Suomi satellite. In particular, we will detect differences in night lights before and after the storm to identify areas that lost electric power.
 
@@ -127,10 +128,6 @@ class(light_difference)
 
 # reclassifying raster to show blackouts above 200, and label areas that experienced an outage outage, and that didn't NA
 light_difference_outage <- cut(light_difference, c(200, Inf), labels = 'outage')
-
-#show where blackouts were experienced
-plot(light_difference_outage, main = "Areas that Experienced a Blackout")
-
 ```
 
 The blackout mask will then be vectorized and fixed for any invalid geometries.\
@@ -286,4 +283,6 @@ impact_unimpact_plot <- plot_grid(unimpacted_figure, impacted_figure, labels = c
 impact_unimpact_plot
 ```
 
-**The median income of homes in Houston, TX affected and not affected by blackouts does not appear to have a significant difference. The blackouts do appear to have centered around the center of the city, but this area also has a wide variety of median incomes. Additionally, when comparing the median incomes of homes affected and not affected the distributions appear to be similar for the spread of wealth. Residents not impacted by the storm do appear to have slightly higher median incomes which could coincide with living farther outside the city center in the suburbs of Houston. A limitation of this analysis is that we did reduce the number of buildings counted that fell close to highways, which could be areas that have lower median incomes. Additionally, in exploring the power outages in Houston, TX we only compared the blackouts from the first two storms, without accounting for the third storm. Without accounting for the third storm the total number of outages that occurred is being underestimated.**
+## Takeaways
+
+The median income of homes in Houston, TX affected and not affected by blackouts does not appear to have a significant difference. The blackouts do appear to have centered around the center of the city, but this area also has a wide variety of median incomes. Additionally, when comparing the median incomes of homes affected and not affected the distributions appear to be similar for the spread of wealth. Residents not impacted by the storm do appear to have slightly higher median incomes which could coincide with living farther outside the city center in the suburbs of Houston. A limitation of this analysis is that we did reduce the number of buildings counted that fell close to highways, which could be areas that have lower median incomes. Additionally, in exploring the power outages in Houston, TX we only compared the blackouts from the first two storms, without accounting for the third storm. Without accounting for the third storm the total number of outages that occurred is being underestimated.
