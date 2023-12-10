@@ -57,7 +57,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -200,6 +219,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#background" id="toc-background" class="nav-link active" data-scroll-target="#background">Background</a></li>
   <li><a href="#lets-start-coding" id="toc-lets-start-coding" class="nav-link" data-scroll-target="#lets-start-coding">Let’s Start Coding</a></li>
+  <li><a href="#takeaways" id="toc-takeaways" class="nav-link" data-scroll-target="#takeaways">Takeaways</a></li>
   </ul>
 </nav>
     </div>
@@ -211,10 +231,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="background" class="level2">
 <h2 class="anchored" data-anchor-id="background">Background</h2>
-<p>“In February 2021, the state of Texas suffered a major power crisis, which came about as a result of three severe winter storms sweeping across the United States on February 10–11, 13–17, and 15–20.”[^1]</p>
+<p>February 2021, the state of Texas suffered a major energy crisis, which came about as a result of three severe winter storms sweeping across the United States on February 10–11, 13–17, and 15–20<span class="citation" data-cites="powercommittee">(<a href="#ref-powercommittee" role="doc-biblioref">POWER Committee, n.d.</a>)</span>. The energy crisis that occurred resulted in a loss of power for millions of Texans, fifty-seven deaths, and billions in property damages<span class="citation" data-cites="powercommittee">(<a href="#ref-powercommittee" role="doc-biblioref">POWER Committee, n.d.</a>)</span>.</p>
 <p>In the following exploration adapted from Dr.&nbsp;Ruth Oliver we will be:<br>
 - estimating the number of homes in Houston that lost power as a result of the first two storms<br>
-- investigating if socioeconomic factors are predictors of communities recovery from a power outage</p>
+- investigating if socioeconomic factors are predictors of communities susceptibility to power outages</p>
 <p>Analysis will be based on remotely-sensed night lights data, acquired from the <a href="https://en.wikipedia.org/wiki/Visible_Infrared_Imaging_Radiometer_Suite">Visible Infrared Imaging Radiometer Suite (VIIRS)</a> onboard the Suomi satellite. In particular, we will detect differences in night lights before and after the storm to identify areas that lost electric power.</p>
 </section>
 <section id="lets-start-coding" class="level2">
@@ -313,14 +333,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(light_difference)</span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># reclassifying raster to show blackouts above 200, and label areas that experienced an outage outage, and that didn't NA</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>light_difference_outage <span class="ot">&lt;-</span> <span class="fu">cut</span>(light_difference, <span class="fu">c</span>(<span class="dv">200</span>, <span class="cn">Inf</span>), <span class="at">labels =</span> <span class="st">'outage'</span>)</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#show where blackouts were experienced</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(light_difference_outage, <span class="at">main =</span> <span class="st">"Areas that Experienced a Blackout"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>light_difference_outage <span class="ot">&lt;-</span> <span class="fu">cut</span>(light_difference, <span class="fu">c</span>(<span class="dv">200</span>, <span class="cn">Inf</span>), <span class="at">labels =</span> <span class="st">'outage'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
-</div>
 </div>
 <p>The blackout mask will then be vectorized and fixed for any invalid geometries.<br>
 </p>
@@ -493,12 +507,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p><strong>The median income of homes in Houston, TX affected and not affected by blackouts does not appear to have a significant difference. The blackouts do appear to have centered around the center of the city, but this area also has a wide variety of median incomes. Additionally, when comparing the median incomes of homes affected and not affected the distributions appear to be similar for the spread of wealth. Residents not impacted by the storm do appear to have slightly higher median incomes which could coincide with living farther outside the city center in the suburbs of Houston. A limitation of this analysis is that we did reduce the number of buildings counted that fell close to highways, which could be areas that have lower median incomes. Additionally, in exploring the power outages in Houston, TX we only compared the blackouts from the first two storms, without accounting for the third storm. Without accounting for the third storm the total number of outages that occurred is being underestimated.</strong></p>
+</section>
+<section id="takeaways" class="level2">
+<h2 class="anchored" data-anchor-id="takeaways">Takeaways</h2>
+<p>The median income of homes in Houston, TX affected and not affected by blackouts does not appear to have a significant difference. The blackouts do appear to have centered around the center of the city, but this area also has a wide variety of median incomes. Additionally, when comparing the median incomes of homes affected and not affected the distributions appear to be similar for the spread of wealth. Residents not impacted by the storm do appear to have slightly higher median incomes which could coincide with living farther outside the city center in the suburbs of Houston. A limitation of this analysis is that we did reduce the number of buildings counted that fell close to highways, which could be areas that have lower median incomes. Additionally, in exploring the power outages in Houston, TX we only compared the blackouts from the first two storms, without accounting for the third storm. Without accounting for the third storm the total number of outages that occurred is being underestimated.</p>
+
 
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{widas2023,
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-powercommittee" class="csl-entry" role="listitem">
+POWER Committee. n.d. <span>“The Timeline and Events of the February 2021 Texas Electric Grid Blackouts.”</span> <a href="https://energy.utexas.edu/research/ercot-blackout-2021">https://energy.utexas.edu/research/ercot-blackout-2021</a>.
+</div>
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{widas2023,
   author = {Widas, Melissa},
   title = {Houston, {Texas} {Power} {Outages}},
   date = {2023-12-01},
