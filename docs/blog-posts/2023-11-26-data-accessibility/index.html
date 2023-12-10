@@ -23,6 +23,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -183,7 +217,7 @@ div.csl-indent {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#how-can-we-make-data-visualizations-more-accessable" id="toc-how-can-we-make-data-visualizations-more-accessable" class="nav-link active" data-scroll-target="#how-can-we-make-data-visualizations-more-accessable">How can we make data visualizations more accessable?</a>
+  <li><a href="#data-visualization-accessibility-for-disabilities-guide-and-why-environmental-data-scientists-should-care" id="toc-data-visualization-accessibility-for-disabilities-guide-and-why-environmental-data-scientists-should-care" class="nav-link active" data-scroll-target="#data-visualization-accessibility-for-disabilities-guide-and-why-environmental-data-scientists-should-care">Data Visualization Accessibility for Disabilities: Guide and why Environmental Data Scientists should care</a>
   <ul class="collapse">
   <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">Background</a></li>
   <li><a href="#cognitive" id="toc-cognitive" class="nav-link" data-scroll-target="#cognitive">Cognitive</a>
@@ -196,6 +230,7 @@ div.csl-indent {
   <li><a href="#data-design-1" id="toc-data-design-1" class="nav-link" data-scroll-target="#data-design-1">Data Design</a></li>
   <li><a href="#data-visualization-1" id="toc-data-visualization-1" class="nav-link" data-scroll-target="#data-visualization-1">Data Visualization</a></li>
   </ul></li>
+  <li><a href="#environmental-data" id="toc-environmental-data" class="nav-link" data-scroll-target="#environmental-data">Environmental Data</a></li>
   <li><a href="#takeaway" id="toc-takeaway" class="nav-link" data-scroll-target="#takeaway">Takeaway</a></li>
   </ul></li>
   </ul>
@@ -207,19 +242,67 @@ div.csl-indent {
 
 
 
-<section id="how-can-we-make-data-visualizations-more-accessable" class="level1">
-<h1>How can we make data visualizations more accessable?</h1>
+<section id="data-visualization-accessibility-for-disabilities-guide-and-why-environmental-data-scientists-should-care" class="level1">
+<h1>Data Visualization Accessibility for Disabilities: Guide and why Environmental Data Scientists should care</h1>
 <section id="background" class="level2">
 <h2 class="anchored" data-anchor-id="background">Background</h2>
 <p>The topic I would like to focus on for this blog post centers around data justice and data accessibility to individuals that have disabilities and how our visualizations and presentation of data matter.</p>
 <p>One of the key roles that data science plays is in the effective communication of data. Data visualizations are the main vehicle that allows data scientists to effectively convey findings and reach a broader audience. A data visualization is “the representation of data through use of common graphics” <span class="citation" data-cites="ibm">(<a href="#ref-ibm" role="doc-biblioref">IBM, n.d.</a>)</span>. However, in order to promote equitable access to data and its findings it is important to consider that not all people are able to process data the same way. In the United States alone it is estimated that roughly twenty-five percent of the adult population has some sort of disability <span class="citation" data-cites="kahn2023">(<a href="#ref-kahn2023" role="doc-biblioref">Kahn 2023</a>)</span>. Disabilities can range from cognitive, auditory, visual, and other levels of ability. And each of these disabilities can affect how someone is able to intake data and data visualizations.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://inclusive.microsoft.design/"><img src="disability.png" class="img-fluid figure-img" alt="Drawing that highlights disabilities"></a></p>
+<p><a href="https://inclusive.microsoft.design/"><img src="disability.png" class="img-fluid figure-img" alt="Figure showing illustrations of temporary, and permanent disabilities"></a></p>
 </figure>
 </div>
 <p>The following blog post aims to explore barriers for disabled persons to data access and actions data scientists can take in order to maintain data justice through data access and accessibility for all.</p>
-<p>The main disabilities I will be exploring in the following sections are cognitive, and visual.</p>
+<p>The main disabilities I will be exploring in the following sections are cognitive, and visual. The following data visualization made from the <code>PalmerPenguin</code> package will be edited as well throughout this blog post showing and utilizing tools mentioned to increase the accessability of this visualization.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.2     ✔ readr     2.1.4
+✔ forcats   1.0.0     ✔ stringr   1.5.0
+✔ ggplot2   3.4.4     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.0
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(viridis)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: viridisLite</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(directlabels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>noaxes <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> penguins, <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm,</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> bill_depth_mm, <span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>         <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x=</span><span class="fu">element_blank</span>(), </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.ticks.x=</span><span class="fu">element_blank</span>(), </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.text.y=</span><span class="fu">element_blank</span>(), </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.ticks.y=</span><span class="fu">element_blank</span>())</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>noaxes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
 </section>
 <section id="cognitive" class="level2">
 <h2 class="anchored" data-anchor-id="cognitive">Cognitive</h2>
@@ -235,15 +318,45 @@ div.csl-indent {
 <p>When creating a data visualization and having the potential for an audience that has cognitive disabilities there are some design components that can be added or highlighted which will in general increase comprehension.</p>
 <section id="labeling" class="level4">
 <h4 class="anchored" data-anchor-id="labeling">Labeling</h4>
-<p>Data scientists should ensure that labeling is intuitive, As an example, if data is being displayed regarding money, an easy to add label would be the <code>$</code><span class="citation" data-cites="wu2023a">(<a href="#ref-wu2023a" role="doc-biblioref"><strong>wu2023a?</strong></a>)</span>.</p>
+<p>Data scientists should ensure that labeling is intuitive, As an example, if data is being displayed regarding money, an easy to add label would be the <code>$</code><span class="citation" data-cites="wu2023">(<a href="#ref-wu2023" role="doc-biblioref">Wu and Albers Szafir 2023</a>)</span>.</p>
 </section>
 <section id="axes" class="level4">
 <h4 class="anchored" data-anchor-id="axes">Axes</h4>
-<p>It is important to ensure that data presented in visualizations has clear start and end points<span class="citation" data-cites="wu2023a">(<a href="#ref-wu2023a" role="doc-biblioref"><strong>wu2023a?</strong></a>)</span>. Indication of where data is beginning and where data is ending on a visualization such as axes marks allows an audience member to definitively know where they should stop visually processing.</p>
+<p>It is important to ensure that data presented in visualizations has clear start and end points<span class="citation" data-cites="wu2023">(<a href="#ref-wu2023" role="doc-biblioref">Wu and Albers Szafir 2023</a>)</span>. Indication of where data is beginning and where data is ending on a visualization such as axes marks allows an audience member to definitively know where they should stop visually processing.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>axes <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> penguins, <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm,</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> bill_depth_mm, <span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>         <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Penguin Species"</span>, <span class="at">y =</span> <span class="st">"Penguin flipper length (mm)"</span>, <span class="at">title =</span> <span class="st">"Penguin flipper length by Species"</span>) <span class="sc">+</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>         <span class="fu">geom_jitter</span>()</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>axes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
 </section>
 <section id="titles" class="level4">
 <h4 class="anchored" data-anchor-id="titles">Titles</h4>
 <p>Informative titles can also be used to improve comprehension of a visualization<span class="citation" data-cites="knaflicnussbaumer2018">(<a href="#ref-knaflicnussbaumer2018" role="doc-biblioref">Knaflic Nussbaumer 2018</a>)</span>. A title that includes the key takeaway from a visualization allows users to look for something in the data that supports the title which can increase comprehension.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>title <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> penguins, <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm,</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> bill_depth_mm, <span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>         <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Penguin Species"</span>, <span class="at">y =</span> <span class="st">"Penguin flipper length (mm)"</span>, <span class="at">title =</span> <span class="st">"Penguin flipper length by Species "</span>) <span class="sc">+</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>         <span class="fu">geom_jitter</span>()</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>title</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
 </section>
 </section>
 </section>
@@ -275,6 +388,22 @@ div.csl-indent {
 <li><p><a href="https://cran.r-project.org/package=shades"><code>shades</code></a></p></li>
 <li><p><a href="https://cran.r-project.org/package=ggsci"><code>ggsci</code></a></p></li>
 </ul>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>friendly <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> penguins, <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm,</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> bill_depth_mm, <span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>         <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Penguin Species"</span>, <span class="at">y =</span> <span class="st">"Penguin flipper length (mm)"</span>, <span class="at">title =</span> <span class="st">"Penguin flipper length by Species"</span>) <span class="sc">+</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>         <span class="fu">geom_jitter</span>() <span class="sc">+</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis</span>(<span class="at">discrete=</span><span class="cn">TRUE</span>, <span class="at">begin =</span><span class="dv">0</span>, <span class="at">end =</span> <span class="fl">0.75</span>)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>friendly</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
 </section>
 <section id="high-contrast-elements" class="level4">
 <h4 class="anchored" data-anchor-id="high-contrast-elements">High contrast elements</h4>
@@ -282,14 +411,37 @@ div.csl-indent {
 </section>
 <section id="labeling-data" class="level4">
 <h4 class="anchored" data-anchor-id="labeling-data">Labeling Data</h4>
-<p>A barrier to users with low vision can be legends<span class="citation" data-cites="nussbaumerknaflic2018">(<a href="#ref-nussbaumerknaflic2018" role="doc-biblioref"><strong>nussbaumerknaflic2018?</strong></a>)</span>. Legends can typically include smaller text that is positioned outside of where the bulk of data is shown through the figure. This can create a disconnect between the data shown and any qualifiers assigned to it like scale, or type. A possible solution for this is direct labeling. Direct labeling can be labels next to data or within the data visualization.</p>
+<p>A barrier to users with low vision can be legends<span class="citation" data-cites="nussbaumerknaflic2018">(<a href="#ref-nussbaumerknaflic2018" role="doc-biblioref"><strong>nussbaumerknaflic2018?</strong></a>)</span>. Legends can typically include smaller text that is positioned outside of where the bulk of data is shown through the figure. This can create a disconnect between the data shown and any qualifiers assigned to it like scale, or type. A possible solution for this is direct labeling. Direct labeling can be labels next to data or within the data visualization. A package that can be used is the <a href="https://cran.r-project.org/web/packages/directlabels/index.html"><code>directlabels</code></a> package.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>label <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> penguins, <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm,</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> bill_depth_mm, <span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>         <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Penguin Species"</span>, <span class="at">y =</span> <span class="st">"Penguin flipper length (mm)"</span>, <span class="at">title =</span> <span class="st">"Penguin flipper length by Species"</span>) <span class="sc">+</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>         <span class="fu">geom_jitter</span>() <span class="sc">+</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis</span>(<span class="at">discrete=</span><span class="cn">TRUE</span>, <span class="at">begin=</span><span class="dv">0</span>, <span class="at">end =</span> <span class="fl">0.75</span>) <span class="sc">+</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">"none"</span>) </span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>label2 <span class="ot">&lt;-</span> <span class="fu">direct.label</span>(label, <span class="at">method =</span> <span class="cn">NULL</span>, </span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">debug =</span> <span class="cn">FALSE</span>) </span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>label2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
 </section>
 </section>
+</section>
+<section id="environmental-data" class="level2">
+<h2 class="anchored" data-anchor-id="environmental-data">Environmental Data</h2>
+<p>As the field of data science continues to grow and be at the forefront of scientific communication, especially environmental scientific communication, we as data scientists need to keep in mind how our visualizations and findings are received. Environmental analyses, and visualizations are some of the most impactful tools scientists have to educate the public on environmental challenges. In order to create the most cutting edge solutions that prioritize people and the environment around us, we as data scientists need to ensure people of all backgrounds are at the table making decisions. Everyone, regardless of their ability, have the right to access data and what we can learn from it.</p>
 </section>
 <section id="takeaway" class="level2">
 <h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>
-<p>We have covered numerous strategies in order to make data visualizations more accessible. Now depending on the goal of a researcher doing every one of these strategies could be an impossible task considering timelines and budgets. However, it is important for data scientists to think critically about who their audience is and if some of the strategies discussed can be applied. Some additions and considerations like, incorporating alternative text that is clear and concise and high contrast color palettes take minimal time and are often pre-built into some packages.</p>
-<p>As the field of data science continues to grow and be at the forefront of scientific communication, especially environmental scientific communication, we as data scientists need to keep in mind how our visualizations and findings are received.</p>
+<p>We have covered numerous strategies in order to make data visualizations more accessible. Now depending on the goal of a researcher doing every one of these strategies could be an impossible task considering timelines and budgets. However, it is important for data scientists to think critically about who their audience is and if some of the strategies discussed can be applied. Some additions and considerations like, incorporating alternative text that is clear and concise and high contrast color palettes take minimal time and are often pre-built into some packages. Data scientists of all backgrounds, including within the environmental realm have the responsibility to consider how their data visualizations are able to be received and by what audiences.</p>
 
 
 

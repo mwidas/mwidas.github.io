@@ -31,11 +31,11 @@ The topic I would like to focus on for this blog post centers around data justic
 
 One of the key roles that data science plays is in the effective communication of data. Data visualizations are the main vehicle that allows data scientists to effectively convey findings and reach a broader audience. A data visualization is "the representation of data through use of common graphics" [@ibm]. However, in order to promote equitable access to data and its findings it is important to consider that not all people are able to process data the same way. In the United States alone it is estimated that roughly twenty-five percent of the adult population has some sort of disability [@kahn2023]. Disabilities can range from cognitive, auditory, visual, and other levels of ability. And each of these disabilities can affect how someone is able to intake data and data visualizations.
 
-[![](disability.png){fig-alt="Drawing that highlights disabilities" fig-align="center"}](https://inclusive.microsoft.design/)
+[![](disability.png){fig-alt="Figure showing illustrations of temporary, and permanent disabilities"}](https://inclusive.microsoft.design/)
 
 The following blog post aims to explore barriers for disabled persons to data access and actions data scientists can take in order to maintain data justice through data access and accessibility for all.
 
-The main disabilities I will be exploring in the following sections are cognitive, and visual. The following data visualization made from the `PalmerPenguin` package will be edited as well throughout this blog post showing and utilizing tools mentioned to increase the accessability of this visualization. 
+The main disabilities I will be exploring in the following sections are cognitive, and visual. The following data visualization made from the `PalmerPenguin` package will be edited as well throughout this blog post showing and utilizing tools mentioned to increase the accessability of this visualization.
 
 ```{r}
 library(tidyverse)
@@ -45,7 +45,7 @@ library(viridis)
 library(directlabels)
 ```
 
-```{r, warning=FASLE}
+```{r, warning=FALSE}
 noaxes <- ggplot(data = penguins, aes(x = bill_length_mm,
     y = bill_depth_mm, color = species)) +
          geom_point() +
@@ -173,7 +173,7 @@ label2 <- direct.label(label, method = NULL,
 label2
 ```
 
-## Environmental Data 
+## Environmental Data
 
 As the field of data science continues to grow and be at the forefront of scientific communication, especially environmental scientific communication, we as data scientists need to keep in mind how our visualizations and findings are received. Environmental analyses, and visualizations are some of the most impactful tools scientists have to educate the public on environmental challenges. In order to create the most cutting edge solutions that prioritize people and the environment around us, we as data scientists need to ensure people of all backgrounds are at the table making decisions. Everyone, regardless of their ability, have the right to access data and what we can learn from it.
 
