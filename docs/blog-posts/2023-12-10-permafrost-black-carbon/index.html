@@ -23,7 +23,60 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -64,6 +117,8 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -166,7 +221,8 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#background" id="toc-background" class="nav-link active" data-scroll-target="#background">Background</a></li>
   <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
-  <li><a href="#linear-regression" id="toc-linear-regression" class="nav-link" data-scroll-target="#linear-regression">Linear Regression</a></li>
+  <li><a href="#exploratory-analysis" id="toc-exploratory-analysis" class="nav-link" data-scroll-target="#exploratory-analysis">Exploratory Analysis</a></li>
+  <li><a href="#linear-regression-and-hypothesis-testing" id="toc-linear-regression-and-hypothesis-testing" class="nav-link" data-scroll-target="#linear-regression-and-hypothesis-testing">Linear Regression and Hypothesis Testing</a></li>
   <li><a href="#decomposition" id="toc-decomposition" class="nav-link" data-scroll-target="#decomposition">Decomposition</a></li>
   <li><a href="#takeaways" id="toc-takeaways" class="nav-link" data-scroll-target="#takeaways">Takeaways</a></li>
   </ul>
@@ -180,25 +236,283 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="background" class="level2">
 <h2 class="anchored" data-anchor-id="background">Background</h2>
-<p>question and thoughts behind why these things are related</p>
+<p>Soil is all around us. Underneath our homes, creating landscapes and environments we like to recreate in and also a vital carbon sink. Soil, and especially permafrost soils, play a key role in storing greenhouse gases and releasing greenhouse gases as they warm. A permafrost soil is defined as a frozen soil that is at or below zero degrees celcius, and has been for at least two years <span class="citation" data-cites="nationalsnowandicedatacenter">(<a href="#ref-nationalsnowandicedatacenter" role="doc-biblioref">Snow and Ice Data Center, n.d.</a>)</span>. Climate change and climate change modeling varies widely on predicting the fate and impacts of permafrost soils <span class="citation" data-cites="zhu2019">(<a href="#ref-zhu2019" role="doc-biblioref">Zhu et al. 2019</a>)</span>, but what are some of the main drivers behind permafrost melt?</p>
+<p>Ultimately, the main driver behind permafrost melt is temperature. And the obvious thought is of course a warmer temperature will lead to warmer soil temperatures which will ultimately warm permafrost soils to the point where they are no longer frozen. As a broad overview this thought process works, however there are other drivers that determine soil temperature. Soil properties such as soil organic carbon, soil texture, bulk density, and soil moisture all impact how soils respond to temperature. However, it has been shown that soil organic carbon can be the dominant determinant of soil temperature in permafrost soils <span class="citation" data-cites="zhu2019">(<a href="#ref-zhu2019" role="doc-biblioref">Zhu et al. 2019</a>)</span>. One way soils build up soil organic carbon is through the deposition of black carbon <span class="citation" data-cites="kopecký2021">(<a href="#ref-kopecký2021" role="doc-biblioref">Kopecký et al. 2021</a>)</span>.</p>
+<p>Black carbon is predominantly present as products of incomplete combustion <span class="citation" data-cites="environmentalprotectionagency2016">(<a href="#ref-environmentalprotectionagency2016" role="doc-biblioref">Environmental Protection Agency 2016</a>)</span> . By incomplete combustion I am referring to soot from wildfires, fossil fuels, and biofuels.</p>
+<p>Therefore a question that comes to mind with these findings are if air temperature and black carbon levels both affect soil temperature can they predict soil temperature and in the process are air temperature and black carbon interacting with each other?</p>
+<p>To explore this question further data from Toolik Field Station, AK will be explored. The Toolik Field Station is a research station operated and managed by the Institute of Arctic Biology at the University of Alaska Fairbanks with cooperative agreement support from the Division of Polar Programs, Directorate for Geosciences at the National Science Foundation (NSF).</p>
 </section>
 <section id="data" class="level2">
 <h2 class="anchored" data-anchor-id="data">Data</h2>
-<p>talk about datasets sources</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import necessary libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tufte)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(feasts)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tsibble)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjPlot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><u>Soil Temperature</u></p>
+<p>Soil Temperature data was accessed from the publicly available Meteorological Data Query from Lake Toolik Field Station. The soil temperature marker utilized for this analysis was the soil temperature for the first 150 cm of the soil profile.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load data that has soil temperature in degrees Celcius for first 150 cm</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>soil <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"blog-posts"</span>, <span class="st">"2023-12-10-permafrost-black-carbon"</span>, <span class="st">"data"</span>,<span class="st">"3-hour_data.csv"</span>))</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># create updated soil temperature df</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>soil_2 <span class="ot">&lt;-</span> soil <span class="sc">%&gt;%</span> </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># choose all values recorded at hour 300</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(hour <span class="sc">==</span> <span class="st">"300"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># remove hour column</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(<span class="at">select =</span> <span class="sc">-</span>hour) <span class="sc">%&gt;%</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># rename column for readability</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">soil_temp =</span> soil1_150cm) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><u>Air Temperature</u></p>
+<p>Air Temperature data was accessed from the publicly available Meteorological Data Query from Lake Toolik Field Station.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load data that contains air temperature in degrees celcius for Toolik Field Station, Alaska</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>air_temp <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"blog-posts"</span>, <span class="st">"2023-12-10-permafrost-black-carbon"</span>, <span class="st">"data"</span>, <span class="st">"24-hour_data.csv"</span>))</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># create updated air temperature df</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>air_temp_updated <span class="ot">&lt;-</span> air_temp <span class="sc">%&gt;%</span> </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(air_temp_max_3m, date) <span class="sc">%&gt;%</span> <span class="co"># select columns to keep</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">air_temp =</span> air_temp_max_3m) <span class="co"># rename air_temp for readability</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><u>Black Carbon</u></p>
+<p>Black Carbon data was accessed from a citizen science</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load data that contains pm2.5 which will be used as a representation of black carbon</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>black_carbon <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"blog-posts"</span>, <span class="st">"2023-12-10-permafrost-black-carbon"</span>, <span class="st">"data"</span>, <span class="st">"us-epa-pm25-aqi.csv"</span>))</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># black carbon date information is stored as POSIXct so switch to date type</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>black_carbon<span class="sc">$</span>DateTime <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(black_carbon<span class="sc">$</span>DateTime) </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># create updated black carbon dataframe</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>black_carbon_2 <span class="ot">&lt;-</span> black_carbon <span class="sc">%&gt;%</span> </span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># rename date column to match other df's</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">date =</span> DateTime) <span class="sc">%&gt;%</span>  </span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># average the two field station measurements</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">b_c =</span> (<span class="st">`</span><span class="at">Toolik Field Station A</span><span class="st">`</span><span class="sc">+</span><span class="st">`</span><span class="at">Toolik Field Station B</span><span class="st">`</span>)<span class="sc">/</span><span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># b_c is not normally distributed so take log to correct for this</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">log_b_c =</span> (<span class="fu">log</span>(b_c)<span class="sc">+</span><span class="dv">1</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># remove unecessary columns</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(<span class="at">select =</span> <span class="sc">-</span><span class="fu">c</span>(Average,<span class="st">`</span><span class="at">Toolik Field Station A</span><span class="st">`</span>, <span class="st">`</span><span class="at">Toolik Field Station B</span><span class="st">`</span>))  </span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co"># change -Inf values created by log function to 0 to allow regressions to run</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>black_carbon_2<span class="sc">$</span>log_b_c[black_carbon_2<span class="sc">$</span>log_b_c <span class="sc">==</span> <span class="sc">-</span><span class="cn">Inf</span>] <span class="ot">&lt;-</span> <span class="dv">0</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create new df containing black carbon and soil temp data</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>combined_bc_st <span class="ot">&lt;-</span> <span class="fu">left_join</span>(black_carbon_2, soil_2, <span class="at">by =</span> <span class="st">'date'</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># create new df with black carbon, soil temp, and air temp data</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>full <span class="ot">&lt;-</span> <span class="fu">left_join</span>(combined_bc_st, air_temp_updated, <span class="at">by =</span> <span class="st">'date'</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>() <span class="co"># remove na values </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 </section>
-<section id="linear-regression" class="level2">
-<h2 class="anchored" data-anchor-id="linear-regression">Linear Regression</h2>
+<section id="exploratory-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="exploratory-analysis">Exploratory Analysis</h2>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot relationship between air temperature and soil temperature</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> full, <span class="fu">aes</span>(<span class="at">x =</span> air_temp, <span class="at">y =</span> soil_temp)) <span class="sc">+</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> lm) <span class="sc">+</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Air Temperature Degrees Celcius"</span>, <span class="at">y =</span> <span class="st">"Soil Temperature Degrees Celcius"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot relationship between black carbon and soil temp</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> full, <span class="fu">aes</span>(<span class="at">x =</span> b_c, <span class="at">y =</span> soil_temp)) <span class="sc">+</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> lm) <span class="sc">+</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"PM2.5 (ppm)"</span>, <span class="at">y =</span> <span class="st">"Soil Temperature Degrees Celcius"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># clustering of data, use a histogram to examine the distribution</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(full<span class="sc">$</span>b_c, <span class="at">xlab =</span> <span class="st">'PM2.5 (ppm)'</span>, <span class="at">main =</span> <span class="st">'Distribution of Black Carbon levels'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-7-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># re-examine black carbon with a log transformation applied to see if relationship improves</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> full, <span class="fu">aes</span>(<span class="at">x =</span> log_b_c, <span class="at">y =</span> soil_temp)) <span class="sc">+</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> lm) <span class="sc">+</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"PM2.5 (ppm)"</span>, <span class="at">y =</span> <span class="st">"Soil Temperature Degrees Celcius"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># examine distribution of log transformed black carbon levels</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(full<span class="sc">$</span>log_b_c, <span class="at">xlab =</span> <span class="st">'log(PM2.5) (ppm)'</span>, <span class="at">main =</span> <span class="st">'Distribution of Black Carbon levels'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-8-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="linear-regression-and-hypothesis-testing" class="level2">
+<h2 class="anchored" data-anchor-id="linear-regression-and-hypothesis-testing">Linear Regression and Hypothesis Testing</h2>
+<p>The additive linear equation model is: <span class="math display">\[ soiltemp_i=\beta_{0}+\beta_{1} \cdot airtemp_i + \beta_{2} \cdot log(black carbon)_i + \varepsilon_i \]</span></p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># run linear regression on soil temp using air temp and black carbon as predictors</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>permafrost_mod_2 <span class="ot">&lt;-</span> <span class="fu">summary</span>(<span class="fu">lm</span>(soil_temp <span class="sc">~</span> air_temp <span class="sc">+</span> log_b_c, <span class="at">data =</span> full))</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(permafrost_mod_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = soil_temp ~ air_temp + log_b_c, data = full)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-6.2638 -1.5051  0.6854  1.7487  3.5257 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) -0.90993    0.38016  -2.394   0.0179 *  
+air_temp     0.07944    0.01369   5.804 3.84e-08 ***
+log_b_c     -0.30360    0.15458  -1.964   0.0514 .  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 2.307 on 147 degrees of freedom
+Multiple R-squared:  0.1922,    Adjusted R-squared:  0.1812 
+F-statistic: 17.48 on 2 and 147 DF,  p-value: 1.542e-07</code></pre>
+</div>
+</div>
+<p>The interaction equation model is:</p>
+<p><span class="math display">\[ soiltemp_i=\beta_{0}+\beta_{1} \cdot airtemp_i + \beta_{2} \cdot log(black carbon)_i + \beta_{3} \cdot airtemp_i \cdot log(blackcarbon)_i + \varepsilon_i \]</span></p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># run linear regression on soil temp using air temp and black carbon as well as an interaction between black carbon and air temperature</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>permafrost_mod_3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(soil_temp <span class="sc">~</span> air_temp <span class="sc">+</span> log_b_c <span class="sc">+</span> air_temp<span class="sc">:</span>log_b_c, <span class="at">data =</span> full)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>permafrost_mod_3_summ <span class="ot">&lt;-</span> <span class="fu">summary</span>(permafrost_mod_3)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co"># create a table with results displayed from interaction model</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>permafrost_table <span class="ot">&lt;-</span> permafrost_mod_3 <span class="sc">%&gt;%</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_model</span>()</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>permafrost_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" style="text-align: center; border-top: double; font-style: normal; font-weight: bold; padding: 0.2cm;">&nbsp;</td>
+<td colspan="3" data-quarto-table-cell-role="th" style="text-align: center; border-top: double; font-style: normal; font-weight: bold; padding: 0.2cm;">soil temp</td>
+</tr>
+<tr class="even">
+<td style="text-align: center; border-bottom: 1px solid; font-style: italic; font-weight: normal;">Predictors</td>
+<td style="text-align: center; border-bottom: 1px solid; font-style: italic; font-weight: normal;">Estimates</td>
+<td style="text-align: center; border-bottom: 1px solid; font-style: italic; font-weight: normal;">CI</td>
+<td style="text-align: center; border-bottom: 1px solid; font-style: italic; font-weight: normal;">p</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">(Intercept)</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-0.82</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-1.61&nbsp;–&nbsp;-0.03</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;"><strong>0.041</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">air temp</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.06</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-0.01&nbsp;–&nbsp;0.12</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.079</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">log b c</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-0.36</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-0.70&nbsp;–&nbsp;-0.02</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;"><strong>0.036</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">air temp × log b c</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.01</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-0.02&nbsp;–&nbsp;0.04</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.430</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm; border-top: 1px solid;">Observations</td>
+<td colspan="3" style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm; border-top: 1px solid;">150</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm;">R<sup>2</sup> / R<sup>2</sup> adjusted</td>
+<td colspan="3" style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm;">0.196 / 0.179</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
 </section>
 <section id="decomposition" class="level2">
 <h2 class="anchored" data-anchor-id="decomposition">Decomposition</h2>
 </section>
 <section id="takeaways" class="level2">
-<h2 class="anchored" data-anchor-id="takeaways">Takeaways</h2>
+
+
 
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{widas2023,
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">Takeaways</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-environmentalprotectionagency2016" class="csl-entry" role="listitem">
+Environmental Protection Agency. 2016. <span>“Methane and Black Carbon Impacts on the Arctic: Communicating the Science.”</span> <a href="https://19january2017snapshot.epa.gov/sites/production/files/2016-09/documents/arctic-methane-blackcarbon_communicating-the-science.pdf">https://19january2017snapshot.epa.gov/sites/production/files/2016-09/documents/arctic-methane-blackcarbon_communicating-the-science.pdf</a>.
+</div>
+<div id="ref-kopecký2021" class="csl-entry" role="listitem">
+Kopecký, Marek, Ladislav Kolář, Radka Váchalová, Petr Konvalina, Jana Batt, Petr Mráz, Ladislav Menšík, Trong Nghia Hoang, and Miroslav Dumbrovský. 2021. <span>“Black Carbon and Its Effect on Carbon Sequestration in Soil.”</span> <em>Agronomy</em> 11 (11). <a href="https://doi.org/10.3390/agronomy11112261">https://doi.org/10.3390/agronomy11112261</a>.
+</div>
+<div id="ref-nationalsnowandicedatacenter" class="csl-entry" role="listitem">
+Snow, National, and Ice Data Center. n.d. <span>“Frozen Ground &amp; Permafrost.”</span> <a href="https://nsidc.org/learn/parts-cryosphere/frozen-ground-permafrost#:~:text=What%20is%20permafrost%3F,-This%20close%20up&amp;text=Permafrost%20is%20soil%2C%20sand%2C%20sediment,beneath%20offshore%20Arctic%20continental%20shelves.">https://nsidc.org/learn/parts-cryosphere/frozen-ground-permafrost#:~:text=What%20is%20permafrost%3F,-This%20close%20up&amp;text=Permafrost%20is%20soil%2C%20sand%2C%20sediment,beneath%20offshore%20Arctic%20continental%20shelves.</a>
+</div>
+<div id="ref-zhu2019" class="csl-entry" role="listitem">
+Zhu, Dan, Philippe Ciais, Gerhard Krinner, Fabienne Maignan, Albert Jornet Puig, and Gustaf Hugelius. 2019. <span>“Controls of Soil Organic Matter on Soil Thermal Dynamics in the Northern High Latitudes.”</span> <em>Nature Communications</em> 10 (1): 3172. <a href="https://doi.org/10.1038/s41467-019-11103-1">https://doi.org/10.1038/s41467-019-11103-1</a>.
+</div>
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{widas2023,
   author = {Widas, Melissa},
   title = {Soil {Temperature} {Analysis} at {Toolik} {Field} {Station,}
     {AK}},
