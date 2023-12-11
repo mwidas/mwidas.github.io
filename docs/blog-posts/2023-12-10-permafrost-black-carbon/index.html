@@ -223,8 +223,8 @@ div.csl-indent {
   <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
   <li><a href="#exploratory-analysis" id="toc-exploratory-analysis" class="nav-link" data-scroll-target="#exploratory-analysis">Exploratory Analysis</a></li>
   <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis">Analysis</a></li>
-  <li><a href="#decomposition" id="toc-decomposition" class="nav-link" data-scroll-target="#decomposition">Decomposition</a></li>
-  <li><a href="#takeaways" id="toc-takeaways" class="nav-link" data-scroll-target="#takeaways">Takeaways</a></li>
+  <li><a href="#time-series" id="toc-time-series" class="nav-link" data-scroll-target="#time-series">Time Series</a></li>
+  <li><a href="#considerations" id="toc-considerations" class="nav-link" data-scroll-target="#considerations">Considerations</a></li>
   </ul>
 </nav>
     </div>
@@ -236,10 +236,10 @@ div.csl-indent {
 
 <section id="background" class="level2">
 <h2 class="anchored" data-anchor-id="background">Background</h2>
-<p>Soil is all around us. Underneath our homes, creating landscapes and environments we like to recreate in and also a vital carbon sink. Soil, and especially permafrost soils, play a key role in storing greenhouse gases and releasing greenhouse gases as they warm. A permafrost soil is defined as a frozen soil that is at or below zero degrees celcius, and has been for at least two years <span class="citation" data-cites="nationalsnowandicedatacenter">(<a href="#ref-nationalsnowandicedatacenter" role="doc-biblioref">Snow and Ice Data Center, n.d.</a>)</span>. Climate change and climate change modeling varies widely on predicting the fate and impacts of permafrost soils <span class="citation" data-cites="zhu2019">(<a href="#ref-zhu2019" role="doc-biblioref">Zhu et al. 2019</a>)</span>, but what are some of the main drivers behind permafrost melt?</p>
+<p>Soil is all around us. Underneath our homes, creating landscapes and environments we like to recreate in and also a vital carbon sink. Soil, and especially permafrost soils, play a key role in storing greenhouse gases and releasing greenhouse gases as they warm. A permafrost soil is defined as a frozen soil that is at or below zero degrees Celcius, and has been for at least two years <span class="citation" data-cites="nationalsnowandicedatacenter">(<a href="#ref-nationalsnowandicedatacenter" role="doc-biblioref">Snow and Ice Data Center, n.d.</a>)</span>. Climate change and climate change modeling varies widely on predicting the fate and impacts of permafrost soils <span class="citation" data-cites="zhu2019">(<a href="#ref-zhu2019" role="doc-biblioref">Zhu et al. 2019</a>)</span>, but what are some of the main drivers behind permafrost melt?</p>
 <p>Ultimately, the main driver behind permafrost melt is temperature. And the obvious thought is of course a warmer temperature will lead to warmer soil temperatures which will ultimately warm permafrost soils to the point where they are no longer frozen. As a broad overview this thought process works, however there are other drivers that determine soil temperature. Soil properties such as soil organic carbon, soil texture, bulk density, and soil moisture all impact how soils respond to temperature. However, it has been shown that soil organic carbon can be the dominant determinant of soil temperature in permafrost soils <span class="citation" data-cites="zhu2019">(<a href="#ref-zhu2019" role="doc-biblioref">Zhu et al. 2019</a>)</span>. One way soils build up soil organic carbon is through the deposition of black carbon <span class="citation" data-cites="kopecký2021">(<a href="#ref-kopecký2021" role="doc-biblioref">Kopecký et al. 2021</a>)</span>.</p>
-<p>Black carbon is predominantly present as products of incomplete combustion <span class="citation" data-cites="environmentalprotectionagency2016">(<a href="#ref-environmentalprotectionagency2016" role="doc-biblioref">Environmental Protection Agency 2016</a>)</span> . By incomplete combustion I am referring to soot from wildfires, fossil fuels, and biofuels. As temperature regimes continue to change globally the cadence of black carbon from wildfires will also shift.</p>
-<p>Therefore a question that comes to mind with these findings are if air temperature and black carbon levels both affect soil temperature can they predict soil temperature and in the process are air temperature and black carbon interacting with each other?</p>
+<p>Black carbon is predominantly present as products of incomplete combustion <span class="citation" data-cites="environmentalprotectionagency2016">(<a href="#ref-environmentalprotectionagency2016" role="doc-biblioref">Environmental Protection Agency 2016</a>)</span> . By incomplete combustion we are talking about soot from wildfires, fossil fuels, and biofuels. As temperature regimes continue to change globally the cadence of black carbon from inputs like wildfires can also be expected to shift.</p>
+<p>Therefore a question that comes to mind with these findings are if air temperature and black carbon levels both affect soil temperature, can they predict soil temperature and in the process is air temperature and black carbon interacting with each other?</p>
 <p>To explore this question further data from Toolik Field Station, AK will be explored. The Toolik Field Station is a research station operated and managed by the Institute of Arctic Biology at the University of Alaska Fairbanks with cooperative agreement support from the Division of Polar Programs, Directorate for Geosciences at the National Science Foundation (NSF).</p>
 </section>
 <section id="data" class="level2">
@@ -260,7 +260,7 @@ div.csl-indent {
 </details>
 </div>
 <p><u>Soil Temperature</u></p>
-<p>Soil Temperature data was accessed from the publicly available Meteorological Data Query from Lake Toolik Field Station <span class="citation" data-cites="environmentaldatacenterteam">(<a href="#ref-environmentaldatacenterteam" role="doc-biblioref"><strong>environmentaldatacenterteam?</strong></a>)</span>. The soil temperature marker utilized for this analysis was the soil temperature for the first 150 cm of the soil profile from 2019 to 2022. All measurements were measured in degrees celcius, and recorded every three hours. For this analysis measurements recorded at the 300 hour mark each week were utilized.</p>
+<p>Soil Temperature data was accessed from the publicly available Meteorological Data Query from Lake Toolik Field Station <span class="citation" data-cites="environmentaldatacenterteam">(<a href="#ref-environmentaldatacenterteam" role="doc-biblioref"><strong>environmentaldatacenterteam?</strong></a>)</span>. The soil temperature marker utilized for this analysis was the soil temperature for the first 150 centimeters of the soil profile from 2019 to 2022. All measurements were measured in degrees Celcius, and recorded every three hours. For this analysis measurements recorded at the 300 hour mark each week were utilized.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -403,12 +403,38 @@ div.csl-indent {
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># run linear regression on soil temp using air temp and black carbon as well as an interaction between black carbon and air temperature</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>permafrost_mod_3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(soil_temp <span class="sc">~</span> air_temp <span class="sc">+</span> log_b_c <span class="sc">+</span> air_temp<span class="sc">:</span>log_b_c, <span class="at">data =</span> full)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>permafrost_mod_3_summ <span class="ot">&lt;-</span> <span class="fu">summary</span>(permafrost_mod_3)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># create a table with results displayed from interaction model</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>permafrost_table <span class="ot">&lt;-</span> permafrost_mod_3 <span class="sc">%&gt;%</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_model</span>()</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>permafrost_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>permafrost_mod_3_summ</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = soil_temp ~ air_temp + log_b_c + air_temp:log_b_c, 
+    data = full)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-6.2092 -1.3802  0.6891  1.7519  3.4620 
+
+Coefficients:
+                 Estimate Std. Error t value Pr(&gt;|t|)  
+(Intercept)      -0.81977    0.39735  -2.063   0.0409 *
+air_temp          0.05655    0.03202   1.766   0.0794 .
+log_b_c          -0.35923    0.17002  -2.113   0.0363 *
+air_temp:log_b_c  0.01049    0.01327   0.791   0.4303  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 2.31 on 146 degrees of freedom
+Multiple R-squared:  0.1956,    Adjusted R-squared:  0.1791 
+F-statistic: 11.83 on 3 and 146 DF,  p-value: 5.529e-07</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a table with results displayed from interaction model</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>permafrost_table <span class="ot">&lt;-</span> permafrost_mod_3 <span class="sc">%&gt;%</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_model</span>()</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>permafrost_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <table data-quarto-postprocess="true" class="table table-sm table-striped small">
@@ -462,32 +488,74 @@ div.csl-indent {
 </div>
 </div>
 <p>The interaction model is able to provide this analysis with some guiding results through hypothesis testing. Our interaction model provides us with three hypotheses:</p>
-<p>Hypothesis 1:</p>
-<p><span class="math display">\[H_{0}:\]</span> There is no effect of air temperature on soil temperature. <span class="math display">\[H_{A}:\]</span> There is an effect of air temperature on soil temperature.</p>
-<ul>
-<li>significant at 5%</li>
-</ul>
-<p>Hypothesis Testing 2:</p>
+<p><u>Hypothesis 1</u></p>
+<p><span class="math display">\[H_{0}:\]</span> “There is no effect of air temperature on soil temperature.” <span class="math display">\[H_{A}:\]</span> “There is an effect of air temperature on soil temperature.”</p>
+<p>Our first null hypothesis is that there is no effect of air temperature in degrees Celcius on soil temperature in degrees Celcius. The alternative hypothesis being that there is an affect of air temperature in degrees Celcius on soil temperature in degrees Celcius. We find a statistically significant effect whereby increases in air temperature degrees Celcius increase soil temperature in degrees Celcius holding black carbon fixed. We estimate that a 1 degrees Celcius increase in air temperature increases soil temperature by 0.06 (±.03, p=.07) degrees Celcius. Therefore we reject the null hypothesis that air temperature does not have an affect on soil temperature (at a significance level of 0.05).</p>
+<p><u>Hypothesis 2</u></p>
 <p><span class="math display">\[H_{0}:\]</span> There is no effect of black carbon on soil temperature. <span class="math display">\[H_{A}:\]</span> There is an effect of black carbon on soil temperature.</p>
-<ul>
-<li>significant at 10% level</li>
-</ul>
-<p>Hypothesis Testing 3:</p>
-<p><span class="math display">\[H_{0}:\]</span> there is no effects of air temperature that differs by blackcarbon levels on soil temperature <span class="math display">\[H_{A}:\]</span> There is an effect of air temperature and black carbon on soil temperature.</p>
-<ul>
-<li>not significant</li>
-</ul>
-<p>Interpretations :</p>
-<p><span class="math display">\[\beta_{0}\]</span> = When air temperature is 0 degrees Celcius and the black carbon level is 0 the predicted soil temperature is -1.74 degrees Celsius.</p>
-<p><span class="math display">\[\beta_{1}\]</span> = There is a 0.06 predicted increase in soil temperature in degrees Celsius for every 1 degress celsius increase in air temperature holding black carbon fixed</p>
-<p><span class="math display">\[\beta_{2}\]</span> = There is a 1 percent decrease predicted in soil temperature in degrees Celsius for every 0.0034 ppm increase in black carbon holding air temperature fixed.</p>
-<p>0.06&gt;0.0034 so black carbon is less significant than temperature</p>
+<p>Our second null hypothesis is that there is no effect of black carbon in ug/m3 on soil temperature in degrees Celcius. The alternative hypothesis being that there is an effect of black carbon in ug/m3 on soil temperature in degrees Celcius. We find a statistically significant effect whereby increases in air temperature degrees Celcius increase soil temperature in degrees Celcius holding air temperature in degrees Celcius fixed. We estimate that a 1 percent increase in black carbon in ug/m3 will decrease soil temperature by 0.0036 (±.17, p=.03) degrees Celcius.Therefore we reject the null hypothesis that black carbon does not have an affect on soil temperature (at a significance level of 0.01).</p>
+<p><u>Hypothesis 3</u></p>
+<p><span class="math display">\[H_{0}:\]</span> there is no effect of air temperature that differs by black carbon levels on soil temperature <span class="math display">\[H_{A}:\]</span> There is an effect of air temperature that differs by black carbon levels on soil temperature.</p>
+<p>We do not find a statistically significant effect whereby the impact of air temperature differs for levels of black carbon present on soil temperature.</p>
+<p>The adjusted R2 values also increased slightly (from 0.173 to 0.179) when adding the interaction model. This demonstrates that the interaction model just slightly increases model fit.</p>
+<p>However, this adjusted R2 value also indicates that only about 17% of the variability in soil temperature is explained by the model. With this information, we can hypothesize that there are other factors that affect soil temperature not included within this model.</p>
 </section>
-<section id="decomposition" class="level2">
-<h2 class="anchored" data-anchor-id="decomposition">Decomposition</h2>
+<section id="time-series" class="level2">
+<h2 class="anchored" data-anchor-id="time-series">Time Series</h2>
+<p>An additional consideration to take into account is that we know temperature experiences seasonality, but does black carbon also exhibit a seasonal component which could be impacting our model fit? To better understand this question we can look at seasonal and trend decomposition using Loess.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># turn permafrost df into tsibble for decompostion</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>permafrost <span class="ot">&lt;-</span> <span class="fu">as_tsibble</span>(full) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fill_gaps</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using `date` as index variable.</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># filter dataset to 2019-2021</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>permafrost_2020 <span class="ot">&lt;-</span> permafrost <span class="sc">%&gt;%</span> </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">between</span>(date, <span class="fu">as.Date</span>(<span class="st">'2019-12-29'</span>), <span class="fu">as.Date</span>(<span class="st">'2021-01-03'</span>)))</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"># graph the time series </span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>permafrost_2 <span class="ot">&lt;-</span> permafrost_2020 <span class="sc">%&gt;%</span> </span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">date =</span> <span class="fu">date</span>(date)) <span class="sc">%&gt;%</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> log_b_c)) <span class="sc">+</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">'Date'</span>, <span class="at">y =</span> <span class="st">'black carbon (ug/m3)'</span>, <span class="at">title =</span> <span class="st">'Time Series of Black Carbon Levels from 2019 to 2021'</span>) <span class="sc">+</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_linedraw</span>()</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>permafrost_2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># run decomposition model </span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>permafrost_3 <span class="ot">&lt;-</span> permafrost_2020 <span class="sc">%&gt;%</span> </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">model</span>(<span class="fu">STL</span>(log_b_c)) <span class="sc">%&gt;%</span> </span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">components</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"STL Decomposition Model"</span>)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co"># show decomposition model</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>permafrost_3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
 </section>
-<section id="takeaways" class="level2">
-<h2 class="anchored" data-anchor-id="takeaways">Takeaways</h2>
+<section id="considerations" class="level2">
+<h2 class="anchored" data-anchor-id="considerations">Considerations</h2>
+<p>With this initial analysis we can conclude that air temperature and black carbon do have an effect on soil temperature. However, we can also see that their are factors that we have not addressed in this model to account for more of the variation in soil temperature.</p>
+<p>Additional research and analysis should be done surrounding this topic. This analysis is spatially limited to Toolik Field Station in Alaska. This analysis could be extended to a larger geographic area of permafrost coverage. Additionally, this analysis would benefit from additional data. Toolik Field Station has data on air temperature and soil temperature since 1988. However, the purple sensor which is able to record the black carbon levels, was installed in 2019. Thus, as black carbon is the main interest for my question I think it would benefit from additional time. This could also allow for a next step to be a time series analysis.</p>
+<p>Further investigation into this topic could include</p>
 <p>To see the full repository, check out the project on <a href="https://github.com/mwidas/permafrost-black-carbon">Github</a></p>
 
 
