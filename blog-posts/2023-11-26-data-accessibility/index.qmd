@@ -1,6 +1,6 @@
 ---
-title: "Data Accessibility"
-description: "Examining ways data scientists can create data that is more widely accessable"
+title: "Data Visualization Accessibility"
+description: "Examining ways data scientists can create data visualizations that are more widely accessable"
 author:
   - name: Melissa Widas
     url: https://mwidas.github.io
@@ -23,19 +23,19 @@ image: data_accessibility.png
 draft: false
 ---
 
-# Data Visualization Accessibility for Disabilities: Guide and why Environmental Data Scientists should care
-
 ## Background
 
 The topic I would like to focus on for this blog post centers around data justice and data accessibility to individuals that have disabilities and how our visualizations and presentation of data matter.
 
-One of the key roles that data science plays is in the effective communication of data. Data visualizations are the main vehicle that allows data scientists to effectively convey findings and reach a broader audience. A data visualization is "the representation of data through use of common graphics" [@ibm]. However, in order to promote equitable access to data and its findings it is important to consider that not all people are able to process data the same way. In the United States alone it is estimated that roughly twenty-five percent of the adult population has some sort of disability [@kahn2023]. Disabilities can range from cognitive, auditory, visual, and other levels of ability. And each of these disabilities can affect how someone is able to intake data and data visualizations.
+One of the key roles that data science plays is in the effective communication of data. Data visualizations are the main vehicle that allows data scientists to effectively convey findings and reach a broader audience. A data visualization is "the representation of data through use of common graphics" [@ibm]. However, in order to promote equitable access to data and its findings it is important to consider that not all people are able to process data the same way. In the United States alone it is estimated that roughly twenty-five percent of the adult population has some sort of disability [@kahn2023]. Disabilities can range from cognitive, auditory, visual, and other levels of ability. Each of these disabilities can affect how someone is able to intake data and interpret data visualizations.
 
 [![](disability.png){fig-alt="Figure showing illustrations of temporary, and permanent disabilities"}](https://inclusive.microsoft.design/)
 
-The following blog post aims to explore barriers for disabled persons to data access and actions data scientists can take in order to maintain data justice through data access and accessibility for all.
+The following blog post aims to explore barriers for disabled persons to data access and actions data scientists can take in order to maintain data justice through accessible data access and scientific communication.
 
-The main disabilities I will be exploring in the following sections are cognitive, and visual. The following data visualization made from the `PalmerPenguin` package will be edited as well throughout this blog post showing and utilizing tools mentioned to increase the accessibility of this visualization.
+The main disabilities I will be exploring in the following sections are cognitive, and visual.
+
+The following data visualization made from the `PalmerPenguin` package will be edited as well throughout this blog post highlighting tools mentioned to increase the accessibility of this visualization.
 
 ```{r, message=FALSE, warning=FALSE, echo=FALSE}
 library(tidyverse)

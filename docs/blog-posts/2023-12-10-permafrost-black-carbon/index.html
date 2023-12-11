@@ -222,7 +222,7 @@ div.csl-indent {
   <li><a href="#background" id="toc-background" class="nav-link active" data-scroll-target="#background">Background</a></li>
   <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
   <li><a href="#exploratory-analysis" id="toc-exploratory-analysis" class="nav-link" data-scroll-target="#exploratory-analysis">Exploratory Analysis</a></li>
-  <li><a href="#linear-regression-and-hypothesis-testing" id="toc-linear-regression-and-hypothesis-testing" class="nav-link" data-scroll-target="#linear-regression-and-hypothesis-testing">Linear Regression and Hypothesis Testing</a></li>
+  <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis">Analysis</a></li>
   <li><a href="#decomposition" id="toc-decomposition" class="nav-link" data-scroll-target="#decomposition">Decomposition</a></li>
   <li><a href="#takeaways" id="toc-takeaways" class="nav-link" data-scroll-target="#takeaways">Takeaways</a></li>
   </ul>
@@ -238,7 +238,7 @@ div.csl-indent {
 <h2 class="anchored" data-anchor-id="background">Background</h2>
 <p>Soil is all around us. Underneath our homes, creating landscapes and environments we like to recreate in and also a vital carbon sink. Soil, and especially permafrost soils, play a key role in storing greenhouse gases and releasing greenhouse gases as they warm. A permafrost soil is defined as a frozen soil that is at or below zero degrees celcius, and has been for at least two years <span class="citation" data-cites="nationalsnowandicedatacenter">(<a href="#ref-nationalsnowandicedatacenter" role="doc-biblioref">Snow and Ice Data Center, n.d.</a>)</span>. Climate change and climate change modeling varies widely on predicting the fate and impacts of permafrost soils <span class="citation" data-cites="zhu2019">(<a href="#ref-zhu2019" role="doc-biblioref">Zhu et al. 2019</a>)</span>, but what are some of the main drivers behind permafrost melt?</p>
 <p>Ultimately, the main driver behind permafrost melt is temperature. And the obvious thought is of course a warmer temperature will lead to warmer soil temperatures which will ultimately warm permafrost soils to the point where they are no longer frozen. As a broad overview this thought process works, however there are other drivers that determine soil temperature. Soil properties such as soil organic carbon, soil texture, bulk density, and soil moisture all impact how soils respond to temperature. However, it has been shown that soil organic carbon can be the dominant determinant of soil temperature in permafrost soils <span class="citation" data-cites="zhu2019">(<a href="#ref-zhu2019" role="doc-biblioref">Zhu et al. 2019</a>)</span>. One way soils build up soil organic carbon is through the deposition of black carbon <span class="citation" data-cites="kopecký2021">(<a href="#ref-kopecký2021" role="doc-biblioref">Kopecký et al. 2021</a>)</span>.</p>
-<p>Black carbon is predominantly present as products of incomplete combustion <span class="citation" data-cites="environmentalprotectionagency2016">(<a href="#ref-environmentalprotectionagency2016" role="doc-biblioref">Environmental Protection Agency 2016</a>)</span> . By incomplete combustion I am referring to soot from wildfires, fossil fuels, and biofuels.</p>
+<p>Black carbon is predominantly present as products of incomplete combustion <span class="citation" data-cites="environmentalprotectionagency2016">(<a href="#ref-environmentalprotectionagency2016" role="doc-biblioref">Environmental Protection Agency 2016</a>)</span> . By incomplete combustion I am referring to soot from wildfires, fossil fuels, and biofuels. As temperature regimes continue to change globally the cadence of black carbon from wildfires will also shift.</p>
 <p>Therefore a question that comes to mind with these findings are if air temperature and black carbon levels both affect soil temperature can they predict soil temperature and in the process are air temperature and black carbon interacting with each other?</p>
 <p>To explore this question further data from Toolik Field Station, AK will be explored. The Toolik Field Station is a research station operated and managed by the Institute of Arctic Biology at the University of Alaska Fairbanks with cooperative agreement support from the Division of Polar Programs, Directorate for Geosciences at the National Science Foundation (NSF).</p>
 </section>
@@ -260,7 +260,7 @@ div.csl-indent {
 </details>
 </div>
 <p><u>Soil Temperature</u></p>
-<p>Soil Temperature data was accessed from the publicly available Meteorological Data Query from Lake Toolik Field Station. The soil temperature marker utilized for this analysis was the soil temperature for the first 150 cm of the soil profile.</p>
+<p>Soil Temperature data was accessed from the publicly available Meteorological Data Query from Lake Toolik Field Station <span class="citation" data-cites="environmentaldatacenterteam">(<a href="#ref-environmentaldatacenterteam" role="doc-biblioref"><strong>environmentaldatacenterteam?</strong></a>)</span>. The soil temperature marker utilized for this analysis was the soil temperature for the first 150 cm of the soil profile from 2019 to 2022. All measurements were measured in degrees celcius, and recorded every three hours. For this analysis measurements recorded at the 300 hour mark each week were utilized.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -278,7 +278,7 @@ div.csl-indent {
 </details>
 </div>
 <p><u>Air Temperature</u></p>
-<p>Air Temperature data was accessed from the publicly available Meteorological Data Query from Lake Toolik Field Station.</p>
+<p>Air Temperature data was accessed from the publicly available Meteorological Data Query from Lake Toolik Field Station <span class="citation" data-cites="environmentaldatacenterteam">(<a href="#ref-environmentaldatacenterteam" role="doc-biblioref"><strong>environmentaldatacenterteam?</strong></a>)</span>. The air temperature used in this analysis was the air temperature max recorded for each period of one week from 2019 to 2022.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -292,7 +292,7 @@ div.csl-indent {
 </details>
 </div>
 <p><u>Black Carbon</u></p>
-<p>Black Carbon data was accessed from a citizen science</p>
+<p>Black Carbon data was accessed from a Purple Air Sensor. The <a href="https://map.purpleair.com/1/mAQI/a10080/p604800/cC0?inc=698715#11/68.6276/-149.5947">Purple Air Sensor</a> was installed in 2019 in collaboration with the Atmospheric Chemistry and Climate Lab at the University of Alaska Fairbanks run by Dr.&nbsp;Jingqiu Mao. To quantify black carbon Particulate Matter 2.5 ug/m3 was used. These data are recorded weekly.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -331,6 +331,7 @@ div.csl-indent {
 </section>
 <section id="exploratory-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="exploratory-analysis">Exploratory Analysis</h2>
+<p>The following figures show the shape and distribution of these data and help to determine that a linear regression is appropriate.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -339,7 +340,7 @@ div.csl-indent {
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> lm) <span class="sc">+</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Air Temperature Degrees Celcius"</span>, <span class="at">y =</span> <span class="st">"Soil Temperature Degrees Celcius"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Air Temperature degrees Celcius"</span>, <span class="at">y =</span> <span class="st">"Soil Temperature degrees Celcius"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
@@ -353,7 +354,7 @@ div.csl-indent {
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> lm) <span class="sc">+</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"PM2.5 (ppm)"</span>, <span class="at">y =</span> <span class="st">"Soil Temperature Degrees Celcius"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"PM2.5 (ug/m3)"</span>, <span class="at">y =</span> <span class="st">"Soil Temperature degrees Celcius"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
@@ -361,12 +362,13 @@ div.csl-indent {
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># clustering of data, use a histogram to examine the distribution</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(full<span class="sc">$</span>b_c, <span class="at">xlab =</span> <span class="st">'PM2.5 (ppm)'</span>, <span class="at">main =</span> <span class="st">'Distribution of Black Carbon levels'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(full<span class="sc">$</span>b_c, <span class="at">xlab =</span> <span class="st">'PM2.5 (ug/m3)'</span>, <span class="at">main =</span> <span class="st">'Distribution of Black Carbon levels'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-7-2.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<p>However, something to note is that our black carbon data is not distributed normally which could lead to bias in our results. A log transformation will be applied to correct for this skewed distribution. After the log transformation is applies to black carbon our distribution is more normally distributed.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -375,7 +377,7 @@ div.csl-indent {
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> lm) <span class="sc">+</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"PM2.5 (ppm)"</span>, <span class="at">y =</span> <span class="st">"Soil Temperature Degrees Celcius"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"PM2.5 (ug/m3)"</span>, <span class="at">y =</span> <span class="st">"Soil Temperature degrees Celcius"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
@@ -383,59 +385,30 @@ div.csl-indent {
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># examine distribution of log transformed black carbon levels</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(full<span class="sc">$</span>log_b_c, <span class="at">xlab =</span> <span class="st">'log(PM2.5) (ppm)'</span>, <span class="at">main =</span> <span class="st">'Distribution of Black Carbon levels'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(full<span class="sc">$</span>log_b_c, <span class="at">xlab =</span> <span class="st">'log(PM2.5) (ug/m3)'</span>, <span class="at">main =</span> <span class="st">'Distribution of Black Carbon levels'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-8-2.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
-<section id="linear-regression-and-hypothesis-testing" class="level2">
-<h2 class="anchored" data-anchor-id="linear-regression-and-hypothesis-testing">Linear Regression and Hypothesis Testing</h2>
-<p>The additive linear equation model is: <span class="math display">\[ soiltemp_i=\beta_{0}+\beta_{1} \cdot airtemp_i + \beta_{2} \cdot log(black carbon)_i + \varepsilon_i \]</span></p>
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># run linear regression on soil temp using air temp and black carbon as predictors</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>permafrost_mod_2 <span class="ot">&lt;-</span> <span class="fu">summary</span>(<span class="fu">lm</span>(soil_temp <span class="sc">~</span> air_temp <span class="sc">+</span> log_b_c, <span class="at">data =</span> full))</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(permafrost_mod_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = soil_temp ~ air_temp + log_b_c, data = full)
-
-Residuals:
-    Min      1Q  Median      3Q     Max 
--6.2638 -1.5051  0.6854  1.7487  3.5257 
-
-Coefficients:
-            Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept) -0.90993    0.38016  -2.394   0.0179 *  
-air_temp     0.07944    0.01369   5.804 3.84e-08 ***
-log_b_c     -0.30360    0.15458  -1.964   0.0514 .  
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 2.307 on 147 degrees of freedom
-Multiple R-squared:  0.1922,    Adjusted R-squared:  0.1812 
-F-statistic: 17.48 on 2 and 147 DF,  p-value: 1.542e-07</code></pre>
-</div>
-</div>
-<p>The interaction equation model is:</p>
+<section id="analysis" class="level2">
+<h2 class="anchored" data-anchor-id="analysis">Analysis</h2>
+<p>A multi-linear regression model will allow us to answer our question. To explore if black carbon and air temperature affect soil temperature and if black carbon and air temperature have an effect on each other, I used the following interaction model equation:</p>
 <p><span class="math display">\[ soiltemp_i=\beta_{0}+\beta_{1} \cdot airtemp_i + \beta_{2} \cdot log(black carbon)_i + \beta_{3} \cdot airtemp_i \cdot log(blackcarbon)_i + \varepsilon_i \]</span></p>
+<p>which resulted in the following inferences:</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># run linear regression on soil temp using air temp and black carbon as well as an interaction between black carbon and air temperature</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>permafrost_mod_3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(soil_temp <span class="sc">~</span> air_temp <span class="sc">+</span> log_b_c <span class="sc">+</span> air_temp<span class="sc">:</span>log_b_c, <span class="at">data =</span> full)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>permafrost_mod_3_summ <span class="ot">&lt;-</span> <span class="fu">summary</span>(permafrost_mod_3)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co"># create a table with results displayed from interaction model</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>permafrost_table <span class="ot">&lt;-</span> permafrost_mod_3 <span class="sc">%&gt;%</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_model</span>()</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>permafrost_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># run linear regression on soil temp using air temp and black carbon as well as an interaction between black carbon and air temperature</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>permafrost_mod_3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(soil_temp <span class="sc">~</span> air_temp <span class="sc">+</span> log_b_c <span class="sc">+</span> air_temp<span class="sc">:</span>log_b_c, <span class="at">data =</span> full)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>permafrost_mod_3_summ <span class="ot">&lt;-</span> <span class="fu">summary</span>(permafrost_mod_3)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># create a table with results displayed from interaction model</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>permafrost_table <span class="ot">&lt;-</span> permafrost_mod_3 <span class="sc">%&gt;%</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_model</span>()</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>permafrost_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <table data-quarto-postprocess="true" class="table table-sm table-striped small">
@@ -488,18 +461,40 @@ F-statistic: 17.48 on 2 and 147 DF,  p-value: 1.542e-07</code></pre>
 
 </div>
 </div>
+<p>The interaction model is able to provide this analysis with some guiding results through hypothesis testing. Our interaction model provides us with three hypotheses:</p>
+<p>Hypothesis 1:</p>
+<p><span class="math display">\[H_{0}:\]</span> There is no effect of air temperature on soil temperature. <span class="math display">\[H_{A}:\]</span> There is an effect of air temperature on soil temperature.</p>
+<ul>
+<li>significant at 5%</li>
+</ul>
+<p>Hypothesis Testing 2:</p>
+<p><span class="math display">\[H_{0}:\]</span> There is no effect of black carbon on soil temperature. <span class="math display">\[H_{A}:\]</span> There is an effect of black carbon on soil temperature.</p>
+<ul>
+<li>significant at 10% level</li>
+</ul>
+<p>Hypothesis Testing 3:</p>
+<p><span class="math display">\[H_{0}:\]</span> there is no effects of air temperature that differs by blackcarbon levels on soil temperature <span class="math display">\[H_{A}:\]</span> There is an effect of air temperature and black carbon on soil temperature.</p>
+<ul>
+<li>not significant</li>
+</ul>
+<p>Interpretations :</p>
+<p><span class="math display">\[\beta_{0}\]</span> = When air temperature is 0 degrees Celcius and the black carbon level is 0 the predicted soil temperature is -1.74 degrees Celsius.</p>
+<p><span class="math display">\[\beta_{1}\]</span> = There is a 0.06 predicted increase in soil temperature in degrees Celsius for every 1 degress celsius increase in air temperature holding black carbon fixed</p>
+<p><span class="math display">\[\beta_{2}\]</span> = There is a 1 percent decrease predicted in soil temperature in degrees Celsius for every 0.0034 ppm increase in black carbon holding air temperature fixed.</p>
+<p>0.06&gt;0.0034 so black carbon is less significant than temperature</p>
 </section>
 <section id="decomposition" class="level2">
 <h2 class="anchored" data-anchor-id="decomposition">Decomposition</h2>
 </section>
 <section id="takeaways" class="level2">
-
+<h2 class="anchored" data-anchor-id="takeaways">Takeaways</h2>
+<p>To see the full repository, check out the project on <a href="https://github.com/mwidas/permafrost-black-carbon">Github</a></p>
 
 
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">Takeaways</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-environmentalprotectionagency2016" class="csl-entry" role="listitem">
 Environmental Protection Agency. 2016. <span>“Methane and Black Carbon Impacts on the Arctic: Communicating the Science.”</span> <a href="https://19january2017snapshot.epa.gov/sites/production/files/2016-09/documents/arctic-methane-blackcarbon_communicating-the-science.pdf">https://19january2017snapshot.epa.gov/sites/production/files/2016-09/documents/arctic-methane-blackcarbon_communicating-the-science.pdf</a>.
 </div>
