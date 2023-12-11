@@ -196,7 +196,7 @@ Our second null hypothesis is that there is no effect of black carbon in ug/m3 o
 
 $$H_{0}:$$ there is no effect of air temperature that differs by black carbon levels on soil temperature $$H_{A}:$$ There is an effect of air temperature that differs by black carbon levels on soil temperature.
 
-We do not find a statistically significant effect whereby the impact of air temperature differs for levels of black carbon present on soil temperature. 
+We do not find a statistically significant effect whereby the impact of air temperature differs for levels of black carbon present on soil temperature.
 
 The adjusted R2 values also increased slightly (from 0.173 to 0.179) when adding the interaction model. This demonstrates that the interaction model just slightly increases model fit.
 
@@ -204,7 +204,7 @@ However, this adjusted R2 value also indicates that only about 17% of the variab
 
 ## Time Series
 
-An additional consideration to take into account is that we know temperature experiences seasonality, but does black carbon also exhibit a seasonal component which could be impacting our model fit? To better understand this question we can look at seasonal and trend decomposition using Loess. 
+An additional consideration to take into account is that we know temperature experiences seasonality, but does black carbon also exhibit a seasonal component which could be impacting our model fit? To better understand this question we can look at seasonal and trend decomposition using Loess.
 
 ```{r}
 # turn permafrost df into tsibble for decompostion
@@ -225,6 +225,7 @@ permafrost_2 <- permafrost_2020 %>%
 
 permafrost_2
 ```
+
 ```{r}
 # run decomposition model 
 permafrost_3 <- permafrost_2020 %>% 
@@ -237,13 +238,12 @@ permafrost_3 <- permafrost_2020 %>%
 permafrost_3
 ```
 
-
 ## Considerations
 
-With this initial analysis we can conclude that air temperature and black carbon do have an effect on soil temperature. However, we can also see that their are factors that we have not addressed in this model to account for more of the variation in soil temperature. 
+With this initial analysis we can conclude that air temperature and black carbon do have an effect on soil temperature. However, we can also see that their are factors that we have not addressed in this model to account for more of the variation in soil temperature.
 
-Additional research and analysis should be done surrounding this topic. This analysis is spatially limited to Toolik Field Station in Alaska. This analysis could be extended to a larger geographic area of permafrost coverage. Additionally, this analysis would benefit from additional data. Toolik Field Station has data on air temperature and soil temperature since 1988. However,  the purple sensor which is able to record the black carbon levels, was installed in 2019. Thus, as black carbon is the main interest for my question I think it would benefit from additional time. This could also allow for a next step to be a time series analysis. 
+Additional research and analysis should be done surrounding this topic. This analysis is spatially limited to Toolik Field Station in Alaska. This analysis could be extended to a larger geographic area of permafrost coverage. Additionally, this analysis would benefit from additional data. Toolik Field Station has data on air temperature and soil temperature since 1988. However, the purple sensor which is able to record the black carbon levels, was installed in 2019. Thus, as black carbon is the main interest for my question I think it would benefit from additional time. This could also allow for a next step to be a time series analysis.
 
-Further investigation into this topic could include 
+Further investigation into this topic could include
 
 To see the full repository, check out the project on [Github](https://github.com/mwidas/permafrost-black-carbon)

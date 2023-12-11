@@ -41,6 +41,7 @@ Analysis will be based on remotely-sensed night lights data, acquired from the [
 This section illustrates the code utilized to explore the effects of the storms.
 
 ```{r message= FALSE, warning= FALSE, message=FALSE, results='hide'}
+# import necessary libraries to perform analysis
 library(tidyverse)
 library(sf)
 library(stars)
@@ -62,7 +63,7 @@ For our raster data we used NASA's Worldview data for February 7, 2021 (before t
 
 VIIRS data is distributed through NASA's [Level-1 and Atmospheric Archive & Distribution System Distributed Active Archive Center (LAADS DAAC)](https://ladsweb.modaps.eosdis.nasa.gov/). Data was downloaded and prepped in advance and stored in the `.gitignore`.
 
-```{r warning= FALSE, message=FALSE, results='hide'}
+```{r warning= FALSE, message=FALSE}
 # read in night lights tiles
 night1 <- read_stars('data/VNP46A1/VNP46A1.A2021038.h08v05.001.2021039064328.tif')
 night2 <- read_stars('data/VNP46A1/VNP46A1.A2021038.h08v06.001.2021039064329.tif')
@@ -104,7 +105,7 @@ residential_reproj <- st_transform(residential, crs = 3083)
 
 For the final data set utilized, data from the [U.S. Census Bureau's American Community Survey](https://www.census.gov/programs-surveys/acs) for census tracts in 2019 from an ArcGIS file geodatabase was accessed. The metadata for each layer is available at [ACS metadata](https://www2.census.gov/geo/docs/maps-data/data/tiger/prejoined/ACSMetadata2011.txt).
 
-```{r warning= FALSE, message=FALSE, results='hide'}
+```{r, warning= FALSE, message=FALSE}
 # load data that contains census tract geometries
 texas_census <- st_read("data/ACS_2019_5YR_TRACT_48_TEXAS.gdb", layer =  "ACS_2019_5YR_TRACT_48_TEXAS")
 
@@ -119,12 +120,9 @@ texas_income <- st_read("data/ACS_2019_5YR_TRACT_48_TEXAS.gdb", layer =  "X19_IN
 
 To find the change in night lights intensity (presumably) caused by the storm we will create a blackout mask. In order to do this we will be reclassifying the difference between the two rasters. We will be classifying any location that experienced a drop of more than 200 nW cm^-2^sr^-1^ experienced a blackout, and any location less than this will be classified to a `NA`\
 
-```{r warning= FALSE, message=FALSE, results='hide'}
+```{r warning= FALSE, message=FALSE}
 # find the change in night light intensity between the two dates 
 light_difference <- night_07-night_16
-
-# check class of difference data created 
-class(light_difference)
 
 # reclassifying raster to show blackouts above 200, and label areas that experienced an outage outage, and that didn't NA
 light_difference_outage <- cut(light_difference, c(200, Inf), labels = 'outage')
@@ -132,18 +130,15 @@ light_difference_outage <- cut(light_difference, c(200, Inf), labels = 'outage')
 
 The blackout mask will then be vectorized and fixed for any invalid geometries.\
 
-```{r warning= FALSE, message=FALSE, results='hide'}
+```{r warning= FALSE, message=FALSE}
 # vectorize the blackout mask to make this a spatial feature
 blackouts <- st_as_sf(light_difference_outage) %>% 
   st_make_valid()
-
-# represents outages in houston above 200
-plot(blackouts, main = "Houston, TX Metropolitan Areas that Experienced a Blackout")
 ```
 
 The vectorized mask was then cropped to our region of interest of Houston, TX with the following coordinates being utilized: (-96.5, 29), (-96.5, 30.5), (-94.5, 30.5), (-94.5, 29). The blackout mask was then cropped to the size of Houston , TX and ultimately reprojected to EPSG:3083. The EPSG:3083 is also known as NAD83 / Texas Centric Albers Equal Area.\
 
-```{r warning= FALSE, message=FALSE, results='hide'}
+```{r warning= FALSE, message=FALSE}
 # defining houston coordinates
 houston <- cbind(x = c(-96.5, -96.5, -94.5, -94.5, -96.5), 
                          y = c(29, 30.5, 30.5, 29, 29))
@@ -160,15 +155,13 @@ houston_blackouts <- blackouts[houston_mask,]
 # reprojecting houston blackouts to Texas specific Datum
 houston_blackouts_reproj <- st_transform(houston_blackouts, crs = 3083)
 
-# plot houston blackouts 
-plot(houston_blackouts_reproj, main = "Blackouts in Houston")
 ```
 
 [Highways and Residences Selection]{.underline}
 
 We then excluded highways, and created a 200 meter buffer to include buildings outside of 200 meters from a highway. Additionally we filtered to the residential buildings only within the blackout mask. These processes allow us to identify the number of homes impacted by the blackouts.\
 
-```{r warning= FALSE, message=FALSE, results='hide'}
+```{r warning= FALSE, message=FALSE}
 # identify areas within 200m of all highways
 highways_buffer <- st_buffer(highways_reproj, dist = 200) %>% 
   st_union()
@@ -194,7 +187,7 @@ print(paste0(nrow(blackout_residential), ' residential buildings were affected b
 
 To explore if blackouts were correlated with socioeconomic factors like median income, we used census tract data. We used spatial joins to join the census tract data, and buildings that were and were not impacted by blackouts.\
 
-```{r warning= FALSE, message=FALSE, results='hide'}
+```{r warning= FALSE, message=FALSE}
 # create data frame that contains median income data and geoID
 texas_median_income <- texas_income %>% 
   dplyr::select(B19013e1, GEOID) %>% 
@@ -211,7 +204,7 @@ texas_census_blackouts <- st_filter(texas_income_census, blackout_residential)
 
 To compare incomes of impacted census tracts and unimpacted census tracts a map of median income per census tract with the tracts that had blackouts outlined was created.
 
-```{r warning= FALSE, message=FALSE, results='hide'}
+```{r warning= FALSE, message=FALSE}
 #transforming houston boundary to Texas datum
 houston_reproj <- st_transform(houston, crs = 3083)
 
@@ -256,7 +249,7 @@ median_income_map
 
 To further explore the impacts of blackouts on census tracts the distribution of income in impacted and unimpacted tracts was plotted.\
 
-```{r warning= FALSE, message=FALSE, results='hide'}
+```{r warning= FALSE, message=FALSE}
 
 # find areas that did not have blackouts within the houston area 
 unimpacted <- houston_income_census[texas_census_blackouts, , op = st_difference]
@@ -286,3 +279,5 @@ impact_unimpact_plot
 ## Takeaways
 
 The median income of homes in Houston, TX affected and not affected by blackouts does not appear to have a significant difference. The blackouts do appear to have centered around the center of the city, but this area also has a wide variety of median incomes. Additionally, when comparing the median incomes of homes affected and not affected the distributions appear to be similar for the spread of wealth. Residents not impacted by the storm do appear to have slightly higher median incomes which could coincide with living farther outside the city center in the suburbs of Houston. A limitation of this analysis is that we did reduce the number of buildings counted that fell close to highways, which could be areas that have lower median incomes. Additionally, in exploring the power outages in Houston, TX we only compared the blackouts from the first two storms, without accounting for the third storm. Without accounting for the third storm the total number of outages that occurred is being underestimated.
+
+This goal of this exploration was to become more familiar with spatial data. The results and findings of this investigation are not conclusive and should not be utilized without additional investigations. Overall, I hope this blog post was helpful in learning how different packages and functions can be used for working with spatial data.
