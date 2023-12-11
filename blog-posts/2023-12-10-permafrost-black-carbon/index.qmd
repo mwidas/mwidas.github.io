@@ -28,7 +28,7 @@ Soil is all around us. Underneath our homes, creating landscapes and environment
 
 Ultimately, the main driver behind permafrost melt is temperature. And the obvious thought is of course a warmer temperature will lead to warmer soil temperatures which will ultimately warm permafrost soils to the point where they are no longer frozen. As a broad overview this thought process works, however there are other drivers that determine soil temperature. Soil properties such as soil organic carbon, soil texture, bulk density, and soil moisture all impact how soils respond to temperature. However, it has been shown that soil organic carbon can be the dominant determinant of soil temperature in permafrost soils [@zhu2019]. One way soils build up soil organic carbon is through the deposition of black carbon [@kopecký2021].
 
-Black carbon is predominantly present as products of incomplete combustion [@environmentalprotectionagency2016] . By incomplete combustion I am referring to soot from wildfires, fossil fuels, and biofuels.
+Black carbon is predominantly present as products of incomplete combustion [@environmentalprotectionagency2016] . By incomplete combustion I am referring to soot from wildfires, fossil fuels, and biofuels. As temperature regimes continue to change globally the cadence of black carbon from wildfires will also shift.
 
 Therefore a question that comes to mind with these findings are if air temperature and black carbon levels both affect soil temperature can they predict soil temperature and in the process are air temperature and black carbon interacting with each other?
 
@@ -51,7 +51,7 @@ library(sjPlot)
 
 [Soil Temperature]{.underline}
 
-Soil Temperature data was accessed from the publicly available Meteorological Data Query from Lake Toolik Field Station. The soil temperature marker utilized for this analysis was the soil temperature for the first 150 cm of the soil profile. 
+Soil Temperature data was accessed from the publicly available Meteorological Data Query from Lake Toolik Field Station [@environmentaldatacenterteam]. The soil temperature marker utilized for this analysis was the soil temperature for the first 150 cm of the soil profile from 2019 to 2022. All measurements were measured in degrees celcius, and recorded every three hours. For this analysis measurements recorded at the 300 hour mark each week were utilized.
 
 ```{r, message=FALSE}
 # load data that has soil temperature in degrees Celcius for first 150 cm
@@ -69,7 +69,7 @@ soil_2 <- soil %>%
 
 [Air Temperature]{.underline}
 
-Air Temperature data was accessed from the publicly available Meteorological Data Query from Lake Toolik Field Station. 
+Air Temperature data was accessed from the publicly available Meteorological Data Query from Lake Toolik Field Station [@environmentaldatacenterteam]. The air temperature used in this analysis was the air temperature max recorded for each period of one week from 2019 to 2022.
 
 ```{r, message=FALSE}
 # load data that contains air temperature in degrees celcius for Toolik Field Station, Alaska
@@ -83,7 +83,7 @@ air_temp_updated <- air_temp %>%
 
 [Black Carbon]{.underline}
 
-Black Carbon data was accessed from a citizen science 
+Black Carbon data was accessed from a Purple Air Sensor. The [Purple Air Sensor](https://map.purpleair.com/1/mAQI/a10080/p604800/cC0?inc=698715#11/68.6276/-149.5947) was installed in 2019 in collaboration with the Atmospheric Chemistry and Climate Lab at the University of Alaska Fairbanks run by Dr. Jingqiu Mao. To quantify black carbon Particulate Matter 2.5 ug/m3 was used. These data are recorded weekly.
 
 ```{r, warning=FALSE, message=FALSE}
 
@@ -119,13 +119,15 @@ full <- left_join(combined_bc_st, air_temp_updated, by = 'date') %>%
 
 ## Exploratory Analysis
 
+The following figures show the shape and distribution of these data and help to determine that a linear regression is appropriate.
+
 ```{r, warning=FALSE, message=FALSE}
 # plot relationship between air temperature and soil temperature
 ggplot(data = full, aes(x = air_temp, y = soil_temp)) +
   geom_point() +
   theme_minimal() +
   geom_smooth(method = lm) +
-  labs(x = "Air Temperature Degrees Celcius", y = "Soil Temperature Degrees Celcius")
+  labs(x = "Air Temperature degrees Celcius", y = "Soil Temperature degrees Celcius")
 ```
 
 ```{r, warning=FALSE, message=FALSE}
@@ -134,11 +136,13 @@ ggplot(data = full, aes(x = b_c, y = soil_temp)) +
   geom_point() +
   theme_minimal() +
   geom_smooth(method = lm) +
-  labs(x = "PM2.5 (ppm)", y = "Soil Temperature Degrees Celcius")
+  labs(x = "PM2.5 (ug/m3)", y = "Soil Temperature degrees Celcius")
 
 # clustering of data, use a histogram to examine the distribution
-hist(full$b_c, xlab = 'PM2.5 (ppm)', main = 'Distribution of Black Carbon levels')
+hist(full$b_c, xlab = 'PM2.5 (ug/m3)', main = 'Distribution of Black Carbon levels')
 ```
+
+However, something to note is that our black carbon data is not distributed normally which could lead to bias in our results. A log transformation will be applied to correct for this skewed distribution. After the log transformation is applies to black carbon our distribution is more normally distributed.
 
 ```{r, warning=FALSE, message=FALSE}
 # re-examine black carbon with a log transformation applied to see if relationship improves
@@ -146,26 +150,20 @@ ggplot(data = full, aes(x = log_b_c, y = soil_temp)) +
   geom_point() +
   theme_minimal() +
   geom_smooth(method = lm) +
-  labs(x = "PM2.5 (ppm)", y = "Soil Temperature Degrees Celcius")
+  labs(x = "PM2.5 (ug/m3)", y = "Soil Temperature degrees Celcius")
 
 
 # examine distribution of log transformed black carbon levels
-hist(full$log_b_c, xlab = 'log(PM2.5) (ppm)', main = 'Distribution of Black Carbon levels')
+hist(full$log_b_c, xlab = 'log(PM2.5) (ug/m3)', main = 'Distribution of Black Carbon levels')
 ```
 
-## Linear Regression and Hypothesis Testing
+## Analysis
 
-The additive linear equation model is: $$ soiltemp_i=\beta_{0}+\beta_{1} \cdot airtemp_i + \beta_{2} \cdot log(black carbon)_i + \varepsilon_i $$
-
-```{r}
-# run linear regression on soil temp using air temp and black carbon as predictors
-permafrost_mod_2 <- summary(lm(soil_temp ~ air_temp + log_b_c, data = full))
-print(permafrost_mod_2)
-```
-
-The interaction equation model is:
+A multi-linear regression model will allow us to answer our question. To explore if black carbon and air temperature affect soil temperature and if black carbon and air temperature have an effect on each other, I used the following interaction model equation:
 
 $$ soiltemp_i=\beta_{0}+\beta_{1} \cdot airtemp_i + \beta_{2} \cdot log(black carbon)_i + \beta_{3} \cdot airtemp_i \cdot log(blackcarbon)_i + \varepsilon_i $$
+
+which resulted in the following inferences:
 
 ```{r}
 # run linear regression on soil temp using air temp and black carbon as well as an interaction between black carbon and air temperature
@@ -179,8 +177,38 @@ permafrost_table <- permafrost_mod_3 %>%
 permafrost_table
 ```
 
+The interaction model is able to provide this analysis with some guiding results through hypothesis testing. Our interaction model provides us with three hypotheses:
+
+Hypothesis 1:
+
+$$H_{0}:$$ There is no effect of air temperature on soil temperature. $$H_{A}:$$ There is an effect of air temperature on soil temperature.
+
+-   significant at 5%
+
+Hypothesis Testing 2:
+
+$$H_{0}:$$ There is no effect of black carbon on soil temperature. $$H_{A}:$$ There is an effect of black carbon on soil temperature.
+
+-   significant at 10% level
+
+Hypothesis Testing 3:
+
+$$H_{0}:$$ there is no effects of air temperature that differs by blackcarbon levels on soil temperature $$H_{A}:$$ There is an effect of air temperature and black carbon on soil temperature.
+
+-   not significant
+
+Interpretations :
+
+$$\beta_{0}$$ = When air temperature is 0 degrees Celcius and the black carbon level is 0 the predicted soil temperature is -1.74 degrees Celsius.
+
+$$\beta_{1}$$ = There is a 0.06 predicted increase in soil temperature in degrees Celsius for every 1 degress celsius increase in air temperature holding black carbon fixed
+
+$$\beta_{2}$$ = There is a 1 percent decrease predicted in soil temperature in degrees Celsius for every 0.0034 ppm increase in black carbon holding air temperature fixed.
+
+0.06\>0.0034 so black carbon is less significant than temperature
+
 ## Decomposition
 
 ## Takeaways
 
-
+To see the full repository, check out the project on [Github](https://github.com/mwidas/permafrost-black-carbon)
