@@ -191,7 +191,7 @@ Our second null hypothesis is that there is no effect of black carbon in ug/m3 o
 
 [Hypothesis 3]{.underline}
 
-Our third hypothesis is that the effect of black carbon on soil temperature varies across temperatures, since warmer temperatures could coincide with higher wildfire incidences. However, we do not find a statistically significant effect whereby the impact of air temperature differs for levels of black carbon present on soil temperature.
+Our third hypothesis is that the effect of black carbon on soil temperature varies across temperatures, since warmer temperatures could coincide with higher wildfire incidences. However, we do not find a statistically significant effect whereby the impact of air temperature differs for levels of black carbon present on soil temperature. The interaction term is very slightly positive but overall insignificant within our model.
 
 The adjusted R2 values also increased slightly (from 0.173 to 0.179) when adding the interaction model. This demonstrates that the interaction model just slightly increases model fit.
 
@@ -221,7 +221,7 @@ permafrost_2 <- permafrost_2020 %>%
 permafrost_2
 ```
 
-In viewing this time series of the data from December of 2019 to January of 2021 we are able to get a continuous glimpse of black carbon levels over time. It does appear that there could be an outlier occurring in September of 2020, but overall there is not a large indicator of trend or seasonality. If we examine the full timeline of data present:
+In viewing this time series of the data from December of 2019 to January of 2021 we are able to get a continuous glimpse of black carbon levels over time. It does appear that there could be an outlier occurring in September of 2020, but overall there is not a large indicator of trend or seasonality. Upon further research September 2020 had multiple large fires burning in the Pacific Northwest whose smoke and associated particulate matter reached Alaska @mass2021 . If we examine the full timeline of data present:
 
 ```{r}
 permafrost_full <- permafrost %>% 
@@ -237,7 +237,7 @@ permafrost_3 <- permafrost_full %>%
 permafrost_3
 ```
 
-We can see that there does not appear to be a relationship of seasonality or trend present. Unfortunately, the air sensor did not collect data from mid-September of 2021 to March of 2022. This hole in the data is not marked in the data's documentation. This gap prevents a decomposition from being run on the entire timescale of data we have that would help determine if seasonality were an important component. However, we can examine a decomposition run from 2019 to 2020 to help determine if there is a trend present in the black carbon levels. Due to the appearance of a few outliers in our data notably September of 2020 a Seasonal and Trend Decomposition using Loess was chosen for its robustness to outliers.
+We can see that there does not appear to be a relationship of seasonality or trend present. Unfortunately, the air sensor did not collect data from mid-September of 2021 to March of 2022. This hole in the data is not marked in the documentation of the data, but could have resulted from a sensor error. Additionally we see a very high black carbon level in September of 2022. I predict that this value comes from the fact that 2022 is considered one of Alaska's biggest fire seasons since 1950 with over three million acres burned @rosen2022. This gap prevents a decomposition from being run on the entire timescale of data we have that would help determine if seasonality were an important component. However, we can examine a decomposition run from 2019 to 2020 to help determine if there is a trend present in the black carbon levels. Due to the appearance of a few outliers in our data notably September of 2020 a Seasonal and Trend Decomposition using Loess was chosen for its robustness to outliers.
 
 ```{r}
 permafrost_decomp <- permafrost_2020 %>% 
@@ -249,7 +249,7 @@ permafrost_decomp <- permafrost_2020 %>%
 permafrost_decomp
 ```
 
-From our decomposition model we can see that for black carbon levels there is no definitive trend and that the remainder component is more important than the trend for black carbon levels.
+From our decomposition model we can see that for black carbon levels there is no definitive trend and that the remainder component is more important than the trend for black carbon levels. As the amount of data recorded from the purple air sensor increases running this test again could be beneficial to determine if seasonality plays a role.
 
 ## Takeaways
 

@@ -468,7 +468,7 @@ div.csl-indent {
 <p><u>Hypothesis 2</u></p>
 <p>Our second null hypothesis is that there is no effect of black carbon in ug/m3 on soil temperature in degrees Celsius. The alternative hypothesis being that there is an effect of black carbon in ug/m3 on soil temperature in degrees Celsius. We find a statistically significant effect whereby increases in air temperature degrees Celsius increase soil temperature in degrees Celsius holding air temperature in degrees Celsius fixed. We estimate that a 1 percent increase in black carbon in ug/m3 will decrease soil temperature by 0.0036 (±.17, p=.03) degrees Celsius. Therefore we reject the null hypothesis that black carbon does not have an affect on soil temperature (at a significance level of 0.01).</p>
 <p><u>Hypothesis 3</u></p>
-<p>Our third hypothesis is that the effect of black carbon on soil temperature varies across temperatures, since warmer temperatures could coincide with higher wildfire incidences. However, we do not find a statistically significant effect whereby the impact of air temperature differs for levels of black carbon present on soil temperature.</p>
+<p>Our third hypothesis is that the effect of black carbon on soil temperature varies across temperatures, since warmer temperatures could coincide with higher wildfire incidences. However, we do not find a statistically significant effect whereby the impact of air temperature differs for levels of black carbon present on soil temperature. The interaction term is very slightly positive but overall insignificant within our model.</p>
 <p>The adjusted R2 values also increased slightly (from 0.173 to 0.179) when adding the interaction model. This demonstrates that the interaction model just slightly increases model fit.</p>
 <p>However, this adjusted R2 value also indicates that only about 17% of the variability in soil temperature is explained by the model. With this information, we can hypothesize that there are other factors that affect soil temperature not included within this model.</p>
 </section>
@@ -500,7 +500,7 @@ div.csl-indent {
 <p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>In viewing this time series of the data from December of 2019 to January of 2021 we are able to get a continuous glimpse of black carbon levels over time. It does appear that there could be an outlier occurring in September of 2020, but overall there is not a large indicator of trend or seasonality. If we examine the full timeline of data present:</p>
+<p>In viewing this time series of the data from December of 2019 to January of 2021 we are able to get a continuous glimpse of black carbon levels over time. It does appear that there could be an outlier occurring in September of 2020, but overall there is not a large indicator of trend or seasonality. Upon further research September 2020 had multiple large fires burning in the Pacific Northwest whose smoke and associated particulate matter reached Alaska <span class="citation" data-cites="mass2021">Mass et al. (<a href="#ref-mass2021" role="doc-biblioref">2021</a>)</span> . If we examine the full timeline of data present:</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -520,7 +520,7 @@ div.csl-indent {
 <p><img src="index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>We can see that there does not appear to be a relationship of seasonality or trend present. Unfortunately, the air sensor did not collect data from mid-September of 2021 to March of 2022. This hole in the data is not marked in the data’s documentation. This gap prevents a decomposition from being run on the entire timescale of data we have that would help determine if seasonality were an important component. However, we can examine a decomposition run from 2019 to 2020 to help determine if there is a trend present in the black carbon levels. Due to the appearance of a few outliers in our data notably September of 2020 a Seasonal and Trend Decomposition using Loess was chosen for its robustness to outliers.</p>
+<p>We can see that there does not appear to be a relationship of seasonality or trend present. Unfortunately, the air sensor did not collect data from mid-September of 2021 to March of 2022. This hole in the data is not marked in the documentation of the data, but could have resulted from a sensor error. Additionally we see a very high black carbon level in September of 2022. I predict that this value comes from the fact that 2022 is considered one of Alaska’s biggest fire seasons since 1950 with over three million acres burned <span class="citation" data-cites="rosen2022">Rosen (<a href="#ref-rosen2022" role="doc-biblioref">2022</a>)</span>. This gap prevents a decomposition from being run on the entire timescale of data we have that would help determine if seasonality were an important component. However, we can examine a decomposition run from 2019 to 2020 to help determine if there is a trend present in the black carbon levels. Due to the appearance of a few outliers in our data notably September of 2020 a Seasonal and Trend Decomposition using Loess was chosen for its robustness to outliers.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -536,7 +536,7 @@ div.csl-indent {
 <p><img src="index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>From our decomposition model we can see that for black carbon levels there is no definitive trend and that the remainder component is more important than the trend for black carbon levels.</p>
+<p>From our decomposition model we can see that for black carbon levels there is no definitive trend and that the remainder component is more important than the trend for black carbon levels. As the amount of data recorded from the purple air sensor increases running this test again could be beneficial to determine if seasonality plays a role.</p>
 </section>
 <section id="takeaways" class="level2">
 <h2 class="anchored" data-anchor-id="takeaways">Takeaways</h2>
@@ -557,6 +557,12 @@ Environmental Protection Agency. 2016. <span>“Methane and Black Carbon Impacts
 </div>
 <div id="ref-kopecký2021" class="csl-entry" role="listitem">
 Kopecký, Marek, Ladislav Kolář, Radka Váchalová, Petr Konvalina, Jana Batt, Petr Mráz, Ladislav Menšík, Trong Nghia Hoang, and Miroslav Dumbrovský. 2021. <span>“Black Carbon and Its Effect on Carbon Sequestration in Soil.”</span> <em>Agronomy</em> 11 (11). <a href="https://doi.org/10.3390/agronomy11112261">https://doi.org/10.3390/agronomy11112261</a>.
+</div>
+<div id="ref-mass2021" class="csl-entry" role="listitem">
+Mass, Clifford F., David Ovens, Robert Conrick, and John Saltenberger. 2021. <span>“The September 2020 Wildfires over the Pacific Northwest.”</span> <em>Weather and Forecasting</em> 36 (5): 1843–65. https://doi.org/<a href="https://doi.org/10.1175/WAF-D-21-0028.1">https://doi.org/10.1175/WAF-D-21-0028.1</a>.
+</div>
+<div id="ref-rosen2022" class="csl-entry" role="listitem">
+Rosen, Yereth. 2022. <span>“Tundra Burns Helped Make the 2022 Alaska Fire Season One of the Biggest Since 1950.”</span> <em>Alaska Beacon</em>, August.
 </div>
 <div id="ref-nationalsnowandicedatacenter" class="csl-entry" role="listitem">
 Snow, National, and Ice Data Center. n.d. <span>“Frozen Ground &amp; Permafrost.”</span> <a href="https://nsidc.org/learn/parts-cryosphere/frozen-ground-permafrost#:~:text=What%20is%20permafrost%3F,-This%20close%20up&amp;text=Permafrost%20is%20soil%2C%20sand%2C%20sediment,beneath%20offshore%20Arctic%20continental%20shelves.">https://nsidc.org/learn/parts-cryosphere/frozen-ground-permafrost#:~:text=What%20is%20permafrost%3F,-This%20close%20up&amp;text=Permafrost%20is%20soil%2C%20sand%2C%20sediment,beneath%20offshore%20Arctic%20continental%20shelves.</a>
