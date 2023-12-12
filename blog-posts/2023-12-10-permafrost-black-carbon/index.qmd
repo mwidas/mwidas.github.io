@@ -171,7 +171,6 @@ which resulted in the following inferences:
 # run linear regression on soil temp using air temp and black carbon as well as an interaction between black carbon and air temperature
 permafrost_mod_3 <- lm(soil_temp ~ air_temp + log_b_c + air_temp:log_b_c, data = full)
 permafrost_mod_3_summ <- summary(permafrost_mod_3)
-permafrost_mod_3_summ
 
 # create a table with results displayed from interaction model
 permafrost_table <- permafrost_mod_3 %>%
@@ -246,6 +245,6 @@ With this initial analysis we can conclude that air temperature and black carbon
 
 Additional research and analysis should be done surrounding this topic. This analysis is spatially limited to Toolik Field Station in Alaska. This analysis could be extended to a larger geographic area of permafrost coverage. Additionally, this analysis would benefit from additional data. Toolik Field Station has data on air temperature and soil temperature since 1988. However, the purple sensor which is able to record the black carbon levels, was installed in 2019. Thus, as black carbon is the main interest for my question I think it would benefit from additional time. This could also allow for a next step to be a time series analysis.
 
-Further investigation into this topic could include
+
 
 To see the full repository, check out the project on [Github](https://github.com/mwidas/permafrost-black-carbon)
