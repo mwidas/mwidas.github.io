@@ -224,7 +224,7 @@ div.csl-indent {
   <li><a href="#exploratory-analysis" id="toc-exploratory-analysis" class="nav-link" data-scroll-target="#exploratory-analysis">Exploratory Analysis</a></li>
   <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis">Analysis</a></li>
   <li><a href="#time-series" id="toc-time-series" class="nav-link" data-scroll-target="#time-series">Time Series</a></li>
-  <li><a href="#considerations" id="toc-considerations" class="nav-link" data-scroll-target="#considerations">Considerations</a></li>
+  <li><a href="#takeaways" id="toc-takeaways" class="nav-link" data-scroll-target="#takeaways">Takeaways</a></li>
   </ul>
 </nav>
     </div>
@@ -241,6 +241,7 @@ div.csl-indent {
 <p>Black carbon is predominantly present as products of incomplete combustion <span class="citation" data-cites="environmentalprotectionagency2016">(<a href="#ref-environmentalprotectionagency2016" role="doc-biblioref">Environmental Protection Agency 2016</a>)</span> . By incomplete combustion we are talking about soot from wildfires, fossil fuels, and biofuels. As temperature regimes continue to change globally the cadence of black carbon from inputs like wildfires can also be expected to shift.</p>
 <p>Therefore a question that comes to mind with these findings are if air temperature and black carbon levels both affect soil temperature, can they predict soil temperature and in the process is air temperature and black carbon interacting with each other?</p>
 <p>To explore this question further data from Toolik Field Station, AK will be explored. The Toolik Field Station is a research station operated and managed by the Institute of Arctic Biology at the University of Alaska Fairbanks with cooperative agreement support from the Division of Polar Programs, Directorate for Geosciences at the National Science Foundation (NSF).</p>
+<p><img src="toolik_station.jpeg" class="img-fluid" alt="photo of Toolik Field Station, AK"></p>
 </section>
 <section id="data" class="level2">
 <h2 class="anchored" data-anchor-id="data">Data</h2>
@@ -260,7 +261,7 @@ div.csl-indent {
 </details>
 </div>
 <p><u>Soil Temperature</u></p>
-<p>Soil Temperature data was accessed from the publicly available Meteorological Data Query from Lake Toolik Field Station <span class="citation" data-cites="environmentaldatacenterteam">(<a href="#ref-environmentaldatacenterteam" role="doc-biblioref"><strong>environmentaldatacenterteam?</strong></a>)</span>. The soil temperature marker utilized for this analysis was the soil temperature for the first 150 centimeters of the soil profile from 2019 to 2022. All measurements were measured in degrees Celcius, and recorded every three hours. For this analysis measurements recorded at the 300 hour mark each week were utilized.</p>
+<p>Soil Temperature data was accessed from the publicly available Meteorological Data Query from Lake Toolik Field Station <span class="citation" data-cites="environmentaldatacenterteam">(<a href="#ref-environmentaldatacenterteam" role="doc-biblioref">Environmental Data Center Team. 2023</a>)</span>. The soil temperature marker utilized for this analysis was the soil temperature for the first 150 centimeters of the soil profile from 2019 to 2022. All measurements were measured in degrees Celcius, and recorded every three hours. For this analysis measurements recorded at the 300 hour mark each week were utilized.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -278,7 +279,7 @@ div.csl-indent {
 </details>
 </div>
 <p><u>Air Temperature</u></p>
-<p>Air Temperature data was accessed from the publicly available Meteorological Data Query from Lake Toolik Field Station <span class="citation" data-cites="environmentaldatacenterteam">(<a href="#ref-environmentaldatacenterteam" role="doc-biblioref"><strong>environmentaldatacenterteam?</strong></a>)</span>. The air temperature used in this analysis was the air temperature max recorded for each period of one week from 2019 to 2022.</p>
+<p>Air Temperature data was accessed from the publicly available Meteorological Data Query from Lake Toolik Field Station <span class="citation" data-cites="environmentaldatacenterteam">(<a href="#ref-environmentaldatacenterteam" role="doc-biblioref">Environmental Data Center Team. 2023</a>)</span>. The air temperature used in this analysis was the air temperature max recorded for each period of one week from 2019 to 2022.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -287,7 +288,7 @@ div.csl-indent {
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># create updated air temperature df</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>air_temp_updated <span class="ot">&lt;-</span> air_temp <span class="sc">%&gt;%</span> </span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(air_temp_max_3m, date) <span class="sc">%&gt;%</span> <span class="co"># select columns to keep</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(air_temp_max_3m, date) <span class="sc">%&gt;%</span> <span class="co"># select columns to keep</span></span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">air_temp =</span> air_temp_max_3m) <span class="co"># rename air_temp for readability</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
@@ -489,20 +490,17 @@ F-statistic: 11.83 on 3 and 146 DF,  p-value: 5.529e-07</code></pre>
 </div>
 <p>The interaction model is able to provide this analysis with some guiding results through hypothesis testing. Our interaction model provides us with three hypotheses:</p>
 <p><u>Hypothesis 1</u></p>
-<p><span class="math display">\[H_{0}:\]</span> “There is no effect of air temperature on soil temperature.” <span class="math display">\[H_{A}:\]</span> “There is an effect of air temperature on soil temperature.”</p>
 <p>Our first null hypothesis is that there is no effect of air temperature in degrees Celcius on soil temperature in degrees Celcius. The alternative hypothesis being that there is an affect of air temperature in degrees Celcius on soil temperature in degrees Celcius. We find a statistically significant effect whereby increases in air temperature degrees Celcius increase soil temperature in degrees Celcius holding black carbon fixed. We estimate that a 1 degrees Celcius increase in air temperature increases soil temperature by 0.06 (±.03, p=.07) degrees Celcius. Therefore we reject the null hypothesis that air temperature does not have an affect on soil temperature (at a significance level of 0.05).</p>
 <p><u>Hypothesis 2</u></p>
-<p><span class="math display">\[H_{0}:\]</span> There is no effect of black carbon on soil temperature. <span class="math display">\[H_{A}:\]</span> There is an effect of black carbon on soil temperature.</p>
 <p>Our second null hypothesis is that there is no effect of black carbon in ug/m3 on soil temperature in degrees Celcius. The alternative hypothesis being that there is an effect of black carbon in ug/m3 on soil temperature in degrees Celcius. We find a statistically significant effect whereby increases in air temperature degrees Celcius increase soil temperature in degrees Celcius holding air temperature in degrees Celcius fixed. We estimate that a 1 percent increase in black carbon in ug/m3 will decrease soil temperature by 0.0036 (±.17, p=.03) degrees Celcius.Therefore we reject the null hypothesis that black carbon does not have an affect on soil temperature (at a significance level of 0.01).</p>
 <p><u>Hypothesis 3</u></p>
-<p><span class="math display">\[H_{0}:\]</span> there is no effect of air temperature that differs by black carbon levels on soil temperature <span class="math display">\[H_{A}:\]</span> There is an effect of air temperature that differs by black carbon levels on soil temperature.</p>
-<p>We do not find a statistically significant effect whereby the impact of air temperature differs for levels of black carbon present on soil temperature.</p>
+<p>Our third hypothesis is that the effect of black carbon on soil temperature varies across temperatures, since warmer temperatures could coincide with higher wildfire incidences. However, we do not find a statistically significant effect whereby the impact of air temperature differs for levels of black carbon present on soil temperature.</p>
 <p>The adjusted R2 values also increased slightly (from 0.173 to 0.179) when adding the interaction model. This demonstrates that the interaction model just slightly increases model fit.</p>
 <p>However, this adjusted R2 value also indicates that only about 17% of the variability in soil temperature is explained by the model. With this information, we can hypothesize that there are other factors that affect soil temperature not included within this model.</p>
 </section>
 <section id="time-series" class="level2">
 <h2 class="anchored" data-anchor-id="time-series">Time Series</h2>
-<p>An additional consideration to take into account is that we know temperature experiences seasonality, but does black carbon also exhibit a seasonal component which could be impacting our model fit? To better understand this question we can look at seasonal and trend decomposition using Loess.</p>
+<p>An additional consideration to take into account is that we know temperature experiences seasonality, but does black carbon also fluctuate throughout the year? To investigate this component we will be exploring black carbon levels across time.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -524,7 +522,7 @@ F-statistic: 11.83 on 3 and 146 DF,  p-value: 5.529e-07</code></pre>
 <span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">date =</span> <span class="fu">date</span>(date)) <span class="sc">%&gt;%</span></span>
 <span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> log_b_c)) <span class="sc">+</span></span>
 <span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">'Date'</span>, <span class="at">y =</span> <span class="st">'black carbon (ug/m3)'</span>, <span class="at">title =</span> <span class="st">'Time Series of Black Carbon Levels from 2019 to 2021'</span>) <span class="sc">+</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">'Date'</span>, <span class="at">y =</span> <span class="st">'log(black carbon) (ug/m3)'</span>, <span class="at">title =</span> <span class="st">'Time Series of Black Carbon Levels from 2019 to 2021'</span>) <span class="sc">+</span></span>
 <span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_linedraw</span>()</span>
 <span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>permafrost_2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -533,26 +531,30 @@ F-statistic: 11.83 on 3 and 146 DF,  p-value: 5.529e-07</code></pre>
 <p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<p>In viewing this time series of the data from December of 2019 to January of 2021 we are able to get a continuous glimpse of black carbon levels over time. It does appear that there could be an outlier occurring in September of 2020, but overall there is not a large indicator of trend or seasonality. If we examine the full timeline of data present:</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># run decomposition model </span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>permafrost_3 <span class="ot">&lt;-</span> permafrost_2020 <span class="sc">%&gt;%</span> </span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">model</span>(<span class="fu">STL</span>(log_b_c)) <span class="sc">%&gt;%</span> </span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">components</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"STL Decomposition Model"</span>)</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co"># show decomposition model</span></span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>permafrost_3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>permafrost_full <span class="ot">&lt;-</span> permafrost <span class="sc">%&gt;%</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">between</span>(date, <span class="fu">as.Date</span>(<span class="st">'2019-12-29'</span>), <span class="fu">as.Date</span>(<span class="st">'2023-11-19'</span>)))</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>permafrost_3 <span class="ot">&lt;-</span> permafrost_full <span class="sc">%&gt;%</span> </span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">date =</span> <span class="fu">date</span>(date)) <span class="sc">%&gt;%</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> log_b_c)) <span class="sc">+</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">'Date'</span>, <span class="at">y =</span> <span class="st">'log(black carbon) (ug/m3)'</span>, <span class="at">title =</span> <span class="st">'Time Series of Black Carbon Levels from 2019 to 2023'</span>) <span class="sc">+</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_linedraw</span>()</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>permafrost_3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<p>we can see that there does not appear to be a relationship of seasonality or trend present. Unfortunately, the air sensor did not collect data from mid-September of 2021 to March of 2022. This hole in the data is not marked in the data’s documentation. This gap prevents a decomposition from being run that would help determine if seasonality were an important component.</p>
 </section>
-<section id="considerations" class="level2">
-<h2 class="anchored" data-anchor-id="considerations">Considerations</h2>
+<section id="takeaways" class="level2">
+<h2 class="anchored" data-anchor-id="takeaways">Takeaways</h2>
 <p>With this initial analysis we can conclude that air temperature and black carbon do have an effect on soil temperature. However, we can also see that their are factors that we have not addressed in this model to account for more of the variation in soil temperature.</p>
 <p>Additional research and analysis should be done surrounding this topic. This analysis is spatially limited to Toolik Field Station in Alaska. This analysis could be extended to a larger geographic area of permafrost coverage. Additionally, this analysis would benefit from additional data. Toolik Field Station has data on air temperature and soil temperature since 1988. However, the purple sensor which is able to record the black carbon levels, was installed in 2019. Thus, as black carbon is the main interest for my question I think it would benefit from additional time. This could also allow for a next step to be a time series analysis.</p>
 <p>Further investigation into this topic could include</p>
@@ -563,6 +565,9 @@ F-statistic: 11.83 on 3 and 146 DF,  p-value: 5.529e-07</code></pre>
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-environmentaldatacenterteam" class="csl-entry" role="listitem">
+Environmental Data Center Team. 2023. <span>“Meteorological Monitoring Program at Toolik, Alaska. Toolik Field Station, Institute of Arctic Biology, University of Alaska Fairbanks, Fairbanks, AK 99775.”</span>
+</div>
 <div id="ref-environmentalprotectionagency2016" class="csl-entry" role="listitem">
 Environmental Protection Agency. 2016. <span>“Methane and Black Carbon Impacts on the Arctic: Communicating the Science.”</span> <a href="https://19january2017snapshot.epa.gov/sites/production/files/2016-09/documents/arctic-methane-blackcarbon_communicating-the-science.pdf">https://19january2017snapshot.epa.gov/sites/production/files/2016-09/documents/arctic-methane-blackcarbon_communicating-the-science.pdf</a>.
 </div>
