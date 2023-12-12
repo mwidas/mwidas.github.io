@@ -355,7 +355,7 @@ div.csl-indent {
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> lm) <span class="sc">+</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"PM2.5 (ug/m3)"</span>, <span class="at">y =</span> <span class="st">"Soil Temperature degrees Celsius"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"black carbon (ug/m3)"</span>, <span class="at">y =</span> <span class="st">"Soil Temperature degrees Celsius"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
@@ -363,7 +363,7 @@ div.csl-indent {
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># clustering of data, use a histogram to examine the distribution</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(full<span class="sc">$</span>b_c, <span class="at">xlab =</span> <span class="st">'PM2.5 (ug/m3)'</span>, <span class="at">main =</span> <span class="st">'Distribution of Black Carbon levels'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(full<span class="sc">$</span>b_c, <span class="at">xlab =</span> <span class="st">'black carbon (ug/m3)'</span>, <span class="at">main =</span> <span class="st">'Distribution of Black Carbon levels'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-7-2.png" class="img-fluid" width="672"></p>
@@ -378,7 +378,7 @@ div.csl-indent {
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> lm) <span class="sc">+</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"PM2.5 (ug/m3)"</span>, <span class="at">y =</span> <span class="st">"Soil Temperature degrees Celsius"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"log(black carbon)"</span>, <span class="at">y =</span> <span class="st">"Soil Temperature degrees Celsius"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
@@ -386,7 +386,7 @@ div.csl-indent {
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># examine distribution of log transformed black carbon levels</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(full<span class="sc">$</span>log_b_c, <span class="at">xlab =</span> <span class="st">'log(PM2.5) (ug/m3)'</span>, <span class="at">main =</span> <span class="st">'Distribution of Black Carbon levels'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(full<span class="sc">$</span>log_b_c, <span class="at">xlab =</span> <span class="st">'log(black carbon)'</span>, <span class="at">main =</span> <span class="st">'Distribution of Black Carbon levels'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-8-2.png" class="img-fluid" width="672"></p>
@@ -491,7 +491,7 @@ div.csl-indent {
 <span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">date =</span> <span class="fu">date</span>(date)) <span class="sc">%&gt;%</span></span>
 <span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> log_b_c)) <span class="sc">+</span></span>
 <span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">'Date'</span>, <span class="at">y =</span> <span class="st">'log(black carbon) (ug/m3)'</span>, <span class="at">title =</span> <span class="st">'Time Series of Black Carbon Levels from 2019 to 2021'</span>) <span class="sc">+</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">'Date'</span>, <span class="at">y =</span> <span class="st">'log(black carbon)'</span>, <span class="at">title =</span> <span class="st">'Time Series of Black Carbon Levels from 2019 to 2021'</span>) <span class="sc">+</span></span>
 <span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_linedraw</span>()</span>
 <span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>permafrost_2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -500,7 +500,7 @@ div.csl-indent {
 <p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>In viewing this time series of the data from December of 2019 to January of 2021 we are able to get a continuous glimpse of black carbon levels over time. It does appear that there could be an outlier occurring in September of 2020, but overall there is not a large indicator of trend or seasonality. Upon further research September 2020 had multiple large fires burning in the Pacific Northwest whose smoke and associated particulate matter reached Alaska <span class="citation" data-cites="mass2021">Mass et al. (<a href="#ref-mass2021" role="doc-biblioref">2021</a>)</span> . If we examine the full timeline of data present:</p>
+<p>In viewing this time series of the data from December of 2019 to January of 2021 we are able to get a continuous glimpse of black carbon levels over time. It does appear that there could be an outlier occurring in September of 2020, but overall there is not a large indicator of trend or seasonality. Upon further research September 2020 had multiple large fires burning in the Pacific Northwest whose smoke and associated particulate matter reached Alaska <span class="citation" data-cites="mass2021">(<a href="#ref-mass2021" role="doc-biblioref">Mass et al. 2021</a>)</span> . If we examine the full timeline of data present:</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -511,7 +511,7 @@ div.csl-indent {
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">date =</span> <span class="fu">date</span>(date)) <span class="sc">%&gt;%</span></span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> log_b_c)) <span class="sc">+</span></span>
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">'Date'</span>, <span class="at">y =</span> <span class="st">'log(black carbon) (ug/m3)'</span>, <span class="at">title =</span> <span class="st">'Time Series of Black Carbon Levels from 2019 to 2023'</span>) <span class="sc">+</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">'Date'</span>, <span class="at">y =</span> <span class="st">'log(black carbon)'</span>, <span class="at">title =</span> <span class="st">'Time Series of Black Carbon Levels from 2019 to 2023'</span>) <span class="sc">+</span></span>
 <span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_linedraw</span>()</span>
 <span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>permafrost_3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -520,7 +520,7 @@ div.csl-indent {
 <p><img src="index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>We can see that there does not appear to be a relationship of seasonality or trend present. Unfortunately, the air sensor did not collect data from mid-September of 2021 to March of 2022. This hole in the data is not marked in the documentation of the data, but could have resulted from a sensor error. Additionally we see a very high black carbon level in September of 2022. I predict that this value comes from the fact that 2022 is considered one of Alaska’s biggest fire seasons since 1950 with over three million acres burned <span class="citation" data-cites="rosen2022">Rosen (<a href="#ref-rosen2022" role="doc-biblioref">2022</a>)</span>. This gap prevents a decomposition from being run on the entire timescale of data we have that would help determine if seasonality were an important component. However, we can examine a decomposition run from 2019 to 2020 to help determine if there is a trend present in the black carbon levels. Due to the appearance of a few outliers in our data notably September of 2020 a Seasonal and Trend Decomposition using Loess was chosen for its robustness to outliers.</p>
+<p>We can see that there does not appear to be a relationship of seasonality or trend present. Unfortunately, the air sensor did not collect data from mid-September of 2021 to March of 2022. This hole in the data is not marked in the documentation of the data, but could have resulted from a sensor error. Additionally we see a very high black carbon level in September of 2022. I predict that this value comes from the fact that 2022 is considered one of Alaska’s biggest fire seasons since 1950 with over three million acres burned <span class="citation" data-cites="rosen2022">(<a href="#ref-rosen2022" role="doc-biblioref">Rosen 2022</a>)</span> . This gap prevents a decomposition from being run on the entire timescale of data we have that would help determine if seasonality were an important component. However, we can examine a decomposition run from 2019 to 2020 to help determine if there is a trend present in the black carbon levels. Due to the appearance of a few outliers in our data notably September of 2020 a Seasonal and Trend Decomposition using Loess was chosen for its robustness to outliers.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
