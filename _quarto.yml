@@ -8,17 +8,37 @@ website:
     title: false
     logo: images/favicon_transparent.png
     logo-alt: "Logo for Melissa Widas with water droplet and three hexagons"
-    right:
+    left:
       - href: index.qmd
         text: Home
-      - about.qmd
-      - blog.qmd
-      - resume.qmd
+      - href: about.qmd
+        text: About
+      - href: blog.qmd
+        text: My Work
+      - href: resume.qmd
+        text: Resume
+    right: 
+      - text: Get in Touch!
+        menu: 
+          - icon: linkedin
+            text: LinkedIn
+            href: https://www.linkedin.com/in/samanthacsik/
+            target: _blank
+          - icon: envelope
+            text: email
+            href: mailto:mel.widas@gmail.com
+            target: _blank
+      - icon: github
+        href: https://github.com/mwidas
+        target: _blank
+        
+      
   page-footer: 
     background: dark
     left: 
-     - "Copyright 2023, Melissa Widas"
-
+     - Copyright 2023, Melissa Widas
+    right:
+     - This website is built with Qarto
 format:
   html:
     theme:
