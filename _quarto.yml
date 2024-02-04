@@ -12,11 +12,9 @@ website:
       - href: index.qmd
         text: Home
       - href: about.qmd
-        text: About
+        text: About Me
       - href: blog.qmd
         text: My Work
-      - href: resume.qmd
-        text: Resume
     right: 
       - text: Get in Touch!
         menu: 
@@ -25,14 +23,18 @@ website:
             href: https://www.linkedin.com/in/samanthacsik/
             target: _blank
           - icon: envelope
-            text: email
+            text: Email
             href: mailto:mel.widas@gmail.com
             target: _blank
-      - icon: github
-        href: https://github.com/mwidas
-        target: _blank
-        
-      
+          - icon: github
+            text: GitHub
+            href: https://github.com/mwidas
+            target: _blank
+          - icon: envelope-open-text
+            href: resume.qmd
+            text: Resume
+            target: _blank
+            
   page-footer: 
     background: dark
     left: 
