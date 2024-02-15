@@ -46,6 +46,7 @@ format:
     theme:
       - styles.scss
     css: styles.css
+    mainfont: Roboto
     toc: true
     page-layout: full
 
