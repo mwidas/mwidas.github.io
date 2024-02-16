@@ -1,5 +1,7 @@
 ---
-title: "Blog"
+title: "My Work"
+subtitle: "A snapshot of some projects I have worked on and some skills I am building"
+title-block-banner: true
 listing:
   contents: blog-posts
   type: grid

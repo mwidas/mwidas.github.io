@@ -1,6 +1,7 @@
 ---
 title: "About"
-subtitle: "More information about my life at work and outside of work"
+subtitle: "More information about my life at work, and outside of work"
+title-block-banner: true
 ---
 
 **Professional Interests**
