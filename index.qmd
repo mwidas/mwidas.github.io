@@ -18,5 +18,4 @@ about:
       icon: envelope
 ---
 
-
 Hello! My name is Melissa Widas (my last name is pronounced We-dis). I am an environmental data scientist who loves creating engaging and accessible data visualizations and learning more about the world around me. When I am not coding away at my desk, I am experimenting with new recipes (with a relatively good success rate), and traveling to new places. Please explore around my website to learn more about me and what I am working on.

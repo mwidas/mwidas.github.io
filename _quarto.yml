@@ -30,10 +30,10 @@ website:
             text: GitHub
             href: https://github.com/mwidas
             target: _blank
-          - icon: envelope-open-text
-            href: resume.qmd
-            text: Resume
-            target: _blank
+          # - icon: envelope-open-text
+          #   href: resume.qmd
+          #   text: Resume
+          #   target: _blank
             
   page-footer: 
     background: dark
