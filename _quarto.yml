@@ -20,7 +20,7 @@ website:
         menu: 
           - icon: linkedin
             text: LinkedIn
-            href: www.linkedin.com/in/melissa-widas/
+            href: https://www.linkedin.com/in/mwidas/
             target: _blank
           - icon: envelope
             text: Email

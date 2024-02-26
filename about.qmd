@@ -8,15 +8,14 @@ title-block-banner: true
 
 Melissa Widas earned a Bachelor's of science degree from Montana State University in Environmental Sciences with a focus in land rehabilitation in 2022. During her time at Montana State, Melissa found a passion for data science through a research internship with the GeoSWIRL Lab. This opportunity resulted in the creation and management of a drought visualization tool for watersheds across the state of Montana. The development of this tool relied on the use of geographic information sciences and performed statistical analyses to highlight watershed change and risk of drought within watersheds. After experiencing a taste of data science, Melissa wanted to expand her knowledge to explore its effect on environmental practices. She is now pursuing a Master's of Environmental Data Science at the Bren School at the University of California at Santa Barbara. Melissa is looking forward to using the power of data science and data visualization to help answer environmental questions regarding habitat restoration, remediation, and the efficacy of these practices to ameliorate the lands around her.
 
-:::{.column-margin}
+::: column-margin
 ```{r}
 #| echo: false
 #| fig-alt: "The Anaconda Smelter, in Anaconda, Montana is pictured with Melissa standing at its base. The smelter stands tall in front of a blue sky."
 knitr::include_graphics("images/IMG_0125.jpeg")
 ```
+
 ::: {.extra-small-text .dark-gray-text .topbr}
 I had the extraordinary opportunity to visit the Anaconda smelter in Anaconda, MT that was a vital part of the copper boom in Montana, but also contributed to a legacy of mining waste and remediation efforts in Anaconda.
 :::
 :::
-
-

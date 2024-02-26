@@ -8,8 +8,9 @@ about:
   image-width: 20em
   links: 
     - text: LinkedIn
-      href: www.linkedin.com/in/melissa-widas-014988236
+      href: https://www.linkedin.com/in/mwidas/
       icon: linkedin
+      target: _blank
     - text: GitHub
       href: https://github.com/mwidas
       icon: github
