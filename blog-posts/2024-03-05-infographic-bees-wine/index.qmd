@@ -1,0 +1,27 @@
+---
+title: "Relationship between bee behavior and vineyard types in Germany"
+description: "The process for creating an informative infographic through the use of data visualization techniques, and best practices"
+author:
+  - name: Melissa Widas
+    url: http://mwidas.github.io
+    affiliation: MEDS
+    affiliation-url: http://ucsb-meds.github.io
+date: 2024-03-05
+format:
+  html:
+    code-fold: true
+    code-summary: "Show Code!"
+code-overflow: wrap
+code-block-bg: true
+code-block-border-left: "#6B5A75"
+categories: [MEDS, Visualizations]
+citation: 
+  url: http://mwidas.github.io/2024-03-05-infographic-bees-wine
+image: 03_23_Bees_in_the_Vineyard.jpeg
+draft: false
+bibliography: references.bib
+---
+
+## Background
+
+article to check out: https://www.wineenthusiast.com/culture/wine/bees-role-vineyard-sustainability/

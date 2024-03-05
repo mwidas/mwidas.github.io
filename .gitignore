@@ -7,6 +7,8 @@
 
 /.quarto/
 
+# data folders for blog posts
 blog-posts/2023-12-01-houston-outages/data/
 blog-posts/2023-12-06-ca-land-class/data/
 blog-posts/2023-12-10-permafrost-black-carbon/data/
+blog-posts/2024-03-05-infographic-bees-wine/data/

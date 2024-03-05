@@ -4,7 +4,7 @@
     "href": "blog.html",
     "title": "My Work",
     "section": "",
-    "text": "Mount Whitney, California Land Cover\n\n\n\nMEDS\n\n\nGeospatial\n\n\nPython\n\n\n\nExploring land cover types and their dominance on the landscape around Mount Whitney, California\n\n\n\nMelissa Widas\n\n\nDec 6, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHouston, Texas Power Outages\n\n\n\nMEDS\n\n\nGeospatial\n\n\nR\n\n\n\nIdentifying homes affected by severe winter storms in Houston, Texas energy crisis\n\n\n\nMelissa Widas\n\n\nDec 1, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSoil Temperature Analysis at Toolik Field Station, AK\n\n\n\nMEDS\n\n\nStatistics\n\n\nR\n\n\n\nExploring the relationship between soil temperatures, air temperatures, and black carbon levels at Toolik Field Station, AK\n\n\n\nMelissa Widas\n\n\nDec 1, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nData Visualization Accessibility\n\n\n\nQuarto\n\n\nMEDS\n\n\nEthics\n\n\n\nExamining ways data scientists can create data visualizations that are more widely accessable\n\n\n\nMelissa Widas\n\n\nNov 26, 2023\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Relationship between bee behavior and vineyard types in Germany\n\n\n\nMEDS\n\n\nVisualizations\n\n\n\nThe process for creating an informative infographic through the use of data visualization techniques, and best practices\n\n\n\nMelissa Widas\n\n\nMar 5, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMount Whitney, California Land Cover\n\n\n\nMEDS\n\n\nGeospatial\n\n\nPython\n\n\n\nExploring land cover types and their dominance on the landscape around Mount Whitney, California\n\n\n\nMelissa Widas\n\n\nDec 6, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHouston, Texas Power Outages\n\n\n\nMEDS\n\n\nGeospatial\n\n\nR\n\n\n\nIdentifying homes affected by severe winter storms in Houston, Texas energy crisis\n\n\n\nMelissa Widas\n\n\nDec 1, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSoil Temperature Analysis at Toolik Field Station, AK\n\n\n\nMEDS\n\n\nStatistics\n\n\nR\n\n\n\nExploring the relationship between soil temperatures, air temperatures, and black carbon levels at Toolik Field Station, AK\n\n\n\nMelissa Widas\n\n\nDec 1, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nData Visualization Accessibility\n\n\n\nQuarto\n\n\nMEDS\n\n\nEthics\n\n\n\nExamining ways data scientists can create data visualizations that are more widely accessable\n\n\n\nMelissa Widas\n\n\nNov 26, 2023\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "blog-posts/2023-12-10-permafrost-black-carbon/index.html",
@@ -152,5 +152,19 @@
     "title": "About",
     "section": "",
     "text": "Melissa Widas earned a Bachelor’s of science degree from Montana State University in Environmental Sciences with a focus in land rehabilitation in 2022. During her time at Montana State, Melissa found a passion for data science through a research internship with the GeoSWIRL Lab. This opportunity resulted in the creation and management of a drought visualization tool for watersheds across the state of Montana. The development of this tool relied on the use of geographic information sciences and performed statistical analyses to highlight watershed change and risk of drought within watersheds. After experiencing a taste of data science, Melissa wanted to expand her knowledge to explore its effect on environmental practices. She is now pursuing a Master’s of Environmental Data Science at the Bren School at the University of California at Santa Barbara. Melissa is looking forward to using the power of data science and data visualization to help answer environmental questions regarding habitat restoration, remediation, and the efficacy of these practices to ameliorate the lands around her.\n\n\n\n\n\n\n\n\n\n\nI had the extraordinary opportunity to visit the Anaconda smelter in Anaconda, MT that was a vital part of the copper boom in Montana, but also contributed to a legacy of mining waste and remediation efforts in Anaconda."
+  },
+  {
+    "objectID": "blog-posts/2024-03-05-infographic-bees-wine/index.html",
+    "href": "blog-posts/2024-03-05-infographic-bees-wine/index.html",
+    "title": "Relationship between bee behavior and vineyard types in Germany",
+    "section": "",
+    "text": "article to check out: https://www.wineenthusiast.com/culture/wine/bees-role-vineyard-sustainability/"
+  },
+  {
+    "objectID": "blog-posts/2024-03-05-infographic-bees-wine/index.html#background",
+    "href": "blog-posts/2024-03-05-infographic-bees-wine/index.html#background",
+    "title": "Relationship between bee behavior and vineyard types in Germany",
+    "section": "",
+    "text": "article to check out: https://www.wineenthusiast.com/culture/wine/bees-role-vineyard-sustainability/"
   }
 ]
