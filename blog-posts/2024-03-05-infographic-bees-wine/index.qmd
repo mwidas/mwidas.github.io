@@ -24,17 +24,20 @@ bibliography: references.bib
 
 ## Background
 
-article to check out: https://www.wineenthusiast.com/culture/wine/bees-role-vineyard-sustainability/
+When tasked with creating a guiding question to build an infographic on to test and trial newly learned data visualization skills, I initially came up blank. Out of all the topics I find interesting how was I going to narrow this down? Then one day I was reading an article by the Wine Enthusiast about my favorite topic, bees. Kathleen Willcox highlighted the important role bees play in the viticulture world and I was immediately struck with the need to know more about this topic (@willcox). And the best way I know how to approach questions is with data. I then was able to find work done in Germany that investigated bee nesting behavior across vineyard types. Germany with its rich and colorful viticulture history, seemed like the ideal place to help learn whether vineyard type, in this case fallow, terraced, or vertically oriented, impacts the bee species present at a vineyard, and if that causes different species to populate these vineyards. The general result is that different vineyard types can have an impact as to which species are present and can in turn impact the amount of ground nesting and above ground nesting bees present.
 
-data citation - \@wersebeckmann2022
-
-## The Product 
+## The Product
 
 ![](Feeling-buzzed.png){fig-alt="Infographic with a map of Germany with the Rheinfold-Pfalz region highlighted, a boxplot showing that between fallow, terraced, and vertically oriented vineyards above ground and below nesting bee distributions, and the top 10 species of bees for vertically oriented vineyards are all below ground nesting species, and an image depicting what a below ground hive structure" fig-align="center"}
 
 ## How did we get here?
 
-### Top-Panel
+In order to begin to create the infographic pictured above the first step was finding a data source. It turns out that researchers in Germany in 2023 were also curious about vineyard types and its impact on the presence of above-ground and below-ground wild bee species (@wersebeckmann2022). The researchers were able to sample from April to August 2019 in a total of three sampling rounds in three vineyard types: vertically oriented, terraced, and fallow (abandoned) . At each sampling round, traps were exposed for three consecutive days per plot (18th--20th April, 28th--30th June, 23rd--26th August). Wild bees were identified to a species level. For analysis, all samples per site were pooled over the three sampling rounds. Each species was then assigned a designation of above-ground or below-ground nesting type.
+
+Additionally, OpenStreetMap data was accessed in order to better grasp the location associated with this dataset (@openstreetmap). All vineyard sites were present in the Rheinland-Pfalz region in Germany which is known as a wine-producing region in Germany. So, in order to orient myself and the future viewers of an eventual infographic the first step to tackling my questions is to create a map that highlights where the Rheinland-Pfalz region is in Germany.
+
+### Where is this study relavent to?
+
 ```{r, message = FALSE, warning=FALSE, results='hide'}
 #..........................load packages.........................
 library(tidyverse)
@@ -127,6 +130,10 @@ vo <- bees_species_names |>
 germany_map <- ggplot() +
   geom_sf(data = germany_outline, color = "#fec44f", fill = "#fec44f") +
   geom_sf(data = rhine, color = "#662506", fill = "#662506") +
+  labs(
+    title = 'Feeling Buzzed',
+    subtitle = "Exploring how bee behavior and presence is affected by vineyard type \n in a wine-producing region in Germany"
+  ) +
   # Customize general theme
   theme(
 
@@ -137,15 +144,24 @@ germany_map <- ggplot() +
     panel.background = element_rect(fill = "white", color = "white"),
     panel.grid = element_blank(),
     panel.grid.major.x = element_blank(),
+    
     # Remove axis ticks and text
     axis.title = element_blank(),
     axis.ticks = element_blank(),
     axis.text.y = element_blank(),
     axis.text.x = element_blank(),
+    
+    # customize the text in the title and subtitle
+    plot.title = element_text(family = "lobster", face = "bold",
+                              size = 50, hjust = 0.5, color = "gray12"),
+    plot.subtitle = element_text(family = "raleway", face = "bold",
+                                 size = 14, hjust = 0.5, color = "gray12"),
+    
     # Move the legend to the bottom
     legend.position = "left",
     legend.background = element_blank()
   )  +
+    
   # add arrow and text to indicate region of Germany
   annotate("curve",
            x = 8.2, xend = 7.5,
@@ -158,28 +174,14 @@ germany_map <- ggplot() +
     fontface = 'bold',
     size = 4.5,
     family = "raleway"
-  )
-
-#..........................create top panel of infographic.........................
-# initialize top panel and set layout specs
-top_panel <- (germany_map + plot_spacer() +
-                plot_layout(widths = c(1.5, 3), guides = "collect")) +
-  
-  # set title and theme elements
-  plot_annotation(
-    title = 'Feeling Buzzed',
-    theme = theme(
-      plot.title = element_text(family = "lobster", face = "bold", size = 50, hjust = 0.5, color = "gray12"))) +
-  
-  # set subtitle and theme elements
-  plot_annotation(
-    subtitle = "Exploring how bee behavior and presence is affected by vineyard type \n in a wine-producing region in Germany",
-    theme = theme(plot.subtitle = element_text(family = "raleway", face = "bold", size = 14, hjust = 0.5, color = "gray12")))
-
-top_panel
+  ) 
 ```
 
-### Middle Panel
+![](images/Screenshot%202024-03-09%20at%2014.58.37.png){fig-alt="Map of Rheinland-Pfalz region in Germany in dark brown, with a map of Germany in yellow surrounding it." fig-align="center"}
+
+My goal for creating a map of the Rheinland-Pfalz region of Germany was to create an obvious way to show the size and location of this region in relation to the rest of Germany. I removed all axis labels and coordinate descriptions since my goal was to singularly orient within Germany. Additionally, I wanted to ensure that the color scheme of this map was able to be tied back to the main theme of this infographic, bees. Therefore the color scheme is done to remind the viewer of honey and soil with a custom hex color combination of a golden yellow and dark brown. Additionally, the colors were chosen specifically to be color-blind friendly and accessible. Furthermore, I wanted the text on this plot and the following plots to be warm, and inviting, instead of the base text I used google fonts Losbter and Raleway because of their less formal structure, and playful combination, while still prioritizing readability. As this map is set to be at the top of my visualization a title and subtitle were included to help orient the viewer as to the main topic of the infographic. Additionally, I did not want the viewer to need to use a legend or secondary indicator for determining the name of the region I have highlighted. Therefore, an arrow and a text annotation with the region name were included directly on the map.
+
+### Does vineyard type affect the average amount of above-ground and below-ground bees present?
 
 ```{r, warning=FALSE}
 #..........................create boxplot of counts per vineyard type.........................
@@ -239,7 +241,9 @@ box_plot <- ggplot(bees_clean,
 box_plot
 ```
 
-### Bottom Panel
+In order to address this question I wanted to investigate the different vineyard types through boxplots in order to highlight the different distribution of data present. I started by creating an average count of bee species present differentiated by a nesting trait of above-ground or below-ground. This allows a visual comparison of the three vineyard types. I wanted to prioritize a clean background so the background of the plot and the x-axis lines were removed in order to simplify the viewing experience. I created a dashed gray line for the main y-axis lines in order to ensure viewers could make sense of the average species counts, without being a distraction from the overall plot. The main axis titles as well as all components of the legend were bolded in the custom fonts decided earlier in order to emphasize readability. Furthermore, as the vertically oriented vineyard type showed the most distinct difference in nesting traits I chose to emphasize this vineyard type by bolding the title and plot colors for this vineyard type. Due to the middle placement within the infographic I have purposefully chosen to remove all titles, and subtitles from this visualization, in order to keep the infographic less cluttered.
+
+### What are the top 10 species present at a vertically oriented vineyard type?
 
 ```{r}
 #..........................create circular chart of species counts.........................
@@ -327,3 +331,8 @@ vo_chart <- ggplot(data = vo,
 vo_chart
 ```
 
+In order to zoom into one of the vineyard types I wanted to allow viewers of the infographic to see which species were the most recorded during the study for the vertically oriented vineyard type. In order to tackle this question I chose to use a circular bar chart to allow viewers to distinguish which species were the most recorded and be able to distinguish which nesting trait that bee species has. In order to best show this I used common shorthand nomenclature for species name that has the first letter of the Genus and then the name of the species with the full name italicized to follow species naming standards. Additionally, a label was added next to the figure in the infographic which indicated that all species were below-ground nesting bees which created the opportunity to remove the legend for simplicity sake. Furthermore, due to the positioning within the infographic a title was unnecessary as there are arrows to indicate that the vertically oriented vineyard type is being visualized.
+
+### Overall Elements
+
+In order to improve the overall understandability of my infographic I added some overall elements. Some of these elements included bee graphics, a drawing that depicts what below-ground bee hives and nesting habitats look like as well as an image of a vertically oriented vineyard @taylorsport. Additionally, a data description was included as well.

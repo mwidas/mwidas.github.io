@@ -57,7 +57,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -221,9 +240,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#the-product" id="toc-the-product" class="nav-link" data-scroll-target="#the-product">The Product</a></li>
   <li><a href="#how-did-we-get-here" id="toc-how-did-we-get-here" class="nav-link" data-scroll-target="#how-did-we-get-here">How did we get here?</a>
   <ul class="collapse">
-  <li><a href="#top-panel" id="toc-top-panel" class="nav-link" data-scroll-target="#top-panel">Top-Panel</a></li>
-  <li><a href="#middle-panel" id="toc-middle-panel" class="nav-link" data-scroll-target="#middle-panel">Middle Panel</a></li>
-  <li><a href="#bottom-panel" id="toc-bottom-panel" class="nav-link" data-scroll-target="#bottom-panel">Bottom Panel</a></li>
+  <li><a href="#where-is-this-study-relavent-to" id="toc-where-is-this-study-relavent-to" class="nav-link" data-scroll-target="#where-is-this-study-relavent-to">Where is this study relavent to?</a></li>
+  <li><a href="#does-vineyard-type-affect-the-average-amount-of-above-ground-and-below-ground-bees-present" id="toc-does-vineyard-type-affect-the-average-amount-of-above-ground-and-below-ground-bees-present" class="nav-link" data-scroll-target="#does-vineyard-type-affect-the-average-amount-of-above-ground-and-below-ground-bees-present">Does vineyard type affect the average amount of above-ground and below-ground bees present?</a></li>
+  <li><a href="#what-are-the-top-10-species-present-at-a-vertically-oriented-vineyard-type" id="toc-what-are-the-top-10-species-present-at-a-vertically-oriented-vineyard-type" class="nav-link" data-scroll-target="#what-are-the-top-10-species-present-at-a-vertically-oriented-vineyard-type">What are the top 10 species present at a vertically oriented vineyard type?</a></li>
+  <li><a href="#overall-elements" id="toc-overall-elements" class="nav-link" data-scroll-target="#overall-elements">Overall Elements</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -236,8 +256,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="background" class="level2">
 <h2 class="anchored" data-anchor-id="background">Background</h2>
-<p>article to check out: https://www.wineenthusiast.com/culture/wine/bees-role-vineyard-sustainability/</p>
-<p>data citation - @wersebeckmann2022</p>
+<p>When tasked with creating a guiding question to build an infographic on to test and trial newly learned data visualization skills, I initially came up blank. Out of all the topics I find interesting how was I going to narrow this down? Then one day I was reading an article by the Wine Enthusiast about my favorite topic, bees. Kathleen Willcox highlighted the important role bees play in the viticulture world and I was immediately struck with the need to know more about this topic . And the best way I know how to approach questions is with data. I then was able to find work done in Germany that investigated bee nesting behavior across vineyard types. Germany with its rich and colorful viticulture history, seemed like the ideal place to help learn whether vineyard type, in this case fallow, terraced, or vertically oriented, impacts the bee species present at a vineyard, and if that causes different species to populate these vineyards. The general result is that different vineyard types can have an impact as to which species are present and can in turn impact the amount of ground nesting and above ground nesting bees present.</p>
 </section>
 <section id="the-product" class="level2">
 <h2 class="anchored" data-anchor-id="the-product">The Product</h2>
@@ -249,8 +268,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="how-did-we-get-here" class="level2">
 <h2 class="anchored" data-anchor-id="how-did-we-get-here">How did we get here?</h2>
-<section id="top-panel" class="level3">
-<h3 class="anchored" data-anchor-id="top-panel">Top-Panel</h3>
+<p>In order to begin to create the infographic pictured above the first step was finding a data source. It turns out that researchers in Germany in 2023 were also curious about vineyard types and its impact on the presence of above-ground and below-ground wild bee species <span class="citation" data-cites="wersebeckmann2022">Wersebeckmann et al. (<a href="#ref-wersebeckmann2022" role="doc-biblioref">2022</a>)</span>. The researchers were able to sample from April to August 2019 in a total of three sampling rounds in three vineyard types: vertically oriented, terraced, and fallow (abandoned) . At each sampling round, traps were exposed for three consecutive days per plot (18th–20th April, 28th–30th June, 23rd–26th August). Wild bees were identified to a species level. For analysis, all samples per site were pooled over the three sampling rounds. Each species was then assigned a designation of above-ground or below-ground nesting type.</p>
+<p>Additionally, OpenStreetMap data was accessed in order to better grasp the location associated with this dataset <span class="citation" data-cites="openstreetmap">Open Street Map (<a href="#ref-openstreetmap" role="doc-biblioref">2024</a>)</span>. All vineyard sites were present in the Rheinland-Pfalz region in Germany which is known as a wine-producing region in Germany. So, in order to orient myself and the future viewers of an eventual infographic the first step to tackling my questions is to create a map that highlights where the Rheinland-Pfalz region is in Germany.</p>
+<section id="where-is-this-study-relavent-to" class="level3">
+<h3 class="anchored" data-anchor-id="where-is-this-study-relavent-to">Where is this study relavent to?</h3>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -345,64 +366,62 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>germany_map <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> germany_outline, <span class="at">color =</span> <span class="st">"#fec44f"</span>, <span class="at">fill =</span> <span class="st">"#fec44f"</span>) <span class="sc">+</span></span>
 <span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> rhine, <span class="at">color =</span> <span class="st">"#662506"</span>, <span class="at">fill =</span> <span class="st">"#662506"</span>) <span class="sc">+</span></span>
-<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Customize general theme</span></span>
-<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Set default color and font family for the text</span></span>
-<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"raleway"</span>, <span class="at">color =</span> <span class="st">"gray12"</span>),</span>
-<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Make the background white and remove extra grid lines</span></span>
-<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"white"</span>, <span class="at">color =</span> <span class="st">"white"</span>),</span>
-<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Remove axis ticks and text</span></span>
-<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Move the legend to the bottom</span></span>
-<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"left"</span>,</span>
-<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.background =</span> <span class="fu">element_blank</span>()</span>
-<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>  )  <span class="sc">+</span></span>
-<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>  <span class="co"># add arrow and text to indicate region of Germany</span></span>
-<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"curve"</span>,</span>
-<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> <span class="fl">8.2</span>, <span class="at">xend =</span> <span class="fl">7.5</span>,</span>
-<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="fl">51.3</span>, <span class="at">yend =</span> <span class="fl">50.8</span>,</span>
-<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>           <span class="at">colour =</span> <span class="st">"black"</span>, <span class="at">linewidth=</span><span class="dv">1</span>, <span class="at">alpha=</span><span class="dv">1</span>,</span>
-<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a>           <span class="at">arrow=</span><span class="fu">arrow</span>()) <span class="sc">+</span></span>
-<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">'text'</span>,</span>
-<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="fl">10.2</span>, <span class="at">y =</span> <span class="fl">51.5</span>,</span>
-<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>    <span class="at">label =</span> <span class="st">'Rheinland-Pfalz region </span><span class="sc">\n</span><span class="st">in Germany'</span>,</span>
-<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>    <span class="at">fontface =</span> <span class="st">'bold'</span>,</span>
-<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="fl">4.5</span>,</span>
-<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a>    <span class="at">family =</span> <span class="st">"raleway"</span></span>
-<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a><span class="co">#..........................create top panel of infographic.........................</span></span>
-<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a><span class="co"># initialize top panel and set layout specs</span></span>
-<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a>top_panel <span class="ot">&lt;-</span> (germany_map <span class="sc">+</span> <span class="fu">plot_spacer</span>() <span class="sc">+</span></span>
-<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a>                <span class="fu">plot_layout</span>(<span class="at">widths =</span> <span class="fu">c</span>(<span class="fl">1.5</span>, <span class="dv">3</span>), <span class="at">guides =</span> <span class="st">"collect"</span>)) <span class="sc">+</span></span>
-<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a>  <span class="co"># set title and theme elements</span></span>
-<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_annotation</span>(</span>
-<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">'Feeling Buzzed'</span>,</span>
-<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a>    <span class="at">theme =</span> <span class="fu">theme</span>(</span>
-<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"lobster"</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">50</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"gray12"</span>))) <span class="sc">+</span></span>
-<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a>  <span class="co"># set subtitle and theme elements</span></span>
-<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_annotation</span>(</span>
-<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Exploring how bee behavior and presence is affected by vineyard type </span><span class="sc">\n</span><span class="st"> in a wine-producing region in Germany"</span>,</span>
-<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a>    <span class="at">theme =</span> <span class="fu">theme</span>(<span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"raleway"</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">14</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"gray12"</span>)))</span>
-<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a>top_panel</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">'Feeling Buzzed'</span>,</span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Exploring how bee behavior and presence is affected by vineyard type </span><span class="sc">\n</span><span class="st"> in a wine-producing region in Germany"</span></span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Customize general theme</span></span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Set default color and font family for the text</span></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"raleway"</span>, <span class="at">color =</span> <span class="st">"gray12"</span>),</span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Make the background white and remove extra grid lines</span></span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"white"</span>, <span class="at">color =</span> <span class="st">"white"</span>),</span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Remove axis ticks and text</span></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>    <span class="co"># customize the text in the title and subtitle</span></span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"lobster"</span>, <span class="at">face =</span> <span class="st">"bold"</span>,</span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>                              <span class="at">size =</span> <span class="dv">50</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"gray12"</span>),</span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"raleway"</span>, <span class="at">face =</span> <span class="st">"bold"</span>,</span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">size =</span> <span class="dv">14</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"gray12"</span>),</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Move the legend to the bottom</span></span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"left"</span>,</span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.background =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a>  )  <span class="sc">+</span></span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a>  <span class="co"># add arrow and text to indicate region of Germany</span></span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"curve"</span>,</span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> <span class="fl">8.2</span>, <span class="at">xend =</span> <span class="fl">7.5</span>,</span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="fl">51.3</span>, <span class="at">yend =</span> <span class="fl">50.8</span>,</span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a>           <span class="at">colour =</span> <span class="st">"black"</span>, <span class="at">linewidth=</span><span class="dv">1</span>, <span class="at">alpha=</span><span class="dv">1</span>,</span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a>           <span class="at">arrow=</span><span class="fu">arrow</span>()) <span class="sc">+</span></span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">'text'</span>,</span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="fl">10.2</span>, <span class="at">y =</span> <span class="fl">51.5</span>,</span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a>    <span class="at">label =</span> <span class="st">'Rheinland-Pfalz region </span><span class="sc">\n</span><span class="st">in Germany'</span>,</span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a>    <span class="at">fontface =</span> <span class="st">'bold'</span>,</span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="fl">4.5</span>,</span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a>    <span class="at">family =</span> <span class="st">"raleway"</span></span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a>  ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
 </div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Screenshot 2024-03-09 at 14.58.37.png" class="img-fluid figure-img" alt="Map of Rheinland-Pfalz region in Germany in dark brown, with a map of Germany in yellow surrounding it."></p>
+</figure>
 </div>
+<p>My goal for creating a map of the Rheinland-Pfalz region of Germany was to create an obvious way to show the size and location of this region in relation to the rest of Germany. I removed all axis labels and coordinate descriptions since my goal was to singularly orient within Germany. Additionally, I wanted to ensure that the color scheme of this map was able to be tied back to the main theme of this infographic, bees. Therefore the color scheme is done to remind the viewer of honey and soil with a custom hex color combination of a golden yellow and dark brown. Additionally, the colors were chosen specifically to be color-blind friendly and accessible. Furthermore, I wanted the text on this plot and the following plots to be warm, and inviting, instead of the base text I used google fonts Losbter and Raleway because of their less formal structure, and playful combination, while still prioritizing readability. As this map is set to be at the top of my visualization a title and subtitle were included to help orient the viewer as to the main topic of the infographic. Additionally, I did not want the viewer to need to use a legend or secondary indicator for determining the name of the region I have highlighted. Therefore an arrow and a text annotation with the region name were included directly on the map.</p>
 </section>
-<section id="middle-panel" class="level3">
-<h3 class="anchored" data-anchor-id="middle-panel">Middle Panel</h3>
+<section id="does-vineyard-type-affect-the-average-amount-of-above-ground-and-below-ground-bees-present" class="level3">
+<h3 class="anchored" data-anchor-id="does-vineyard-type-affect-the-average-amount-of-above-ground-and-below-ground-bees-present">Does vineyard type affect the average amount of above-ground and below-ground bees present?</h3>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -466,9 +485,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<p>In order to address this question I wanted to investigate the different vineyard types through boxplots in order to highlight the different distribution of data present. I started by creating an average count of bee species present differentiated by a nesting trait of above-ground or below-ground. This allows a visual comparison of the three vineyard types. I wanted to prioritize a clean background so the background of the plot and the x-axis lines were removed in order to simplify the viewing experience. I created a dashed gray line for the main y-axis lines in order to ensure viewers could make sense of the average species counts, without being a distraction from the overall plot. The main axis titles as well as all components of the legend were bolded in the custom fonts decided earlier in order to emphasize readability. Furthermore, as the vertically oriented vineyard type showed the most distinct difference in nesting traits I chose to emphasize this vineyard type by bolding the title and plot colors for this vineyard type. Due to the middle placement within the infographic I have purposefully chosen to remove all titles, and subtitles from this visualization, in order to keep the infographic less cluttered.</p>
 </section>
-<section id="bottom-panel" class="level3">
-<h3 class="anchored" data-anchor-id="bottom-panel">Bottom Panel</h3>
+<section id="what-are-the-top-10-species-present-at-a-vertically-oriented-vineyard-type" class="level3">
+<h3 class="anchored" data-anchor-id="what-are-the-top-10-species-present-at-a-vertically-oriented-vineyard-type">What are the top 10 species present at a vertically oriented vineyard type?</h3>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -560,12 +580,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<p>In order to zoom into one of the vineyard types I wanted to allow viewers of the infographic to see which species were the most recorded during the study for the vertically oriented vineyard type. In order to tackle this question I chose to use a circular bar chart to allow viewers to distinguish which species were the most recorded and be able to distinguish which nesting trait that bee species has. In order to best show this I used common shorthand nomenclature for species name that has the first letter of the Genus and then the name of the species with the full name italicized to follow species naming standards. Additionally, a label was added next to the figure in the infographic which indicated that all species were below-ground nesting bees which created the opportunity to remove the legend for simplicity sake. Furthermore, due to the positioning within the infographic a title was unnecessary as there are arrows to indicate that the vertically oriented vineyard type is being visualized.</p>
+</section>
+<section id="overall-elements" class="level3">
+<h3 class="anchored" data-anchor-id="overall-elements">Overall Elements</h3>
+<p>In order to improve the overall understandability of my infographic I added some overall elements. Some of these elements included bee graphics, a drawing that depicts what below-ground bee hives and nesting habitats look like as well as an image of a vertically oriented vineyard. Additionally, a data description was included as well.</p>
+
 
 
 </section>
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{widas2024,
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-openstreetmap" class="csl-entry" role="listitem">
+Open Street Map. 2024. <span>“Germany.”</span>
+</div>
+<div id="ref-wersebeckmann2022" class="csl-entry" role="listitem">
+Wersebeckmann, Vera, Daniela Warzecha, Martin H. Entling, and Leyer Ilona. 2022. <span>“Contrasting Effects of Vineyard Type, Soil and Landscape Factors on Ground- Versus Above-Ground Nesting Bees.”</span> Dryad. <a href="https://doi.org/10.5061/DRYAD.H44J0ZPQ0">https://doi.org/10.5061/DRYAD.H44J0ZPQ0</a>.
+</div>
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{widas2024,
   author = {Widas, Melissa},
   title = {Relationship Between Bee Behavior and Vineyard Types in
     {Germany}},
