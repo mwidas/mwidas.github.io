@@ -330,7 +330,7 @@ vo_chart <- ggplot(data = vo,
   ) 
 ```
 
-![](images/Screenshot 2024-03-09 at 11.24.41-01.png){fig-alt="Circular bar chart showing top 10 species and their average counts recorded at vertically oriented vineyard sites. All top 10 species were below ground nesting bee species." fig-align="center"}
+![](images/Screenshot 2024-03-09 at 11.24.41.png){fig-alt="Circular bar chart showing top 10 species and their average counts recorded at vertically oriented vineyard sites. All top 10 species were below ground nesting bee species." fig-align="center"}
 
 In order to zoom into one of the vineyard types I wanted to allow viewers of the infographic to see which species were the most recorded during the study for the vertically oriented vineyard type. In order to tackle this question I chose to use a circular bar chart to allow viewers to distinguish which species were the most recorded and be able to distinguish which nesting trait that bee species has. In order to best show this I used common shorthand nomenclature for species name that has the first letter of the Genus and then the name of the species with the full name italicized to follow species naming standards. Additionally, a label was added next to the figure in the infographic which indicated that all species were below-ground nesting bees which created the opportunity to remove the legend for simplicity sake. Furthermore, due to the positioning within the infographic a title was unnecessary as there are arrows to indicate that the vertically oriented vineyard type is being visualized.
 
