@@ -40,7 +40,7 @@ website:
     left: 
      - Copyright 2023, Melissa Widas
     right:
-     - This website is built with Qarto
+     - This website is built with Quarto
 format:
   html:
     theme:
