@@ -16,6 +16,6 @@ knitr::include_graphics("images/IMG_0125.jpeg")
 ```
 
 ::: {.extra-small-text .dark-gray-text .topbr}
-I had the extraordinary opportunity to visit the Anaconda smelter in Anaconda, MT that was a vital part of the copper boom in Montana, but also contributed to a legacy of mining waste and remediation efforts in Anaconda.
+I had the extraordinary opportunity to visit the Anaconda smelter in Anaconda, MT that was a vital part of the copper boom in Montana, but also contributed to a legacy of mining waste and remediation efforts in Anaconda, MT.
 :::
 :::
