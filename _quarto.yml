@@ -3,10 +3,10 @@ project:
   output-dir: docs
 
 website:
-  favicon: images/favicon_red_transparent.png
+  favicon: images/orchid_logo.png
   navbar:
     title: false
-    logo: images/favicon_red_transparent.png
+    logo: images/orchid_logo.png
     logo-alt: "Logo for Melissa Widas with water droplet and three hexagons within it"
     left:
       - href: index.qmd
