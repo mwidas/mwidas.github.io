@@ -4,9 +4,9 @@ subtitle: "More information about my life; at work, and outside of work"
 title-block-banner: true
 ---
 
-## {{< fa laptop-code title="Laptop Code" >}} Professional Interests
+## {{< fa laptop-code title="Laptop Code" >}} Profession
 
-Melissa Widas earned a Bachelor's of science degree from Montana State University in Environmental Sciences with a focus in land rehabilitation in 2022. During her time at Montana State, Melissa found a passion for data science through a research internship with the GeoSWIRL Lab. This opportunity resulted in the creation and management of a drought visualization tool for watersheds across the state of Montana. The development of this tool relied on the use of geographic information sciences and performed statistical analyses to highlight watershed change and risk of drought within watersheds. After experiencing a taste of data science, Melissa wanted to expand her knowledge to explore its effect on environmental practices. She is now pursuing a Master's of Environmental Data Science at the Bren School at the University of California at Santa Barbara. Melissa is looking forward to using the power of data science and data visualization to help answer environmental questions regarding habitat restoration, remediation, and the efficacy of these practices to ameliorate the lands around her.
+I earned a Bachelor's of science degree from Montana State University (MSU) in Environmental Sciences with a focus in land rehabilitation in 2022. During my time at Montana State, I found a passion for data science through a research internship with the GeoSWIRL Lab. This opportunity resulted in the creation and management of a [drought visualization tool](https://uppermissouriheadwaters.org/river-conditions/) for watersheds across the state of Montana. The development of this tool relied on the use of geographic information sciences and performed statistical analyses to highlight watershed change and risk of drought within watersheds. After experiencing a taste of data science, I wanted to expand my knowledge to explore its effect on environmental practices.
 
 ::: column-margin
 ```{r}
@@ -16,6 +16,22 @@ knitr::include_graphics("images/IMG_0125.jpeg")
 ```
 
 ::: {.extra-small-text .dark-gray-text .topbr}
-I had the extraordinary opportunity to visit the Anaconda smelter in Anaconda, MT that was a vital part of the copper boom in Montana, but also contributed to a legacy of mining waste and remediation efforts in Anaconda, MT.
+I had the extraordinary opportunity to visit the Anaconda smelter in Anaconda, MT that was a vital part of the copper boom in Montana, but also contributed to a legacy of mining waste and remediation efforts in Anaconda, MT while at MSU.
 :::
+:::
+
+In order to gain these new skills I pursued an interdisciplinary Master of Environmental Data Science degree from the Bren School of Environmental Science and Management at the University of California at Santa Barbara (UCSB). During my time at UCSB I was able to deepen my knowledge surrounding geospatial and statistical analysis while picking up new skills in machine learning, reproducible data management, and data visualization. These skills were able to be combined and showcased in my [master's capstone project](https://bren.ucsb.edu/projects/identifying-priority-survey-sites-early-season-milkweed-conservation) which worked with the Santa Barbara Botanic Garden to identify high priority survey sites for a threatened species of interest.
+
+Ultimately, I am looking forward to using the power of data science and data visualization to help answer environmental questions regarding habitat restoration, remediation, and the efficacy of these practices to ameliorate the lands around me.
+
+## {{< fa handshake-angle title="Handshake Angle" >}} Volunteering
+
+Outside of coding and solving environmental challenges one of my big passions is volunteering. While at Montana State University I was able to meet and build an incredible relationship with the dyslexic community at MSU. I am a proud dyslexic and was diagnosed when I was seven years old. I have been able to use my dyslexia in my professional and personal life to think outside of the box and develop new approaches to problems. In finding a community at MSU I became involved with the Dyslexia & Innovation Symposium an event based in Bozeman, Montana that celebrates and champions the dyslexic mind. I have been a Council of Twelve Member for the last three years, which is the guiding council for the symposium and its events. I am looking forward to our next event which will be in October, 2024.
+
+::: column-margin
+```{r}
+#| echo: false
+#| fig-alt: "The promotional material for the 2022 Dyslexia & Innovation Symposium."
+knitr::include_graphics("images/dyslexia_magazine.jpeg")
+```
 :::

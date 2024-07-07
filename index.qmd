@@ -1,6 +1,6 @@
 ---
 title: "Melissa Widas"
-image: images/1668528250587.jpeg
+image: images/headshot.png
 toc: false
 about:
   template: trestles
@@ -19,20 +19,16 @@ about:
       icon: envelope
 ---
 
-<center>
-Hello! My name is Melissa Widas (my last name is pronounced We-dis). I am an environmental data scientist who loves creating engaging and accessible data visualizations and learning more about the world around me. When I am not coding away at my desk, I am experimenting with new recipes (with a relatively good success rate), and traveling to new places. Please explore around my website to learn more about me and what I am working on.
-</center>
-
+<center>Hello! My name is Melissa Widas (my last name is pronounced We-dis). I am an environmental data scientist who loves creating engaging and accessible data visualizations and learning more about the world around me. When I am not coding away at my desk, I am experimenting with new recipes (with a relatively good success rate), and traveling to new places. Please explore around my website to learn more about me and what I am working on.</center>
 
 #### Education
 
-{{< fa water title="water" >}} Bren School of Environmental Science & Management <br> University of California, Santa Barbara \| Santa Barbara, CA <br> Master of Environmental Data Science \| July 2023-June 2024
+{{< fa water title="water" >}} \| **Master of Environmental Data Science** (2024) <br> Bren School of Environmental Science & Management <br> Santa Barbara, CA
 
-{{< fa mountain title="mountain" >}} Montana State University \| Bozeman, MT <br> B.S. in Environmental Sciences \| August 2018-May 2022
+{{< fa mountain title="mountain" >}} \| **B.S. in Environmental Sciences** (2022) <br> Montana State University <br> Bozeman, MT
 
 #### Experience
 
-{{< fa briefcase title="briefcase" >}} Leadership Development Consultant \| June 2022-May 2023
+{{< fa briefcase title="briefcase" >}} \| Leadership Development Consultant \| June 2022 - May 2023
 
-{{< fa map-location-dot title="Map Location Dot" >}} Geospatial Technician \| August 2020-June 2022
-
+{{< fa map-location-dot title="Map Location Dot" >}} \| Geospatial Technician \| August 2020 - June 2022
